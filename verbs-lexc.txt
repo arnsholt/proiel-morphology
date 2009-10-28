@@ -1,3 +1,20 @@
 ! Verb lexicon
 LEXICON Root
+! Different categories for each conjugation. Ultimately they may share parts,
+! but I think this is a good starting point.
+    Conj1 ;
+    Conj2 ;
+    Conj3 ;
+    Conj4 ;
+
+LEXICON Conj1
 amo # ;
+
+LEXICON Conj2
+moneo # ;
+
+LEXICON Conj3
+rego # ;
+
+LEXICON Conj4
+audio # ;

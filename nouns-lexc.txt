@@ -1,3 +1,22 @@
 ! Noun lexicon
 LEXICON Root
+    Decl1 ;
+    Decl2 ;
+    Decl3 ;
+    Decl4 ;
+    Decl5 ;
+
+LEXICON Decl1
 rosa # ;
+
+LEXICON Decl2
+dominus # ;
+
+LEXICON Decl3
+rex # ;
+
+LEXICON Decl4
+fructus # ;
+
+LEXICON Decl5
+res # ;
