@@ -1,3 +1,10 @@
+Multichar_Symbols
+    +Verb
+    +1S +2S +3S +1P +2P +3P ! Persons
+    +Pres +Fut +Impf ! Tempora
+    +Ind +Impv +Subj ! Modi
+    +Act +Pass ! Voices
+
 ! Verb lexicon
 LEXICON Root
 ! Different categories for each conjugation. Ultimately they may share parts,
@@ -8,13 +15,81 @@ LEXICON Root
     Conj4 ;
 
 LEXICON Conj1
-amo # ;
+amo+Verb:am C1 ;
+
+LEXICON C1
+    C1Pres ;
+    C1PresSubj ;
+
+LEXICON C1Pres
++Pres+Ind:0 PresEndingsPres1S ;
++Pres+Ind:a PresEndingsCommon ;
+
+LEXICON C1PresSubj
++Pres+Subj:e PresEndingsNonPres ;
 
 LEXICON Conj2
-moneo # ;
+moneo+Verb:mone C2 ;
+
+LEXICON C2
+    C24Pres ;
+    C24PresSubj ;
 
 LEXICON Conj3
-rego # ;
+rego+Verb:reg C3 ;
+
+LEXICON C3
+    C24Pres ;
+    C24PresSubj ;
+
+!LEXICON Conj4
+!audio+Verb+Pres+Ind:audi PresEndingsPres ;
 
 LEXICON Conj4
-audio # ;
+audio+Verb:audi C4 ;
+
+LEXICON C4
+    C24Pres ;
+    C24PresSubj ;
+
+! Regular present indicative, second to fourth conjugations.
+LEXICON C24Pres
++Pres+Ind:0 PresEndingsPres ;
+
+! Regular present subjunctive, second to fourth conjugations.
+LEXICON C24PresSubj
++Pres+Subj:a PresEndingsNonPres ;
+
+! Endings for the present system, present indicative tense.
+LEXICON PresEndingsPres
+    PresEndingsPres1S ;
+    PresEndingsCommon ;
+
+! Endings for the present system, non-present indicative tenses.
+LEXICON PresEndingsNonPres
+    PresEndingsNonPres1S ;
+    PresEndingsCommon ;
+
+! Endings for the first person singular present indicative.
+LEXICON PresEndingsPres1S
++1S+Act:o # ;
++1S+Pass:or # ;
+
+! Endings for the first person singular of non-present indicative tenses.
+LEXICON PresEndingsNonPres1S
++1S+Act:m # ;
++1S+Pass:r # ;
+
+! Present system endings, common to all forms.
+LEXICON PresEndingsCommon
++2S+Act:s # ;
++3S+Act:t # ;
++1P+Act:mus # ;
++2P+Act:tis # ;
++3P+Act:nt # ;
+
++2S+Pass:ris # ;
++3S+Pass:tur # ;
++1P+Pass:mur # ;
++2P+Pass:mini # ;
++3P+Pass:ntur # ;

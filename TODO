@@ -8,3 +8,8 @@ Things TODO:
   the lexc sources from other bits and pieces, some hand-written, some
   auto-generated.
 - Read up and figure out how to represent non-concatenative features.
+- More complexity. The lexc could should output forms like ama-o (for amo) or
+  ama-b-ris (for amaberis), on top of that we add another set of rules
+  (written in xfst or twolc) that take care of the transformation from morph
+  lists to correct forms. This will probably require more thinking, but should
+  also give a conceptually cleaner result (I hope).
