@@ -1,0 +1,10 @@
+Things TODO:
+============
+- Add multicharacter symbol declarations.
+- Figure out some sane way to share Multicharacter_symbols defs between
+  lexicon files.
+- Write a filter to create lexc code from lewis.xml from Perseus.
+- For all of the above, essentially: figure out a reasonably sane way to build
+  the lexc sources from other bits and pieces, some hand-written, some
+  auto-generated.
+- Read up and figure out how to represent non-concatenative features.

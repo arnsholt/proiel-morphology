@@ -1,3 +1,5 @@
+Multichar_Symbols +Noun +Adj +Nom +Voc +Acc +Gen +Dat +Abl +Sg +Pl
+
 ! Noun lexicon
 LEXICON Root
     Decl1 ;
@@ -5,18 +7,125 @@ LEXICON Root
     Decl3 ;
     Decl4 ;
     Decl5 ;
+    Adj ;
 
 LEXICON Decl1
-rosa # ;
+rosa+Noun:ros D1 ;
+
+LEXICON D1
+    D1Endings ;
+
+LEXICON D1Endings
++Nom+Sg:a # ;
++Voc+Sg:a # ;
++Acc+Sg:m # ;
++Gen+Sg:ae # ;
++Dat+Sg:ae # ;
++Abl+Sg:a # ;
+
++Nom+Pl:ae # ;
++Voc+Pl:ae # ;
++Acc+Pl:as # ;
++Gen+Pl:arum # ;
++Dat+Pl:is # ;
++Abl+Pl:is # ;
 
 LEXICON Decl2
-dominus # ;
+dominus+Noun:domin D2M ;
+bellum+Noun:bell D2N ;
+
+LEXICON D2M
+    D2EndingsM ;
+    D2EndingsCommon ;
+
+LEXICON D2N
+    D2EndingsN ;
+    D2EndingsCommon ;
+
+LEXICON D2EndingsM
++Nom+Sg:us # ;
++Voc+Sg:e # ;
+
++Nom+Pl:i # ;
++Voc+Pl:i # ;
++Acc+Pl:os # ;
+
+LEXICON D2EndingsN
++Nom+Sg:um # ;
++Voc+Sg:um # ;
+
++Nom+Pl:a # ;
++Voc+Pl:a # ;
++Acc+Pl:a # ;
+
+LEXICON D2EndingsCommon
++Acc+Sg:um # ;
++Gen+Sg:i # ;
++Dat+Sg:o # ;
++Abl+Sg:o # ;
+
++Gen+Pl:orum # ;
++Dat+Pl:is # ;
++Abl+Pl:is # ;
 
 LEXICON Decl3
-rex # ;
+rex+Noun+Nom+Sg:rex # ;
+rex+Noun+Voc+Sg:rex # ;
+rex+Noun:reg D3Endings ;
+
+LEXICON D3Endings
++Acc+Sg:em # ;
++Gen+Sg:is # ;
++Dat+Sg:i # ;
++Abl+Sg:e # ;
+
++Nom+Pl:es # ;
++Voc+Pl:es # ;
++Acc+Pl:es # ;
++Gen+Pl:um # ;
++Dat+Pl:ibus # ;
++Abl+Pl:ibus # ;
 
 LEXICON Decl4
-fructus # ;
+fructus+Noun:fruct D4Endings ;
+
+LEXICON D4Endings
++Nom+Sg:us # ;
++Voc+Sg:us # ;
++Acc+Sg:um # ;
++Gen+Sg:us # ;
++Dat+Sg:ui # ;
++Abl+Sg:u # ;
+
++Nom+Pl:us # ;
++Voc+Pl:us # ;
++Acc+Pl:us # ;
++Gen+Pl:uum # ;
++Dat+Pl:ibus # ;
++Abl+Pl:ibus # ;
 
 LEXICON Decl5
-res # ;
+res+Noun:re D5Endings ;
+
+LEXICON D5Endings
++Nom+Sg:s # ;
++Voc+Sg:s # ;
++Acc+Sg:m # ;
++Gen+Sg:i # ;
++Dat+Sg:i # ;
++Abl+Sg:0 # ;
+
++Nom+Pl:s # ;
++Voc+Pl:s # ;
++Acc+Pl:s # ;
++Gen+Pl:rum # ;
++Dat+Pl:bus # ;
++Abl+Pl:bus # ;
+
+LEXICON Adj
+longus+Adj:long AdjStd ;
+
+LEXICON AdjStd
++Masc:0 D2M ;
++Neut:0 D2N ;
++Fem:0 D1 ;
