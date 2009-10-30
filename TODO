@@ -13,3 +13,5 @@ Things TODO:
   (written in xfst or twolc) that take care of the transformation from morph
   lists to correct forms. This will probably require more thinking, but should
   also give a conceptually cleaner result (I hope).
+
+  The final transducer should be: [ Lexicon .o. Phonology ]
