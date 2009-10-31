@@ -16,3 +16,8 @@ Things TODO:
   also give a conceptually cleaner result (I hope).
 
   The final transducer should be: [ Lexicon .o. Phonology ]
+- Add support for the 3B conjugation. The short -i at the end of them stem
+  here changes to -e before -r, so we'll probably have to encode it as I in
+  the lexicon to differentiate it from long i in audio-type verbs, where the
+  change to -e doesn't take place.
+- Write a simple (SIMPLE!) interface to the analysis engine via Python.

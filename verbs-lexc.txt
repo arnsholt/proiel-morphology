@@ -21,6 +21,8 @@ LEXICON C1
     C14Pres ;
     C1PresSubj ;
     C12Fut ;
+    C12Impf ;
+    C14ImpfSubj ;
 
 LEXICON C1PresSubj
 +Pres+Subj:-e PresEndingsNonPres ;
@@ -32,17 +34,19 @@ LEXICON C2
     C14Pres ;
     C24PresSubj ;
     C12Fut ;
+    C12Impf ;
+    C14ImpfSubj ;
 
 LEXICON Conj3
 rego+Verb:reg C3 ;
+capio+Verb:capI C3 ;
 
 LEXICON C3
     C14Pres ;
     C24PresSubj ;
     C34Fut ;
-
-!LEXICON Conj4
-!audio+Verb+Pres+Ind:audi PresEndingsPres ;
+    C34Impf ;
+    C14ImpfSubj ;
 
 LEXICON Conj4
 audio+Verb:audi C4 ;
@@ -51,6 +55,8 @@ LEXICON C4
     C14Pres ;
     C24PresSubj ;
     C34Fut ;
+    C34Impf ;
+    C14ImpfSubj ;
 
 ! Regular present indicative, first to fourth conjugations.
 LEXICON C14Pres
@@ -68,6 +74,17 @@ LEXICON C12Fut
 LEXICON C34Fut
 +Fut+Ind:-a PresEndingsNonPres1S ;
 +Fut+Ind:-e PresEndingsCommon ;
+
+LEXICON C12Impf
++Impf+Ind:-ba PresEndingsNonPres ;
+
+! XXX: It might be possible to do the imperfect indicative with just C12Impf
+!      and insert the -e in verbs-twolc.txt. But is it worth it?
+LEXICON C34Impf
++Impf+Ind:-eba PresEndingsNonPres ;
+
+LEXICON C14ImpfSubj
++Impf+Subj:-re PresEndingsNonPres ;
 
 ! Endings for the present system, present indicative tense.
 LEXICON PresEndingsPres
