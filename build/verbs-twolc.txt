@@ -1,0 +1,7 @@
+read-grammar verbs-twolc.txt
+compile
+intersect
+y
+phon
+save-binary verbs-twolc.fst
+quit

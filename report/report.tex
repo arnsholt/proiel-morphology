@@ -1,9 +1,11 @@
 \documentclass{article}
 
-%\usepackage[norsk]{babel}
-\usepackage{cite}
+\usepackage[norsk]{babel}
+%\usepackage{cite}
+\usepackage{chicago}
+\usepackage[T1]{fontenc}
 
-\title{Two-level morphology for Latin}
+\title{Toniv\aa{}morfologi for latin}
 \author{Arne Skj\ae{}rholt}
 
 \begin{document}
@@ -12,14 +14,24 @@
 % well) to the end of the document instead of the top?
 \tableofcontents
 
-\section{Introduction}
-\subsection{Purpose}
-Implementing two-level morphology is no simple task (see \cite{bondihoved}), so the purpose of this
-project is to implmement a subset of Latin morphology that is as interesting
-as possible. Hopefully this will include at least nominal, verbal and
-pronominal morphology.
+\section{Introduksjon}
+\subsection{Form\aa{}l}
+Det \aa{} implementere en komplett toniv\aa{}modell er ikke en triviell
+oppgave, det er blant annet skrevet hovedfagsoppgaver der m\aa{}let er nettopp
+det, se \cite{bondihoved} og \cite{french}, s\aa{} m\aa{}let for dette
+prosjektet vil v\ae{}re \aa{} implementere en delmengde av det latinske
+formverket som er s\aa{} interessant som mulig; der interessant er definert
+slik at s\aa{} mange implementasjonstekniske problemer som mulig blir
+eksponert. Uregelmessige former, selv om de kanskje i praktisk hensyn er
+veldig interessante, er for eksempel ikke s\ae{}rlig inspirerende i denne
+sammenhengen ettersom implementasjonen stort sett kan oppsummeres som ``for
+denne roten ser denne formen slik ut''.
 
-\subsection{The plan}
+Forh\aa{}pentligvis vil den endelige implementasjonen inkludere b\aa{}de
+verbal-- og nominalmorfologi der alle regelrette former av regelmessige
+r\o{}tter er inkludert.
+
+\subsection{Planen}
 The plan of attack is as follows: first read up on the tools to be used and
 the theory involved. Then, start with implementing a subset of verbal
 morphology; this will probably be the active present system of regular verbs
@@ -30,25 +42,45 @@ regular nominal morphology. After this we may either proceed to pronominal or
 adjectival morphology, or return to the verbal morpholgy and add more verb
 classes, passives and non-finite forms of the verb.
 
-Certain factors may alter this plan, however. The current corpus should be
-consulted to generate statistics of which parts of the morphology are more
-frequent and thus more likely to be useful to implement first. Also, the users
-of the system should be asked about which parts they would prefer to be
-implemented first.
+%Certain factors may alter this plan, however. The current corpus should be
+%consulted to generate statistics of which parts of the morphology are more
+%frequent and thus more likely to be useful to implement first. Also, the users
+%of the system should be asked about which parts they would prefer to be
+%implemented first.
 % TODO: Actually do this!
 
-\section{The Implementation}
-\subsection{Tools used}
+\section{Implementasjonen}
+\subsection{Verkt\o{}yene}
+Selve analysatoren er skrevet med Xerox-verkt\o{}ykassen for endelig
+tilstandsmorfologi, dokumentert i \citeNP{xfst}.
 
-\begin{itemize}
-    \item XFST \cite{xfst}
-    \item Lewis and Short from Perseus for lexicon data? % TODO: Find reference
-\end{itemize}
+%\begin{itemize}
+%    \item XFST \cite{xfst}
+%    \item Lewis and Short from Perseus for lexicon data? % TODO: Find reference
+%\end{itemize}
+
+\subsection{Declination}
+Declination of nominal forms is currently implemented with just a dictionary
+of roots and affixes that form the various forms. Linguistically, it may be
+more correct to take an approach similar to that used for conjugation (see
+section \ref{conjugation}), but for the sake of ease of implementation (and my
+sanity) a simplified approach is preferable. The most significant upshot of
+this is that any kind of alternation between the form of the nominative
+singular and root of the rest the paradigm in the third declination is
+considered lexical, even when it could be considered to be a regular
+formation, \`a la \emph{reg-s} > \emph{rex}. This also means that a root-final
+vowel usually ends up as being ending-initial instead, due to its loss in some
+forms; for example the root of \emph{rosa} is considered to be \emph{ros--},
+so that the ending of the dative/ablative plural can be simply \emph{--is}
+without any additional rules to handle the loss of the root-final \emph{--a}.
+
+\subsection{Conjugation}\label{conjugation}
+% TODO
 
 \section{Conclusion} % TODO: Better title!
 
 % TODO: Find references for grammars. Eitrem, Ernout & Thomas, the other one. The Swedish one.
-\bibliographystyle{plain} % TODO: Better citation style?
+\bibliographystyle{chicago} % TODO: Better citation style?
 \bibliography{report}{}
 
 \end{document}

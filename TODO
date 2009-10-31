@@ -1,5 +1,6 @@
 Things TODO:
 ============
+- Move report to Norwegian.
 - Add multicharacter symbol declarations.
 - Figure out some sane way to share Multicharacter_symbols defs between
   lexicon files.
