@@ -15,9 +15,11 @@ LEXICON Root
     Conj4 ;
 
 LEXICON Conj1
-amo+Verb:ama C1 ;
+amo+Verb:ama C1Pres ;
+amo+Verb:amav C14PerfSystem ;
 
-LEXICON C1
+! 1st conjugation present system
+LEXICON C1Pres
     C14Pres ;
     C1PresSubj ;
     C12Fut ;
@@ -25,10 +27,11 @@ LEXICON C1
     C14ImpfSubj ;
 
 LEXICON C1PresSubj
-+Pres+Subj:-e PresEndingsNonPres ;
++Pres+Subj:-e EndingsNonPres ;
 
 LEXICON Conj2
 moneo+Verb:mone C2 ;
+moneo+Verb:monu C14PerfSystem ;
 
 LEXICON C2
     C14Pres ;
@@ -39,7 +42,9 @@ LEXICON C2
 
 LEXICON Conj3
 rego+Verb:reg C3 ;
+rego+Verb:rex C14PerfSystem ;
 capio+Verb:capI C3 ;
+capio+Verb:cep C14PerfSystem ;
 
 LEXICON C3
     C14Pres ;
@@ -50,6 +55,7 @@ LEXICON C3
 
 LEXICON Conj4
 audio+Verb:audi C4 ;
+audio+Verb:audiv C14PerfSystem ;
 
 LEXICON C4
     C14Pres ;
@@ -60,62 +66,119 @@ LEXICON C4
 
 ! Regular present indicative, first to fourth conjugations.
 LEXICON C14Pres
-+Pres+Ind:0 PresEndingsPres ;
++Pres+Ind:0 EndingsPresInd ;
 
 ! Regular present subjunctive, second to fourth conjugations.
 LEXICON C24PresSubj
-+Pres+Subj:-a PresEndingsNonPres ;
++Pres+Subj:-a EndingsNonPres ;
 
 ! Future indicative, first & second conjugations.
 LEXICON C12Fut
-+Fut+Ind:-b PresEndingsPres ;
++Fut+Ind:-b EndingsPresInd ;
 
 ! Future indicative, third & fourth conjugations.
 LEXICON C34Fut
-+Fut+Ind:-a PresEndingsNonPres1S ;
-+Fut+Ind:-e PresEndingsCommon ;
++Fut+Ind:-a EndingsNonPres1S ;
++Fut+Ind:-e EndingsCommon ;
 
 LEXICON C12Impf
-+Impf+Ind:-ba PresEndingsNonPres ;
++Impf+Ind:-ba EndingsNonPres ;
 
 ! XXX: It might be possible to do the imperfect indicative with just C12Impf
 !      and insert the -e in verbs-twolc.txt. But is it worth it?
 LEXICON C34Impf
-+Impf+Ind:-eba PresEndingsNonPres ;
++Impf+Ind:-eba EndingsNonPres ;
 
 LEXICON C14ImpfSubj
-+Impf+Subj:-re PresEndingsNonPres ;
++Impf+Subj:-re EndingsNonPres ;
 
-! Endings for the present system, present indicative tense.
-LEXICON PresEndingsPres
-    PresEndingsPres1S ;
-    PresEndingsCommon ;
+! Regular perfect system, all conjugations.
+LEXICON C14PerfSystem
+    C14Perf ;
+    C14PerfSubj ;
+    C14FutII ;
+    C14Pqp ;
+    C14PqpSubj ;
 
-! Endings for the present system, non-present indicative tenses.
-LEXICON PresEndingsNonPres
-    PresEndingsNonPres1S ;
-    PresEndingsCommon ;
+! Perfect indicative tense.
+LEXICON C14Perf
++Perf+Ind:0 EndingsPerf ;
+
+! Perfect subjunctive tense.
+LEXICON C14PerfSubj
++Perf+Subj+1S+Act:-er-o # ; ! Ludicrously special-cased to avoid too fragmented code.
++Perf+Subj:-eri EndingsCommon ;
+
+! Future perfect tense.
+LEXICON C14FutII
++FutII+Ind:-eri EndingsNonPresAct ;
+
+! Pluperfect indicative tense.
+LEXICON C14Pqp
++Pqp+Ind:-era EndingsNonPresAct ;
+
+! Plu[erfect subjunctive tense.
+LEXICON C14PqpSubj
++Pqp+Subj:-isse EndingsNonPresAct ;
+
+! Endings for the present indicative.
+LEXICON EndingsPresInd
+    EndingsPresInd1S ;
+    EndingsCommon ;
 
 ! Endings for the first person singular present indicative.
-LEXICON PresEndingsPres1S
+LEXICON EndingsPresInd1S
 +1S+Act:-o # ;
 +1S+Pass:-or # ;
 
+! Endings for non-present indicative tenses.
+LEXICON EndingsNonPres
+    EndingsNonPresAct ;
+    EndingsNonPresPass ;
+
+LEXICON EndingsNonPresAct
+    EndingsNonPres1SAct ;
+    EndingsCommonAct ;
+
+LEXICON EndingsNonPresPass
+    EndingsNonPres1SPass ;
+    EndingsCommonPass ;
+
 ! Endings for the first person singular of non-present indicative tenses.
-LEXICON PresEndingsNonPres1S
+LEXICON EndingsNonPres1S
+    EndingsNonPres1SAct ;
+    EndingsNonPres1SPass ;
+
+LEXICON EndingsNonPres1SAct
 +1S+Act:-m # ;
+
+LEXICON EndingsNonPres1SPass
 +1S+Pass:-r # ;
 
-! Present system endings, common to all forms.
-LEXICON PresEndingsCommon
+! Endings common to most forms in the system.
+LEXICON EndingsCommon
+    EndingsCommonAct ;
+    EndingsCommonPass ;
+
+LEXICON EndingsCommonAct
 +2S+Act:-s # ;
 +3S+Act:-t # ;
 +1P+Act:-mus # ;
 +2P+Act:-tis # ;
 +3P+Act:-nt # ;
 
+LEXICON EndingsCommonPass
 +2S+Pass:-ris # ;
 +3S+Pass:-tur # ;
 +1P+Pass:-mur # ;
 +2P+Pass:-mini # ;
 +3P+Pass:-ntur # ;
+
+! Perfect endings.
+LEXICON EndingsPerf
++1S+Act:-i # ;
++2S+Act:-isti # ;
++3S+Act:-it # ;
++1P+Act:-imus # ;
++2P+Act:-istis # ;
++3P+Act:-erunt # ;

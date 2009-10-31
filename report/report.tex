@@ -59,22 +59,26 @@ tilstandsmorfologi, dokumentert i \citeNP{xfst}.
 %    \item Lewis and Short from Perseus for lexicon data? % TODO: Find reference
 %\end{itemize}
 
-\subsection{Declination}
-Declination of nominal forms is currently implemented with just a dictionary
-of roots and affixes that form the various forms. Linguistically, it may be
-more correct to take an approach similar to that used for conjugation (see
-section \ref{conjugation}), but for the sake of ease of implementation (and my
-sanity) a simplified approach is preferable. The most significant upshot of
-this is that any kind of alternation between the form of the nominative
-singular and root of the rest the paradigm in the third declination is
-considered lexical, even when it could be considered to be a regular
-formation, \`a la \emph{reg-s} > \emph{rex}. This also means that a root-final
-vowel usually ends up as being ending-initial instead, due to its loss in some
-forms; for example the root of \emph{rosa} is considered to be \emph{ros--},
-so that the ending of the dative/ablative plural can be simply \emph{--is}
-without any additional rules to handle the loss of the root-final \emph{--a}.
+\subsection{Nominalsystemet}
+Det viser seg at nominalmorfologien er enkel nok til at det holder \aa{} ha et
+leksikon med r\o{}tter koblet til b\o{}yningsklasse der de forskjellige
+b\o{}yningsklassene deler ut egnede endelser til de forskjellige kasus.
 
-\subsection{Conjugation}\label{conjugation}
+Rent lingvistisk hadde kanskje en tiln\ae{}rming lik den som er benyttet for
+konjugasjonen (se seksjon \ref{conjugation}) v\ae{}rt riktigere, men for \aa{}
+lette implementasjonen (og for min sjelefred) er en forenklet metode
+foretrukket. Den viktigste konsekvensen av dette er at enhver form for
+veksling mellom b\o{}yningsstammen i de oblike kasus og formen i nominativ
+entall i tredje deklinasjon er ansett som leksikalsk, selv om den kan anses
+som regelmessig, \`a la \emph{reg-s} > \emph{rex}. P\aa{} samme m\aa{}te ender
+stammefinal vokal opp som endelsesinitiell vokal i stedet i
+vokaldeklinasjonene p\aa{} grunn av stammevokalens bortfall i enkelte former;
+for eksempel er stammen til \emph{rosa} ansett for \aa{} v\ae{}re \emph{ros--}
+slikt at endelsen i dat/ablativ flertall kan v\ae{}re \emph{--is} uten flere
+regler for \aa{} h\aa{}ndtere tapet av den stammefinale \emph{--a}.
+
+\subsection{Verbalsystemet}
+\label{conjugation}
 % TODO
 
 \section{Conclusion} % TODO: Better title!
