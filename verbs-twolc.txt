@@ -1,25 +1,38 @@
-Alphabet a b c d e f g h i I:i k l m n o p q r s t u v w x y z ;
+Alphabet a b c d e f g h i I:i k l m n o p q r s t u v w x y z %-:0 ;
 
 Sets
     V = a e i o u ;
     C = b c d f g h k l m n p q r s t v w x y z ;
 
-Rules
-"-a drop before o"
-a:0 <=> _ %-:0 o ;
-        _ %-:0 e ;
+Definitions
+    Cons = [ C | q u ] ;
 
-!"-a drop before -e"
-!a:0 <=> _ %-:0 e ;
+Rules
+"-a drop before -o and -e"
+a:0 <=> _ %-: [ o | e ] ;
 
 "-e theme vowel in second singular passive future (1st & 2nd)"
-%-:e <=> C _ r ;
+%-:e <=> Cons _ r ;
 
-"short -i to -e before -r"
-I:e <=> _ %-:0 r ;
+"Short -i to -e before -r"
+I:e <=> _ %-: r ;
+
+"Loss of -I before present passive infinitive ending"
+I:0 <=> _ %-: i .#. ;
 
 "-i theme vowel between consonant s, t and m"
-%-:i <=> C _ [ s | t | m ] ;
+%-:i <=> Cons _ [ s | t | m ] ;
 
 "-u theme vowel between consonant and n"
-%-:u <=> C _ n ;
+%-:u <=> [ Cons | :i ] _ n ;
+
+"Weird perfects, -v loss"
+v:0 => a _ %-: [ i: | e: ] [ s | r ] ;
+       i _ %-: [ i: | e ] ;
+
+"Weird perfects, -i loss"
+i:0 <=> a v:0 %-: _ ;
+        i v:0 %-: _ s ;
+
+"Weird perfects, -e loss"
+e:0 <=> a v:0 %-: _ ;

@@ -1,23 +1,13 @@
 Things TODO:
 ============
 - Move report to Norwegian.
-- Add multicharacter symbol declarations.
 - Figure out some sane way to share Multicharacter_symbols defs between
   lexicon files.
 - Write a filter to create lexc code from lewis.xml from Perseus.
 - For all of the above, essentially: figure out a reasonably sane way to build
   the lexc sources from other bits and pieces, some hand-written, some
   auto-generated.
-- Read up and figure out how to represent non-concatenative features.
-- More complexity. The lexc could should output forms like ama-o (for amo) or
-  ama-b-ris (for amaberis), on top of that we add another set of rules
-  (written in xfst or twolc) that take care of the transformation from morph
-  lists to correct forms. This will probably require more thinking, but should
-  also give a conceptually cleaner result (I hope).
-
-  The final transducer should be: [ Lexicon .o. Phonology ]
-- Add support for the 3B conjugation. The short -i at the end of them stem
-  here changes to -e before -r, so we'll probably have to encode it as I in
-  the lexicon to differentiate it from long i in audio-type verbs, where the
-  change to -e doesn't take place.
 - Write a simple (SIMPLE!) interface to the analysis engine via Python.
+- The phonetic rules need to know when an u is a vowel and when it's a consonant.
+- Figure out how to write a phonetic rule that correctly models the
+  v-epenthesis style perfects. (OMGWTFBBQ, this is kinda hard...)

@@ -1,8 +1,9 @@
 Multichar_Symbols
-    +Verb
+    +Verb +Dep
     +1S +2S +3S +1P +2P +3P ! Persons
     +Pres +Fut +Impf ! Tempora
     +Ind +Impv +Subj ! Modi
+    +Inf
     +Act +Pass ! Voices
 
 ! Verb lexicon
@@ -17,6 +18,7 @@ LEXICON Root
 LEXICON Conj1
 amo+Verb:ama C1Pres ;
 amo+Verb:amav C14PerfSystem ;
+hortor+Verb+Dep:horta C1PresDep ;
 
 ! 1st conjugation present system
 LEXICON C1Pres
@@ -25,72 +27,221 @@ LEXICON C1Pres
     C12Fut ;
     C12Impf ;
     C14ImpfSubj ;
+    CNon3Impv ;
+    CNon3InfPres ;
+
+LEXICON C1PresDep
+    C14PresPass ;
+    C1PresSubjPass ;
+    C12FutPass ;
+    C12ImpfPass ;
+    C14ImpfSubjPass ;
+    C14ImpvPass ;
+    CNon3InfPresPass ;
 
 LEXICON C1PresSubj
-+Pres+Subj:-e EndingsNonPres ;
+    C1PresSubjAct ;
+    C1PresSubjPass ;
+
+LEXICON C1PresSubjAct
++Pres+Subj:-e EndingsNonPresAct ;
+
+LEXICON C1PresSubjPass
++Pres+Subj:-e EndingsNonPresPass ;
 
 LEXICON Conj2
-moneo+Verb:mone C2 ;
+moneo+Verb:mone C2Pres ;
 moneo+Verb:monu C14PerfSystem ;
+vereor+Verb+Dep:vere C2PresDep ;
 
-LEXICON C2
+LEXICON C2Pres
     C14Pres ;
     C24PresSubj ;
     C12Fut ;
     C12Impf ;
     C14ImpfSubj ;
+    CNon3Impv ;
+    CNon3InfPres ;
+
+LEXICON C2PresDep
+    C14PresPass ;
+    C24PresSubjPass ;
+    C12FutPass ;
+    C12ImpfPass ;
+    C14ImpfSubjPass ;
+    C14ImpvPass ;
+    CNon3InfPresPass ;
 
 LEXICON Conj3
-rego+Verb:reg C3 ;
+rego+Verb:reg C3Pres ;
 rego+Verb:rex C14PerfSystem ;
-capio+Verb:capI C3 ;
+capio+Verb:capI C3Pres ;
 capio+Verb:cep C14PerfSystem ;
+sequor+Verb+Dep:sequ C3PresDep ;
 
-LEXICON C3
+LEXICON C3Pres
     C14Pres ;
     C24PresSubj ;
     C34Fut ;
     C34Impf ;
     C14ImpfSubj ;
+    C3Impv ;
+    C3InfPres ;
+
+LEXICON C3PresDep
+    C14PresPass ;
+    C24PresSubjPass ;
+    C34FutPass ;
+    C34ImpfPass ;
+    C14ImpfSubjPass ;
+    C14ImpvPass ;
+    C3InfPresPass ;
 
 LEXICON Conj4
-audio+Verb:audi C4 ;
+audio+Verb:audi C4Pres ;
 audio+Verb:audiv C14PerfSystem ;
+partior+Verb+Dep:parti C4PresDep ;
 
-LEXICON C4
+LEXICON C4Pres
     C14Pres ;
     C24PresSubj ;
     C34Fut ;
     C34Impf ;
     C14ImpfSubj ;
+    CNon3Impv ;
+    CNon3InfPres ;
+
+LEXICON C4PresDep
+    C14PresPass ;
+    C24PresSubjPass ;
+    C34FutPass ;
+    C34ImpfPass ;
+    C14ImpfSubjPass ;
+    C14ImpvPass ;
+    CNon3InfPresPass ;
 
 ! Regular present indicative, first to fourth conjugations.
 LEXICON C14Pres
-+Pres+Ind:0 EndingsPresInd ;
+    C14PresAct ;
+    C14PresPass ;
+
+LEXICON C14PresAct
++Pres+Ind:0 EndingsPresIndAct ;
+
+LEXICON C14PresPass
++Pres+Ind:0 EndingsPresIndPass ;
 
 ! Regular present subjunctive, second to fourth conjugations.
 LEXICON C24PresSubj
-+Pres+Subj:-a EndingsNonPres ;
+    C24PresSubjAct ;
+    C24PresSubjPass ;
+
+LEXICON C24PresSubjAct
++Pres+Subj:-a EndingsNonPresAct ;
+
+LEXICON C24PresSubjPass
++Pres+Subj:-a EndingsNonPresPass ;
 
 ! Future indicative, first & second conjugations.
 LEXICON C12Fut
-+Fut+Ind:-b EndingsPresInd ;
+    C12FutAct ;
+    C12FutPass ;
+
+LEXICON C12FutAct
++Fut+Ind:-b EndingsPresIndAct ;
+
+LEXICON C12FutPass
++Fut+Ind:-b EndingsPresIndPass ;
 
 ! Future indicative, third & fourth conjugations.
 LEXICON C34Fut
-+Fut+Ind:-a EndingsNonPres1S ;
-+Fut+Ind:-e EndingsCommon ;
+    C34FutAct ;
+    C34FutPass ;
 
+LEXICON C34FutAct
++Fut+Ind:-a EndingsNonPres1SAct ;
++Fut+Ind:-e EndingsCommonAct ;
+
+LEXICON C34FutPass
++Fut+Ind:-a EndingsNonPres1SPass ;
++Fut+Ind:-e EndingsCommonPass ;
+
+! Imperfect indicative tense, first and second conjugations.
 LEXICON C12Impf
-+Impf+Ind:-ba EndingsNonPres ;
+    C12ImpfAct ;
+    C12ImpfPass ;
+
+LEXICON C12ImpfAct
++Impf+Ind:-ba EndingsNonPresAct ;
+
+LEXICON C12ImpfPass
++Impf+Ind:-ba EndingsNonPresPass ;
 
 ! XXX: It might be possible to do the imperfect indicative with just C12Impf
 !      and insert the -e in verbs-twolc.txt. But is it worth it?
+! Imperfect indicative tense, third and fourth conjugations.
 LEXICON C34Impf
-+Impf+Ind:-eba EndingsNonPres ;
+    C34ImpfAct ;
+    C34ImpfPass ;
 
+LEXICON C34ImpfAct
++Impf+Ind:-eba EndingsNonPresAct ;
+
+LEXICON C34ImpfPass
++Impf+Ind:-eba EndingsNonPresPass ;
+
+! Imperfect subjunctive tense, all conjugations.
 LEXICON C14ImpfSubj
-+Impf+Subj:-re EndingsNonPres ;
+    C14ImpfSubjAct ;
+    C14ImpfSubjPass ;
+
+LEXICON C14ImpfSubjAct
++Impf+Subj:-re EndingsNonPresAct ;
+
+LEXICON C14ImpfSubjPass
++Impf+Subj:-re EndingsNonPresPass ;
+
+! Imperative paradigms.
+LEXICON CNon3Impv
++Pres+Impv+2S+Act:0 # ;
+    CommonImpv ;
+
+LEXICON C3Impv
++Pres+Impv+2S+Act:-e # ;
+    CommonImpv ;
+
+! Imperative forms common to al conjugations.
+LEXICON CommonImpv
++Pres+Impv+2P+Act:-te # ;
+    C14ImpvPass ;
+
++Fut+Impv+2S+Act:to # ;
++Fut+Impv+3S+Act:to # ;
++Fut+Impv+2P+Act:tote # ;
++Fut+Impv+3P+Act:nto # ;
+
+! Passive imperatives. Factored out to make room for deponents.
+LEXICON C14ImpvPass
++Pres+Impv+2S+Pass:-re # ;
++Pres+Impv+2P+Pass:-mini # ;
+
+! Present infinitives.
+LEXICON CNon3InfPres
+    C14InfPresAct ;
+    CNon3InfPresPass ;
+
+LEXICON C3InfPres
+    C14InfPresAct ;
+    C3InfPresPass ;
+
+LEXICON C14InfPresAct
++Inf+Pres+Act:-re # ;
+
+LEXICON CNon3InfPresPass
++Inf+Pres+Pass:-ri # ;
+
+LEXICON C3InfPresPass
++Inf+Pres+Pass:-i # ;
 
 ! Regular perfect system, all conjugations.
 LEXICON C14PerfSystem
@@ -99,6 +250,7 @@ LEXICON C14PerfSystem
     C14FutII ;
     C14Pqp ;
     C14PqpSubj ;
+    C14InfPerf ;
 
 ! Perfect indicative tense.
 LEXICON C14Perf
@@ -107,7 +259,7 @@ LEXICON C14Perf
 ! Perfect subjunctive tense.
 LEXICON C14PerfSubj
 +Perf+Subj+1S+Act:-er-o # ; ! Ludicrously special-cased to avoid too fragmented code.
-+Perf+Subj:-eri EndingsCommon ;
++Perf+Subj:-eri EndingsCommonAct ;
 
 ! Future perfect tense.
 LEXICON C14FutII
@@ -117,25 +269,24 @@ LEXICON C14FutII
 LEXICON C14Pqp
 +Pqp+Ind:-era EndingsNonPresAct ;
 
-! Plu[erfect subjunctive tense.
+! Pluperfect subjunctive tense.
 LEXICON C14PqpSubj
 +Pqp+Subj:-isse EndingsNonPresAct ;
 
-! Endings for the present indicative.
-LEXICON EndingsPresInd
-    EndingsPresInd1S ;
-    EndingsCommon ;
+! Perfect infinitive.
+LEXICON C14InfPerf
++Inf+Perf+Act:-isse # ;
 
-! Endings for the first person singular present indicative.
-LEXICON EndingsPresInd1S
+! Endings for the present indicative.
+LEXICON EndingsPresIndAct
 +1S+Act:-o # ;
-+1S+Pass:-or # ;
+    EndingsCommonAct ;
+
+LEXICON EndingsPresIndPass
++1S+Act:-or # ;
+    EndingsCommonPass ;
 
 ! Endings for non-present indicative tenses.
-LEXICON EndingsNonPres
-    EndingsNonPresAct ;
-    EndingsNonPresPass ;
-
 LEXICON EndingsNonPresAct
     EndingsNonPres1SAct ;
     EndingsCommonAct ;
@@ -145,10 +296,6 @@ LEXICON EndingsNonPresPass
     EndingsCommonPass ;
 
 ! Endings for the first person singular of non-present indicative tenses.
-LEXICON EndingsNonPres1S
-    EndingsNonPres1SAct ;
-    EndingsNonPres1SPass ;
-
 LEXICON EndingsNonPres1SAct
 +1S+Act:-m # ;
 
@@ -156,10 +303,6 @@ LEXICON EndingsNonPres1SPass
 +1S+Pass:-r # ;
 
 ! Endings common to most forms in the system.
-LEXICON EndingsCommon
-    EndingsCommonAct ;
-    EndingsCommonPass ;
-
 LEXICON EndingsCommonAct
 +2S+Act:-s # ;
 +3S+Act:-t # ;
@@ -169,6 +312,7 @@ LEXICON EndingsCommonAct
 
 LEXICON EndingsCommonPass
 +2S+Pass:-ris # ;
++2S+Pass:-re # ;
 +3S+Pass:-tur # ;
 +1P+Pass:-mur # ;
 +2P+Pass:-mini # ;
@@ -182,3 +326,4 @@ LEXICON EndingsPerf
 +1P+Act:-imus # ;
 +2P+Act:-istis # ;
 +3P+Act:-erunt # ;
++3P+Act:-ere # ;

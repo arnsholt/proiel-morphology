@@ -52,7 +52,12 @@ classes, passives and non-finite forms of the verb.
 \section{Implementasjonen}
 \subsection{Verkt\o{}yene}
 Selve analysatoren er skrevet med Xerox-verkt\o{}ykassen for endelig
-tilstandsmorfologi, dokumentert i \citeNP{xfst}.
+tilstandsmorfologi, dokumentert i \citeNP{xfst}; prosjektet benytter seg av
+\texttt{lexc} til leksikonene og \texttt{twolc} for fonetiske regler. Slik
+Xerox-verkt\o{}yene fungerer er prosjektet b\aa{}de en morfologisk analysator
+og generator, ettersom alle nettverkene som produseres kan kj\o{}res i begge
+retninger: b\aa{}de fra en leksikonform som \emph{amo+Verb+Pres+Subj+2S+Pass}
+og fra en overflateform som \emph{ameris}.
 
 %\begin{itemize}
 %    \item XFST \cite{xfst}
@@ -79,7 +84,15 @@ regler for \aa{} h\aa{}ndtere tapet av den stammefinale \emph{--a}.
 
 \subsection{Verbalsystemet}
 \label{conjugation}
-% TODO
+Verbalmorfologien er den mest interessante og kompliserte delen av systemet;
+den er delt inn i to deler: en leksikondel, som inneholder mesteparten av
+koden, og et sett fonetiske omskrivningsregler. Reglene i verbleksikonet tar
+leksikonformer og skriver dem om til r\o{}tter etterfulgt av en streng
+morfemer, for eksempel er resultatet for \emph{amo} presens konjunktiv
+2.~person entall passiv \emph{ama-e-ris}. Denne mellomformen behandles s\aa{}
+av de fonetiske reglene som setter inn korrekte temavokaler og h\aa{}ndterer
+bortfall av lyder; for eksempel omskrives \emph{ama-o} til \emph{amo} og
+\emph{reg-ris} til \emph{regeris}.
 
 \section{Conclusion} % TODO: Better title!
 

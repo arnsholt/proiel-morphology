@@ -1,5 +1,4 @@
 load stack verbs-twolc.fst
-intersect net
 define phon
 
 read lexc verbs-lexc.txt
