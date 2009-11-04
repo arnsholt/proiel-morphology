@@ -11,7 +11,7 @@ Rules
 "-a drop before -o and -e"
 a:0 <=> _ %-: [ o | e ] ;
 
-"-e theme vowel in second singular passive future (1st & 2nd)"
+"-e theme vowel before -r"
 %-:e <=> Cons _ r ;
 
 "Short -i to -e before -r"
@@ -26,9 +26,18 @@ I:0 <=> _ %-: i .#. ;
 "-u theme vowel between consonant and n"
 %-:u <=> [ Cons | :i ] _ n ;
 
+! This rule has to be refined. First of all, it's possible for verbs ending in
+! -e to have perfect stem -ev. Second, it's a bit more complicated than what
+! I've currently implemented, see Meillet pp. 209-212.
+! XXX: [i:|e:] should be replacable by `?'?
 "Weird perfects, -v loss"
 v:0 => a _ %-: [ i: | e: ] [ s | r ] ;
-       i _ %-: [ i: | e ] ;
+       i _ %-: [ i: | e: ] ;
+       e _ %-: [ i: | e: ] ; ! XXX: More constraints?
+
+! TODO: This rule has to be extended to remove all illegal forms.
+"Stop -v syncope when it would cause confusion with other forms"
+v:0 /<= a _ %-: ? r e .#. ;
 
 "Weird perfects, -i loss"
 i:0 <=> a v:0 %-: _ ;

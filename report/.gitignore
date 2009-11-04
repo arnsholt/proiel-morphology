@@ -1,7 +1,7 @@
-report.aux
-report.bbl
-report.blg
-report.dvi
-report.log
-report.pdf
-report.toc
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.log
+*.pdf
+*.toc
