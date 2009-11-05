@@ -7,7 +7,13 @@ Things TODO:
 - For all of the above, essentially: figure out a reasonably sane way to build
   the lexc sources from other bits and pieces, some hand-written, some
   auto-generated.
-- Write a simple (SIMPLE!) interface to the analysis engine via Python.
-- The phonetic rules need to know when an u is a vowel and when it's a consonant.
-- Figure out how to write a phonetic rule that correctly models the
-  v-epenthesis style perfects. (OMGWTFBBQ, this is kinda hard...)
+- Refine the v-drop rules, according to Ernout.
+- Add supines, participles and gerunds to the nouns file. Supines could go in
+  the verbs file, but since they're formed from the same stem as some of the
+  participles it's easier to add them to the nouns file. Gerunds, OTOH, would
+  be nice to have in the verbs file, but with nominal inflection added; but
+  I'm not sure if the phonetic rules might come and bite me in the ass if I do
+  that. Although, if all of them are dependent on the morpheme boundary
+  character (-), it might be ok, since the nominal system doesn't involve that
+  particular character. If that works out, "templating" might be as simple as
+  keeping stuff in different files and stuffing them together with cat(1).
