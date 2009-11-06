@@ -2,7 +2,9 @@
 
 \usepackage[norsk]{babel}
 \usepackage{chicago}
+\usepackage[T1]{fontenc}
 \usepackage{footnote}
+\usepackage{multirow}
 
 \title{Latisk morfologi f\"ur idioten\footnote{\emph{ie}.~datamaskiner}}
 \author{Arne Skj\ae{}rholt}
@@ -16,8 +18,8 @@
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
     \hline
-       & \multicolumn{2}{c|}{Presens} & \\ \cline{2-3}
-       & Aktiv & Passiv & Perfektum \\
+       & \multicolumn{2}{c|}{Presens} & \multirow{2}{*}{Perfektum} \\ \cline{2-3}
+       & Aktiv & Passiv & \\
     \hline
 1.~sg. & \emph{--m}   & \emph{--r}    & \emph{--i}       \\
 2.~sg. & \emph{--s}   & \emph{--ris}  & \emph{--isti}    \\
@@ -53,8 +55,8 @@ suffikset.
     \hline
 Presens           & $\emptyset$ & \emph{--e} (1), \emph{--a} (2, 3, 4) \\
 Imperfektum       & \emph{--ba} & \emph{--re} \\
-Futurum           & \emph{--b} (1, 2)\footnote{Med dette suffikset brukes
-presens indikativ-endelsene}, \emph{--a} (3, 4) & --- \\
+Futurum           & \emph{--b}\footnote{Med dette suffikset brukes presens
+indikativ-endelsene} (1, 2), \emph{--a} (3, 4) & --- \\
     \hline
 Perfektum         & $\emptyset$\footnote{Med perfektumsendelsene} & \emph{--eri} \\
 Pluskvamperfektum & \emph{--era} & \emph{--isse} \\
@@ -120,6 +122,32 @@ sl\o{}yfes hvis vokalen foran \emph{v} er \emph{a}.
 slutter p\aa{} \emph{re} (forhindrer \emph{amav--ere} $\to$ \emph{amare}).
 \end{itemize}
 
+Disse reglene i form av toniv\aa{}regler er listet i tabell \ref{twolc}.
+
+\begin{savenotes}
+\begin{table}[hp]
+\begin{center}
+\begin{tabular}{rcl}
+\texttt{a:0  } & \texttt{<=>} & \texttt{\_ \%-: [ o | e ]} \\
+\texttt{\%-:e} & \texttt{<=>} & \texttt{Cons\footnote{\texttt{Cons} er en konsonant eller \emph{qu} } \_ r} \\
+\texttt{I:e  } & \texttt{<=>} & \texttt{\_ \%-: r} \\
+\texttt{I:0  } & \texttt{<=>} & \texttt{\_ \%-: i .\#.} \\
+\texttt{\%-:i} & \texttt{<=>} & \texttt{Cons \_ [ s | t | m ]} \\
+\texttt{\%-:u} & \texttt{<=>} & \texttt{[ Cons | :i ] \_ n} \\
+\texttt{v:0  } & \texttt{=> } & \texttt{a \_ \%-: [ i: | e: ] [ s | r ]} \\
+\texttt{     } & \texttt{   } & \texttt{i \_ \%-: [ i: | e: ]} \\
+\texttt{     } & \texttt{   } & \texttt{e \_ \%-: [ i: | e: ]} \\
+\texttt{v:0  } & \texttt{/<=} & \texttt{a \_ \%-: ? r e .\#.} \\
+\texttt{i:0  } & \texttt{<=>} & \texttt{a v:0 \%-: \_} \\
+\texttt{     } & \texttt{   } & \texttt{i v:0 \%-: \_ s} \\
+\texttt{e:0  } & \texttt{<=>} & \texttt{a v:0 \%-: \_} \\
+\end{tabular}
+\caption{De fonetiske toniv\aa{}reglene}
+\label{twolc}
+\end{center}
+\end{table}
+\end{savenotes}
+
 \section{Verbet --- Del 2}
 Den forrige seksjonen tar seg av de fleste formene i verbalparadigmet, men det
 er et par ting som gjenst\aa{}r. For det f\o{}rste er det et lite knippe
@@ -155,7 +183,7 @@ Perfektum & \emph{--isse} & --- \\
     \hline
        & Presens & Futurum \\
     \hline
-2.~sg. & $emptyset$ & \emph{--to} \\
+2.~sg. & $\emptyset$ & \emph{--to} \\
 3.~sg. & ---        & \emph{--to} \\
 2.~pl. & \emph{--te} & \emph{--tote} \\
 3.~pl. & ---         & \emph{--nto} \\
