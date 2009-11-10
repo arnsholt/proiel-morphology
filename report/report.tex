@@ -4,6 +4,9 @@
 %\usepackage{cite}
 \usepackage{chicago}
 \usepackage[T1]{fontenc}
+\usepackage{footnote}
+\usepackage{multirow}
+\usepackage{verbatim}
 
 \title{Toniv\aa{}morfologi for latin}
 \author{Arne Skj\ae{}rholt}
@@ -19,28 +22,40 @@
 Det \aa{} implementere en komplett toniv\aa{}modell er ikke en triviell
 oppgave, det er blant annet skrevet hovedfagsoppgaver der m\aa{}let er nettopp
 det, se \cite{bondihoved} og \cite{french}, s\aa{} m\aa{}let for dette
-prosjektet vil v\ae{}re \aa{} implementere en delmengde av det latinske
+prosjektet har v\ae{}rt \aa{} implementere en delmengde av det latinske
 formverket som er s\aa{} interessant som mulig; der interessant er definert
 slik at s\aa{} mange implementasjonstekniske problemer som mulig blir
-eksponert. Uregelmessige former, selv om de kanskje i praktisk hensyn er
+eksponert. Uregelmessige former, selv om de kanskje rent praktisk sett er
 veldig interessante, er for eksempel ikke s\ae{}rlig inspirerende i denne
 sammenhengen ettersom implementasjonen stort sett kan oppsummeres som ``for
 denne roten ser denne formen slik ut''.
 
-Forh\aa{}pentligvis vil den endelige implementasjonen inkludere b\aa{}de
-verbal-- og nominalmorfologi der alle regelrette former av regelmessige
-r\o{}tter er inkludert.
+%Forh\aa{}pentligvis vil den endelige implementasjonen inkludere b\aa{}de
+%verbal-- og nominalmorfologi der alle regelrette former av regelmessige
+%r\o{}tter er inkludert.
 
 \subsection{Planen}
-The plan of attack is as follows: first read up on the tools to be used and
-the theory involved. Then, start with implementing a subset of verbal
-morphology; this will probably be the active present system of regular verbs
-of the first class, then the perfect system. Experiences from this should give
-some ideas on how to structure different inflectional stems for a single
-lexical entry, and from this it will hopefully be relatively easy to implement
-regular nominal morphology. After this we may either proceed to pronominal or
-adjectival morphology, or return to the verbal morpholgy and add more verb
-classes, passives and non-finite forms of the verb.
+Den planlagte fremgangsm\aa{}ten, som stort sett korresponderer med den
+faktiske gangen i arbeidet med implementasjonen var \aa{} begynne i det
+sm\aa{} med regelrette substantiver for \aa{} bli kjent med verkt\o{}yene og
+gi grunnleggende f\o{}ringer p\aa{} hvordan de kan integreres med standard
+UNIX-verkt\o{}y som \texttt{make} for \aa{} automatisere
+kompilasjonsprosessen. Etter dette sto verbalsystemet for tur. Siden
+verbalparadigmet er den mest kompliserte delen av den latinske morfologien
+ans\aa{} jeg det som viktig \aa{} utforske denne delen av systemet for \aa{}
+finne ut hvor kompliserte regler som trengtes. Etter dette var planen \aa{}
+implementere det som gjensto av de regelrette verbal-- og
+substantivparadigmene.
+
+%The plan of attack is as follows: first read up on the tools to be used and
+%the theory involved. Then, start with implementing a subset of verbal
+%morphology; this will probably be the active present system of regular verbs
+%of the first class, then the perfect system. Experiences from this should give
+%some ideas on how to structure different inflectional stems for a single
+%lexical entry, and from this it will hopefully be relatively easy to implement
+%regular nominal morphology. After this we may either proceed to pronominal or
+%adjectival morphology, or return to the verbal morpholgy and add more verb
+%classes, passives and non-finite forms of the verb.
 
 %Certain factors may alter this plan, however. The current corpus should be
 %consulted to generate statistics of which parts of the morphology are more
@@ -49,12 +64,15 @@ classes, passives and non-finite forms of the verb.
 %implemented first.
 % TODO: Actually do this!
 
+\subsection{Funksjonalitet}
+% TODO: Dette maa skrives naar systemet er ferdig(ere).
+
 \section{Implementasjonen}
 \subsection{Kilder} % XXX: Bedre tittel!
 Grunnlaget for forml\ae{}ren er i all hovedsak tatt fra de relevante
 paragrafene i \citeNP{eitrem}, men med en del detaljer fylt ut av
-\citeNP{ernout}; sistnevnte var s\ae{}rlig opplysende i de finere punktene av
-perfektumsformer med synkope av \emph{--v}.
+\citeNP{ernout}; sistnevnte var s\ae{}rlig opplysende i enkelte detaljer
+omkring perfektumsformer med synkope av \emph{--v}.
 
 \subsection{Verkt\o{}yene}
 Selve analysatoren er skrevet med Xerox-verkt\o{}ykassen for endelig
@@ -98,10 +116,81 @@ morfemer, for eksempel er resultatet for \emph{amo} presens konjunktiv
 2.~person entall passiv \emph{ama-e-ris}. Denne mellomformen behandles s\aa{}
 av de fonetiske reglene som setter inn korrekte temavokaler og h\aa{}ndterer
 bortfall av lyder; for eksempel omskrives \emph{ama-o} til \emph{amo} og
-\emph{reg-ris} til \emph{regeris}.
+\emph{reg-ris} til \emph{regeris}. Tabellene \ref{endelser} og \ref{tempus}
+gir en oversikt over de viktigste person-- og tempusendelsene, henholdsvis,
+som brukes i systemet.
 
-\section{Conclusion} % TODO: Better title!
+\begin{table}[hp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+    \hline
+       & \multicolumn{2}{c|}{Presens} & \multirow{2}{*}{Perfektum} \\ \cline{2-3}
+       & Aktiv & Passiv & \\
+    \hline
+1.~sg. & \emph{--m}   & \emph{--r}    & \emph{--i}       \\
+2.~sg. & \emph{--s}   & \emph{--ris}  & \emph{--isti}    \\
+3.~sg. & \emph{--t}   & \emph{--tur}  & \emph{--it}      \\
+1.~pl. & \emph{--mus} & \emph{--mur}  & \emph{--imus}    \\
+1.~pl. & \emph{--tis} & \emph{--mini} & \emph{--istis}   \\
+1.~pl. & \emph{--nt}  & \emph{--ntur} & \emph{--erunt}   \\
+    \hline
+\end{tabular}
+\caption{Personendelsene}
+\label{endelser}
+\end{center}
+\end{table}
 
+\begin{table}[hp]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+    \hline
+                  & Indikativ   & Konjunktiv \\
+    \hline
+Presens           & $\emptyset$ & \emph{--e} (1), \emph{--a} (2, 3, 4) \\
+Imperfektum       & \emph{--ba} & \emph{--re} \\
+Futurum           & \emph{--b} (1, 2), \emph{--a} (3, 4) & --- \\
+    \hline
+Perfektum         & $\emptyset$ & \emph{--eri} \\
+Pluskvamperfektum & \emph{--era} & \emph{--isse} \\
+Futurum exactum   & \emph{--eri} & ---        \\
+    \hline
+\end{tabular}
+\caption{Tempussuffiksene}
+\label{tempus}
+\end{center}
+\end{table}
+
+\paragraph{\texttt{a:0 <=> \_ \%-: [ a | e ]}} Denne regelen h\aa{}ndterer to
+tilfeller hvor stammefinal \emph{--a} faller bort: foran \emph{--o} i
+1.~person entall presens indikativ og foran suffikset for presens konjunktiv.
+
+\paragraph{\texttt{\%-:i <=> Cons \_ [ s | t | m ]}} Temavokal i
+konsonantstammer er \emph{i} foran \emph{s}, \emph{t} og \emph{m}.
+
+\paragraph{\texttt{\%-:e <=> Cons \_ r}} Temavokal i konsonantstammer er
+\emph{e} foran \emph{r}.
+
+\paragraph{\texttt{\%-:u <=> Cons \_ n}} Temavokal i konsonantstammer er
+\emph{u} foran \emph{n}.
+
+\paragraph{\texttt{I:e <=> \_ \%-: r}} Som foreg\aa{}ende regel, men for
+stammer p\aa{} kort \emph{i}.
+
+\paragraph{\texttt{I:0 <=> \_ \%-: i .\#.}} Stammefinal kort \emph{i} faller
+bort foran endelsen \emph{--i} (presens infinitiv passiv).
+
+\paragraph{\texttt{v:0 => \ldots}}
+
+\paragraph{\texttt{}}
+\paragraph{\texttt{}}
+\paragraph{\texttt{}}
+\paragraph{\texttt{}}
+\paragraph{\texttt{}}
+\paragraph{\texttt{}}
+
+\section{Konklusjon} % TODO: Better title!
+
+\clearpage
 % TODO: Find references for grammars. Eitrem, Ernout & Thomas, the other one. The Swedish one.
 \bibliographystyle{chicago} % TODO: Better citation style?
 \bibliography{report}{}
