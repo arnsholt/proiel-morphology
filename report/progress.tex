@@ -12,7 +12,11 @@
 \begin{document}
 \maketitle
 
-\section{Verbet --- Del 1}
+\section{Substantivet}
+% TODO: Skrive dette avsnittet.
+Substantivmorfologien er forh\aa{}ldsvis enkel.
+
+\section{Verbet --- Leksikon}
 
 \begin{table}[hp]
 \begin{center}
@@ -46,8 +50,8 @@ oss i, og riktig endelse fra tabellen. Tabell \ref{tempus} gir
 tempussuffiksene; tallene i parenteser angir hvilke konjugasjoner som bruker
 suffikset.
 
-\begin{savenotes}
 \begin{table}[hp]
+\begin{minipage}{\textwidth}
 \begin{center}
 \begin{tabular}{|c|c|c|}
     \hline
@@ -64,103 +68,16 @@ Futurum exactum   & \emph{--eri}\footnote{I 1.~sg.~er hele endelsen
 \emph{--ero}} & ---        \\
     \hline
 \end{tabular}
+\end{center}
+\end{minipage}
 \caption{Tempussuffiksene}
 \label{tempus}
-\end{center}
 \end{table}
-\end{savenotes}
 
-N\aa{}r vi s\aa{} har tatt verbalstammen og lagt til tempussuffiks og
-personsuffiks til er vi halvveis til den endelige formen vi er p\aa{} jakt
-etter. Hvis vi for eksempel er p\aa{} jakt etter 2.~pl.~pluskvamperfektum
-konjunktiv av verbet \emph{amo} (representert som
-\texttt{amo+Verb+Pqp+Subj+2P+Act} i implementasjonen). Perfektumstammen av
-\emph{amo} er \emph{amav--}, og kombinert med tempus-- og personsuffiksene
-f\aa{}r vi formen \emph{amav--isse--tis}.
-
-Det siste vi m\aa{} gj\o{}re for \aa{} f\aa{} det \o{}nskede resultatet er
-\aa{} utf\o{}re de n\o{}dvendige fonetiske endringene. Det er seks
-p\aa{}krevde transformasjoner og fire valgfrie. De p\aa{}krevde reglene er:
-\begin{enumerate}
-\item \emph{a} foran morfemgrense etterfulgt av \emph{o} eller \emph{e} faller
-bort.
-
-\item Morfemgrense med konsonant foran og etterf\o{}lgende \emph{r} realiseres
-som \emph{e}.
-
-\item Kort \emph{i} foran morfemgrense etterfulgt av \emph{r} realiseres som
-\emph{e} (denne regelen tilsvarer regelen over, men for 3B--konjugasjonen).
-
-\item Kort \emph{i} foran endelsen \emph{--i} faller bort (slik at presens
-passiv infinitiv av \emph{capio} er \emph{capi}, ikke \emph{capii}).
-
-\item Morfemgrense mellom konsonant og \emph{s}, \emph{t} eller \emph{m}
-realiseres som \emph{i}.
-
-\item Morfemgrense mellom konsonant eller \emph{i} og \emph{n} realiseres som
-\emph{u}.
-\end{enumerate}
-
-% XXX: Flytte dette til Del 2?
-De valgfrie reglene\footnote{Strengt tatt \'en valgfri regel og noen som er
-p\aa{}krevd i tilfellet hvor den valgfrie transformasjonen er utf\o{}rt}
-h\aa{}ndterer former i perfektumsystemet med bortfall av \emph{--v}.
-
-\begin{itemize}
-\item \emph{v} foran morfemgrense, med \emph{a}, \emph{i} eller \emph{e} foran
-og etterf\o{}lgende vokal og \emph{s} eller \emph{r} hvis vokalen foran er
-\emph{a}, kan sl\o{}yfes.
-
-\item \emph{i} etter morfemgrense med sl\o{}yfet \emph{v} foran skal ogs\aa{}
-sl\o{}yfes hvis vokalen foran \emph{v} var \emph{a} eller hvis den var
-\emph{i} og \emph{i}en som sl\o{}yfes er etterfulgt av \emph{s}.
-
-\item \emph{e} etter morfemgrense med sl\o{}yfet \emph{v} skal ogs\aa{}
-sl\o{}yfes hvis vokalen foran \emph{v} er \emph{a}.
-
-\item \emph{v} kan ikke sl\o{}yfes hvis vokalen foran er \emph{a} og endelsen
-slutter p\aa{} \emph{re} (forhindrer \emph{amav--ere} $\to$ \emph{amare}).
-\end{itemize}
-
-Disse reglene i form av toniv\aa{}regler er listet i tabell \ref{twolc}.
-
-\begin{savenotes}
-\begin{table}[hp]
-\begin{center}
-\begin{tabular}{rcl}
-\texttt{a:0  } & \texttt{<=>} & \texttt{\_ \%-: [ o | e ]} \\
-\texttt{\%-:e} & \texttt{<=>} & \texttt{Cons\footnote{\texttt{Cons} er en konsonant eller \emph{qu} } \_ r} \\
-\texttt{I:e  } & \texttt{<=>} & \texttt{\_ \%-: r} \\
-\texttt{I:0  } & \texttt{<=>} & \texttt{\_ \%-: i .\#.} \\
-\texttt{\%-:i} & \texttt{<=>} & \texttt{Cons \_ [ s | t | m ]} \\
-\texttt{\%-:u} & \texttt{<=>} & \texttt{[ Cons | :i ] \_ n} \\
-\texttt{v:0  } & \texttt{=> } & \texttt{a \_ \%-: [ i: | e: ] [ s | r ]} \\
-\texttt{     } & \texttt{   } & \texttt{i \_ \%-: [ i: | e: ]} \\
-\texttt{     } & \texttt{   } & \texttt{e \_ \%-: [ i: | e: ]} \\
-\texttt{v:0  } & \texttt{/<=} & \texttt{a \_ \%-: ? r e .\#.} \\
-\texttt{i:0  } & \texttt{<=>} & \texttt{a v:0 \%-: \_} \\
-\texttt{     } & \texttt{   } & \texttt{i v:0 \%-: \_ s} \\
-\texttt{e:0  } & \texttt{<=>} & \texttt{a v:0 \%-: \_} \\
-\end{tabular}
-\caption{De fonetiske toniv\aa{}reglene}
-\label{twolc}
-\end{center}
-\end{table}
-\end{savenotes}
-
-\section{Verbet --- Del 2}
-Den forrige seksjonen tar seg av de fleste formene i verbalparadigmet, men det
-er et par ting som gjenst\aa{}r. For det f\o{}rste er det et lite knippe
-endelser som forekommer som klammeformer: i stedet for \emph{--ris} i
-2.~person entall passiv kan formen \emph{--re} forekomme, og i 3.~person
-flertall perfektum indikativ kan vi ha \emph{--ere} i stedet for
-\emph{--erunt}.
-
-Men mer presserende er det kanskje at det er enkelte former som mangler for at
-verbalparadigmet skal v\ae{}re komplett: inifinitiver og imperativer (og
-supinum og patisipper, men de er ikke implementert enn\aa{}). Tabellene
-\ref{infinitiv} og \ref{imperativ} gir endelsene for henholdsvis infinitivene
-og imperativene.
+Til slutt er det enkelte former som mangler for at verbalparadigmet skal
+v\ae{}re komplett: inifinitiver og imperativer (og supinum og patisipper, men
+de er ikke implementert enn\aa{}). Tabellene \ref{infinitiv} og
+\ref{imperativ} gir endelsene for henholdsvis infinitivene og imperativene.
 
 \begin{table}[hp]
 \begin{center}
@@ -192,6 +109,89 @@ Perfektum & \emph{--isse} & --- \\
 \caption{Imperativendelser}
 \label{imperativ}
 \end{center}
+\end{table}
+
+I tillegg til endelsene over er det et lite knippe endelser som forekommer som
+klammeformer: i stedet for \emph{--ris} i 2.~person entall passiv kan formen
+\emph{--re} forekomme, og i 3.~person flertall perfektum indikativ kan vi ha
+\emph{--ere} i stedet for \emph{--erunt}.
+
+\section{Verbet --- Fonetikk}
+N\aa{}r vi s\aa{} har tatt verbalstammen og lagt til tempussuffiks og
+personsuffiks til er vi halvveis til den endelige formen vi er p\aa{} jakt
+etter. Hvis vi for eksempel er p\aa{} jakt etter 2.~pl.~pluskvamperfektum
+konjunktiv av verbet \emph{amo} (representert som
+\texttt{amo+Verb+Pqp+Subj+2P+Act} i implementasjonen). Perfektumstammen av
+\emph{amo} er \emph{amav--}, og kombinert med tempus-- og personsuffiksene
+f\aa{}r vi formen \emph{amav--isse--tis}.
+
+Det siste vi m\aa{} gj\o{}re for \aa{} f\aa{} det \o{}nskede resultatet er
+\aa{} utf\o{}re de n\o{}dvendige fonetiske endringene. Det er seks
+p\aa{}krevde transformasjoner og fire valgfrie. De p\aa{}krevde reglene er:
+\begin{enumerate}
+\item \emph{a} foran morfemgrense etterfulgt av \emph{o} eller \emph{e} faller
+bort.
+
+\item Morfemgrense med konsonant foran og etterf\o{}lgende \emph{r} realiseres
+som \emph{e}.
+
+\item Kort \emph{i} foran morfemgrense etterfulgt av \emph{r} realiseres som
+\emph{e} (denne regelen tilsvarer regelen over, men for 3B--konjugasjonen).
+
+\item Kort \emph{i} foran endelsen \emph{--i} faller bort (slik at presens
+passiv infinitiv av \emph{capio} er \emph{capi}, ikke \emph{capii}).
+
+\item Morfemgrense mellom konsonant og \emph{s}, \emph{t} eller \emph{m}
+realiseres som \emph{i}.
+
+\item Morfemgrense mellom konsonant eller \emph{i} og \emph{n} realiseres som
+\emph{u}.
+\end{enumerate}
+
+De valgfrie reglene\footnote{Strengt tatt \'en valgfri regel og noen som er
+p\aa{}krevd i tilfellet hvor den valgfrie transformasjonen er utf\o{}rt}
+h\aa{}ndterer former i perfektumsystemet med bortfall av \emph{--v}.
+
+\begin{itemize}
+\item \emph{v} foran morfemgrense, med \emph{a}, \emph{i} eller \emph{e} foran
+og etterf\o{}lgende vokal og \emph{s} eller \emph{r} hvis vokalen foran er
+\emph{a}, kan sl\o{}yfes.
+
+\item \emph{i} etter morfemgrense med sl\o{}yfet \emph{v} foran skal ogs\aa{}
+sl\o{}yfes hvis vokalen foran \emph{v} var \emph{a} eller hvis den var
+\emph{i} og \emph{i}en som sl\o{}yfes er etterfulgt av \emph{s}.
+
+\item \emph{e} etter morfemgrense med sl\o{}yfet \emph{v} skal ogs\aa{}
+sl\o{}yfes hvis vokalen foran \emph{v} er \emph{a}.
+
+\item \emph{v} kan ikke sl\o{}yfes hvis vokalen foran er \emph{a} og endelsen
+slutter p\aa{} \emph{re} (forhindrer \emph{amav--ere} $\to$ \emph{amare}).
+\end{itemize}
+
+Disse reglene i form av toniv\aa{}regler er listet i tabell \ref{twolc}.
+
+\begin{table}[hp]
+\begin{minipage}{\textwidth}
+\begin{center}
+\begin{tabular}{rcl}
+\texttt{a:0  } & \texttt{<=>} & \texttt{\_ \%-: [ o | e ]} \\
+\texttt{\%-:e} & \texttt{<=>} & \texttt{Cons\footnote{\texttt{Cons} er en konsonant eller \emph{qu} } \_ r} \\
+\texttt{I:e  } & \texttt{<=>} & \texttt{\_ \%-: r} \\
+\texttt{I:0  } & \texttt{<=>} & \texttt{\_ \%-: i .\#.} \\
+\texttt{\%-:i} & \texttt{<=>} & \texttt{Cons \_ [ s | t | m ]} \\
+\texttt{\%-:u} & \texttt{<=>} & \texttt{[ Cons | :i ] \_ n} \\
+\texttt{v:0  } & \texttt{ =>} & \texttt{a \_ \%-: [ i: | e: ] [ s | r ]} \\
+\texttt{     } & \texttt{   } & \texttt{i \_ \%-: [ i: | e: ]} \\
+\texttt{     } & \texttt{   } & \texttt{e \_ \%-: [ i: | e: ]} \\
+\texttt{v:0  } & \texttt{/<=} & \texttt{a \_ \%-: ? r e .\#.} \\
+\texttt{i:0  } & \texttt{<=>} & \texttt{a v:0 \%-: \_} \\
+\texttt{     } & \texttt{   } & \texttt{i v:0 \%-: \_ s} \\
+\texttt{e:0  } & \texttt{<=>} & \texttt{a v:0 \%-: \_} \\
+\end{tabular}
+\end{center}
+\end{minipage}
+\caption{De fonetiske toniv\aa{}reglene}
+\label{twolc}
 \end{table}
 
 Disse endelsene, kombinert med de fonetiske reglene fra del 1 gir et komplett

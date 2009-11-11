@@ -30,10 +30,6 @@ veldig interessante, er for eksempel ikke s\ae{}rlig inspirerende i denne
 sammenhengen ettersom implementasjonen stort sett kan oppsummeres som ``for
 denne roten ser denne formen slik ut''.
 
-%Forh\aa{}pentligvis vil den endelige implementasjonen inkludere b\aa{}de
-%verbal-- og nominalmorfologi der alle regelrette former av regelmessige
-%r\o{}tter er inkludert.
-
 \subsection{Planen}
 Den planlagte fremgangsm\aa{}ten, som stort sett korresponderer med den
 faktiske gangen i arbeidet med implementasjonen var \aa{} begynne i det
@@ -62,7 +58,6 @@ substantivparadigmene.
 %frequent and thus more likely to be useful to implement first. Also, the users
 %of the system should be asked about which parts they would prefer to be
 %implemented first.
-% TODO: Actually do this!
 
 \subsection{Funksjonalitet}
 % TODO: Dette maa skrives naar systemet er ferdig(ere).
@@ -77,11 +72,17 @@ omkring perfektumsformer med synkope av \emph{--v}.
 \subsection{Verkt\o{}yene}
 Selve analysatoren er skrevet med Xerox-verkt\o{}ykassen for endelig
 tilstandsmorfologi, dokumentert i \citeNP{xfst}; prosjektet benytter seg av
-\texttt{lexc} til leksikonene og \texttt{twolc} for fonetiske regler. Slik
-Xerox-verkt\o{}yene fungerer er prosjektet b\aa{}de en morfologisk analysator
-og generator, ettersom alle nettverkene som produseres kan kj\o{}res i begge
-retninger: b\aa{}de fra en leksikonform som \emph{amo+Verb+Pres+Subj+2S+Pass}
-og fra en overflateform som \emph{ameris}.
+\texttt{lexc} til leksikon og \texttt{twolc} for fonetiske regler.
+\texttt{lexc} spesifiserer regul\ae{}re relasjoner som h\o{}yrerekursive
+grammatikker (grammatikker der alle produksjonene er p\aa{} formen $A \to
+\alpha\ X$, der $\alpha$ er null eller flere terminaler og $X$ er en
+ikke-terminal). \texttt{twolc} spesifiserer relasjoner i form av tegn som er
+relatert, og i hvilke kontekster de kan, m\aa{} eller ikke kan opptre.
+
+Slik Xerox-verkt\o{}yene fungerer er prosjektet b\aa{}de en morfologisk
+analysator og generator, ettersom alle nettverkene som produseres kan
+kj\o{}res i begge retninger: b\aa{}de fra en leksikonform som
+\emph{amo+Verb+Pres+Subj+2S+Pass} og fra en overflateform som \emph{ameris}.
 
 %\begin{itemize}
 %    \item XFST \cite{xfst}
@@ -179,20 +180,32 @@ stammer p\aa{} kort \emph{i}.
 \paragraph{\texttt{I:0 <=> \_ \%-: i .\#.}} Stammefinal kort \emph{i} faller
 bort foran endelsen \emph{--i} (presens infinitiv passiv).
 
-\paragraph{\texttt{v:0 => \ldots}}
+Disse reglene beskriver mer eller mindre generelle regler. De resterende
+reglene h\aa{}ndterer den valgfrie \emph{v}-synkopen i perfektumssystemet.
 
-\paragraph{\texttt{}}
-\paragraph{\texttt{}}
-\paragraph{\texttt{}}
-\paragraph{\texttt{}}
-\paragraph{\texttt{}}
-\paragraph{\texttt{}}
+\paragraph{\texttt{v:0 => \ldots}} \emph{v} mellom vokal og morfemgrense kan i
+enkelte tilfeller falle bort (se \S 41.3 i \citeNP{eitrem} og \citeNP{ernout},
+s.~209-212).
+
+\paragraph{\texttt{v:0 /<= a \_ \%-: ? r e .\#.}} Bortfall av \emph{v} m\aa{}
+ikke skje n\aa{}r resultatet vil kunne forveksles med en infinitiv.
+
+\paragraph{\texttt{e:0 <=> a v:0 \%-: \_}} \emph{e} etter bortfalt \emph{v}
+foran \emph{a} faller ogs\aa{} bort.
+
+\paragraph{\texttt{i:0 <=> a v:0 \%-: \_ ; i v:0 \%-: \_ s}} \emph{i} etter
+bortfalt \emph{v} foran \emph{a}, eller foran \emph{i} og etter bortfalt
+\emph{v} foran \emph{i}, faller ogs\aa{} bort.
+
+%\paragraph{\texttt{}}
+%\paragraph{\texttt{}}
+%\paragraph{\texttt{}}
+%\paragraph{\texttt{}}
 
 \section{Konklusjon} % TODO: Better title!
 
 \clearpage
-% TODO: Find references for grammars. Eitrem, Ernout & Thomas, the other one. The Swedish one.
-\bibliographystyle{chicago} % TODO: Better citation style?
+\bibliographystyle{chicago}
 \bibliography{report}{}
 
 \end{document}
