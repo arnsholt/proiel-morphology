@@ -1,0 +1,4 @@
+load stack verbs.fst
+load stack nouns.fst
+union net
+save stack latin.fst

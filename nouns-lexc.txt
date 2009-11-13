@@ -30,6 +30,8 @@ LEXICON D1Endings
 +Dat+Pl:is # ;
 +Abl+Pl:is # ;
 
+! For nouns a la ager, agri, we might want to bring in twolc that remove the e
+! before endings, so that we can handle them like other D2 nouns...
 LEXICON Decl2
 dominus+Noun:domin D2M ;
 bellum+Noun:bell D2N ;
@@ -68,20 +70,43 @@ LEXICON D2EndingsCommon
 +Dat+Pl:is # ;
 +Abl+Pl:is # ;
 
+! TODO: ``3B'' declination (gen.pl. -ium)
 LEXICON Decl3
-rex+Noun+Nom+Sg:rex # ;
-rex+Noun+Voc+Sg:rex # ;
-rex+Noun:reg D3Endings ;
+rex+Noun:rex D3EndingsNoneMF ;
+rex+Noun:reg D3EndingsMF ;
 
-LEXICON D3Endings
+corpus+Noun:corpus D3EndingsNoneN ;
+corpus+Noun:corpor D3EndingsN ;
+
+LEXICON D3EndingsNoneMF
++Nom+Sg:0 # ;
++Voc+Sg:0 # ;
+
+LEXICON D3EndingsMF
+    D3EndingsCommon ;
 +Acc+Sg:em # ;
-+Gen+Sg:is # ;
-+Dat+Sg:i # ;
-+Abl+Sg:e # ;
 
 +Nom+Pl:es # ;
 +Voc+Pl:es # ;
 +Acc+Pl:es # ;
+
+LEXICON D3EndingsNoneN
++Nom+Sg:0 # ;
++Voc+Sg:0 # ;
++Acc+Sg:0 # ;
+
+LEXICON D3EndingsN
+    D3EndingsCommon ;
+
++Nom+Pl:a # ;
++Voc+Pl:a # ;
++Acc+Pl:a # ;
+
+LEXICON D3EndingsCommon
++Gen+Sg:is # ;
++Dat+Sg:i # ;
++Abl+Sg:e # ;
+
 +Gen+Pl:um # ;
 +Dat+Pl:ibus # ;
 +Abl+Pl:ibus # ;
@@ -122,10 +147,29 @@ LEXICON D5Endings
 +Dat+Pl:bus # ;
 +Abl+Pl:bus # ;
 
+! TODO: D3 adjectives.
 LEXICON Adj
 longus+Adj:long AdjStd ;
 
 LEXICON AdjStd
++Pos:0 AdjStdPos ;
+    AdjComp ;
+    AdjSuper ;
+
+LEXICON AdjStdPos
 +Masc:0 D2M ;
-+Neut:0 D2N ;
 +Fem:0 D1 ;
++Neut:0 D2N ;
+
+LEXICON AdjComp
++Comp+Masc:ior AdjCompMF ;
++Comp+Fem:ior AdjCompMF ;
++Comp+Neut:ius D3EndingsNoneN ;
++Comp+Neut:ior D3EndingsN ;
+
+LEXICON AdjCompMF
+    D3EndingsNoneMF ;
+    D3EndingsMF ;
+
+LEXICON AdjSuper
++Super:issim AdjStdPos ;

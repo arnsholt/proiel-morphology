@@ -17,3 +17,6 @@ Things TODO:
   character (-), it might be ok, since the nominal system doesn't involve that
   particular character. If that works out, "templating" might be as simple as
   keeping stuff in different files and stuffing them together with cat(1).
+- Ref. Dag, perhaps add section comparing the synchronous rules I have
+  implemented with the actual diachronous developments of the morphology (see
+  Meillet).

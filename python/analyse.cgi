@@ -19,16 +19,16 @@ sys.path.append('/uio/arkimedes/s11/arnskj/sw/lib/python2.5/site-packages')
 # (bug?) in how xfsm looks for libraries.
 from xfsm import *
 
-verbs = Network.load_from_file("verbs.fst")
+latin = Network.load_from_file("latin.fst")
 form = cgi.FieldStorage()
 
 if 'submit' in form:
     analyseme = form['form'].value
 
     if form['submit'].value == 'Analyser':
-        analysis = verbs.apply_up(analyseme)
+        analysis = latin.apply_up(analyseme)
     else:
-        analysis = verbs.apply_down(analyseme)
+        analysis = latin.apply_down(analyseme)
 else:
     analyseme = ''
     analysis = []
@@ -62,5 +62,5 @@ print """    </body>
 </html>
 """
 
-#print verbs.apply_up("amo");
-#print verbs.apply_down("amo+Verb+Fut+Ind+2S+Pass");
+#print latin.apply_up("amo");
+#print latin.apply_down("amo+Verb+Fut+Ind+2S+Pass");

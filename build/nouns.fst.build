@@ -1,0 +1,2 @@
+read lexc nouns-lexc.txt
+save stack nouns.fst
