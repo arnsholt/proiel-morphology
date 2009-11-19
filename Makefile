@@ -20,10 +20,5 @@ verbs-twolc.fst: verbs-twolc.txt
 test: latin.fst
 	prove -r t/
 
-experiment:
-	@echo makes SHELL variable: $(SHELL)
-	@echo the actual shell: $$SHELL
-	which xfst
-
 clean:
 	rm -f *.fst
