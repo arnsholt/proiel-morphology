@@ -1,4 +1,4 @@
-Alphabet a b c d e f g h i k l m n o p q r s t u v w x y z %-:0 ;
+Alphabet a b c d e E:e f g h i k l m n o p q r s t u v w x y z %-:0 ;
 
 Sets
     V = a e i o u ;
@@ -17,3 +17,4 @@ Definitions
 Rules
 "-er to -r contraction"
 e:0 <=> .#. ~KeepRoot _ r %-: ;
+!E:0 <=> _ r %-: ;

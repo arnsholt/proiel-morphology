@@ -19,7 +19,7 @@ LEXICON D1
 LEXICON D1Endings
 +Nom+Sg:a # ;
 +Voc+Sg:a # ;
-+Acc+Sg:m # ;
++Acc+Sg:am # ;
 +Gen+Sg:ae # ;
 +Dat+Sg:ae # ;
 +Abl+Sg:a # ;
@@ -32,10 +32,14 @@ LEXICON D1Endings
 +Abl+Pl:is # ;
 
 ! Second declination: dominus, puer, bellum.
+! BUG: Not all nouns on -er drop the e before ending. Some, like numerus, keep
+! XXX: Nouns on -ius have -i in the vocative, not -e.
+! it. Ref. Ernout p. 26.
 LEXICON Decl2
 dominus+Noun:domin D2M ;
+numerus+Noun:numer D2M ;
 puer+Noun:puer D2puer ;
-ager+Noun:ager D2puer ;
+ager+Noun:agEr D2puer ;
 bellum+Noun:bell D2N ;
 
 LEXICON D2M
@@ -120,6 +124,7 @@ LEXICON D3EndingsCommon
 +Dat+Pl:ibus # ;
 +Abl+Pl:ibus # ;
 
+! TODO: cornus (neuter D4 nouns)
 LEXICON Decl4
 fructus+Noun:fruct D4Endings ;
 
@@ -158,10 +163,9 @@ LEXICON D5Endings
 
 ! Adjective lexicon.
 ! TODO: Adverb derivation
-! TODO: D3 adjectives.
 LEXICON Adj
 longus+Adj:long AdjStd ;
-acer+Adj:acer AdjCons3 ;
+acer+Adj:acEr AdjCons3 ;
 brevis+Adj:brev AdjCons2 ;
 felix+Adj:felix AdjCons1None ;
 felix+Adj:felic AdjCons1 ;

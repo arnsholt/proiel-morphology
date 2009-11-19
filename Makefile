@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 
-.PHONY: test
+.PHONY: test clean experiment
 
 latin.fst: nouns.fst verbs.fst
 	xfst -f build/latin.fst.build
@@ -17,5 +17,13 @@ verbs.fst: verbs-lexc.txt verbs-twolc.fst
 verbs-twolc.fst: verbs-twolc.txt
 	twolc < build/verbs-twolc.fst.build
 
-test:
-	./aux/test.pl | xfst -s verbs.fst
+test: latin.fst
+	prove -r t/
+
+experiment:
+	@echo makes SHELL variable: $(SHELL)
+	@echo the actual shell: $$SHELL
+	which xfst
+
+clean:
+	rm -f *.fst

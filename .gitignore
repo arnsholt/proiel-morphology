@@ -2,3 +2,4 @@
 .htaccess
 .*.swp
 *.fst
+*.pyc

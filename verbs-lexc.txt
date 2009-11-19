@@ -258,12 +258,12 @@ LEXICON C14Perf
 
 ! Perfect subjunctive tense.
 LEXICON C14PerfSubj
-+Perf+Subj+1S+Act:-er-o # ; ! Ludicrously special-cased to avoid too fragmented code.
-+Perf+Subj:-eri EndingsCommonAct ;
++Perf+Subj:-eri EndingsNonPresAct ;
 
 ! Future perfect tense.
 LEXICON C14FutII
-+FutII+Ind:-eri EndingsNonPresAct ;
++FutII+Ind+1S+Act:-er-o # ; ! Ludicrously special-cased to avoid too fragmented code.
++FutII+Ind:-eri EndingsCommonAct ;
 
 ! Pluperfect indicative tense.
 LEXICON C14Pqp
@@ -283,7 +283,7 @@ LEXICON EndingsPresIndAct
     EndingsCommonAct ;
 
 LEXICON EndingsPresIndPass
-+1S+Act:-or # ;
++1S+Pass:-or # ;
     EndingsCommonPass ;
 
 ! Endings for non-present indicative tenses.
