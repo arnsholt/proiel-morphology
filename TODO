@@ -1,8 +1,7 @@
 Things TODO:
 ============
-- Move report to Norwegian.
 - Figure out some sane way to share Multicharacter_symbols defs between
-  lexicon files.
+  lexicon files. gcc -E perhaps?
 - Write a filter to create lexc code from lewis.xml from Perseus.
 - For all of the above, essentially: figure out a reasonably sane way to build
   the lexc sources from other bits and pieces, some hand-written, some
@@ -20,3 +19,4 @@ Things TODO:
 - Ref. Dag, perhaps add section comparing the synchronous rules I have
   implemented with the actual diachronous developments of the morphology (see
   Meillet).
+- Comment and document the code.

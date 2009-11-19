@@ -3,7 +3,6 @@
 \usepackage[norsk]{babel}
 \usepackage{chicago}
 \usepackage[T1]{fontenc}
-\usepackage{footnote}
 \usepackage{multirow}
 
 \title{Latisk morfologi f\"ur idioten\footnote{\emph{ie}.~datamaskiner}}
@@ -12,11 +11,33 @@
 \begin{document}
 \maketitle
 
-\section{Substantivet}
-% TODO: Skrive dette avsnittet.
-Substantivmorfologien er forh\aa{}ldsvis enkel.
+\section{Generelt}
+Systemet er implementert med Xerox' verkt\o{}ykasse for toniv\aa{}morfologi.
+Dette er et sett med verkt\o{}y for \aa{} lage endelige tilstandsautomater og
+transducere. En ting som er ekstra nyttig i denne sammenhengen er at
+automatene laget med disse verkt\o{}yene kan kj\o{}res begge veier; det vil si
+at en morfologisk analysator automatisk ogs\aa{} er en generator, og omvendt.
+Systemet er skrevet som en generator, men det er verdt \aa{} huske at systemet
+ogs\aa{} kan fungere som en analysator.
+
+\section{Nominaler}
+Nominalmorfologien er forholdsvis enkel. For hvert ord legger vi ganske enkelt
+til den korrekte endelsen for rotens b\o{}yningskategori og den \o{}nskede
+formen. I tillegg kommer noen toniv\aa{}regler slik at r\o{}tter p\aa{}
+\emph{-er} kan h\aa{}ndteres regelrett og fortsatt f\aa{} bortfall av \emph{e}
+foran endelse.
+
+Dette inneb\ae{}rer at en vokal til slutt i b\o{}yningsroten som regel er
+overf\o{}rt til endelsene; p\aa{} denne m\aa{}ten slipper vi unna en del
+fonetiske regler for \aa{} h\aa{}ndtere den h\aa{}ndfullen tilfeller der
+stammevokalen faller bort, f.eks.~\emph{rosis} og \emph{fructibus}.
 
 \section{Verbet --- Leksikon}
+Tabell \ref{endelser} oppsummerer de eneste, nesten, verbalendelsene man
+trenger \aa{} kunne for \aa{} b\o{}ye latinske verb. I tillegg til tabellen
+kommer f\o{}rste person entall av presens indikativ som har et eget sett med
+endelser, \emph{--o} og \emph{--or} i henholdsvis aktiv og passiv, og en liten
+h\aa{}ndfull med idiosynkratiske endelser.
 
 \begin{table}[hp]
 \begin{center}
@@ -38,12 +59,6 @@ Substantivmorfologien er forh\aa{}ldsvis enkel.
 \end{center}
 \end{table}
 
-Tabell \ref{endelser} oppsummerer de eneste, nesten, verbalendelsene man
-trenger \aa{} kunne for \aa{} b\o{}ye latinske verb. I tillegg til tabellen
-kommer f\o{}rste person entall av presens indikativ som har et eget sett med
-endelser, \emph{--o} og \emph{--or} i henholdsvis aktiv og passiv, og en liten
-h\aa{}ndfull med idiosynkratiske endelser.
-
 En fullverdig latinsk verbform dannes ved at man tar korrekt form av verbet
 som b\o{}yes, legger til et suffiks som angir hvilken tid og modus vi befinner
 oss i, og riktig endelse fra tabellen. Tabell \ref{tempus} gir
@@ -57,7 +72,7 @@ suffikset.
     \hline
                   & Indikativ   & Konjunktiv \\
     \hline
-Presens           & $\emptyset$ & \emph{--e} (1), \emph{--a} (2, 3, 4) \\
+Presens           & $\emptyset$ & \emph{--e} (1), \emph{--a} (2--4) \\
 Imperfektum       & \emph{--ba} & \emph{--re} \\
 Futurum           & \emph{--b}\footnote{Med dette suffikset brukes presens
 indikativ-endelsene} (1, 2), \emph{--a} (3, 4) & --- \\

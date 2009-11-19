@@ -1,4 +1,4 @@
-Multichar_Symbols +Noun +Adj +Nom +Voc +Acc +Gen +Dat +Abl +Sg +Pl
+Multichar_Symbols +Noun +Adj +Adv +Nom +Voc +Acc +Gen +Dat +Abl +Sg +Pl
 
 ! Noun lexicon
 LEXICON Root
@@ -9,6 +9,7 @@ LEXICON Root
     Decl5 ;
     Adj ;
 
+! First declination: rosa.
 LEXICON Decl1
 rosa+Noun:ros D1 ;
 
@@ -30,10 +31,11 @@ LEXICON D1Endings
 +Dat+Pl:is # ;
 +Abl+Pl:is # ;
 
-! For nouns a la ager, agri, we might want to bring in twolc that remove the e
-! before endings, so that we can handle them like other D2 nouns...
+! Second declination: dominus, puer, bellum.
 LEXICON Decl2
 dominus+Noun:domin D2M ;
+puer+Noun:puer D2puer ;
+ager+Noun:ager D2puer ;
 bellum+Noun:bell D2N ;
 
 LEXICON D2M
@@ -44,31 +46,39 @@ LEXICON D2N
     D2EndingsN ;
     D2EndingsCommon ;
 
-LEXICON D2EndingsM
-+Nom+Sg:us # ;
-+Voc+Sg:e # ;
+LEXICON D2puer
++Nom+Sg:0 # ;
++Voc+Sg:0 # ;
+    D2EndingsCommonM ;
+    D2EndingsCommon ;
 
-+Nom+Pl:i # ;
-+Voc+Pl:i # ;
-+Acc+Pl:os # ;
+LEXICON D2EndingsM
++Nom+Sg:-us # ;
++Voc+Sg:-e # ;
+    D2EndingsCommonM ;
+
+LEXICON D2EndingsCommonM
++Nom+Pl:-i # ;
++Voc+Pl:-i # ;
++Acc+Pl:-os # ;
 
 LEXICON D2EndingsN
-+Nom+Sg:um # ;
-+Voc+Sg:um # ;
++Nom+Sg:-um # ;
++Voc+Sg:-um # ;
 
-+Nom+Pl:a # ;
-+Voc+Pl:a # ;
-+Acc+Pl:a # ;
++Nom+Pl:-a # ;
++Voc+Pl:-a # ;
++Acc+Pl:-a # ;
 
 LEXICON D2EndingsCommon
-+Acc+Sg:um # ;
-+Gen+Sg:i # ;
-+Dat+Sg:o # ;
-+Abl+Sg:o # ;
++Acc+Sg:-um # ;
++Gen+Sg:-i # ;
++Dat+Sg:-o # ;
++Abl+Sg:-o # ;
 
-+Gen+Pl:orum # ;
-+Dat+Pl:is # ;
-+Abl+Pl:is # ;
++Gen+Pl:-orum # ;
++Dat+Pl:-is # ;
++Abl+Pl:-is # ;
 
 ! TODO: ``3B'' declination (gen.pl. -ium)
 LEXICON Decl3
@@ -91,8 +101,7 @@ LEXICON D3EndingsMF
 +Acc+Pl:es # ;
 
 LEXICON D3EndingsNoneN
-+Nom+Sg:0 # ;
-+Voc+Sg:0 # ;
+    D3EndingsNoneMF ;
 +Acc+Sg:0 # ;
 
 LEXICON D3EndingsN
@@ -147,10 +156,17 @@ LEXICON D5Endings
 +Dat+Pl:bus # ;
 +Abl+Pl:bus # ;
 
+! Adjective lexicon.
+! TODO: Adverb derivation
 ! TODO: D3 adjectives.
 LEXICON Adj
 longus+Adj:long AdjStd ;
+acer+Adj:acer AdjCons3 ;
+brevis+Adj:brev AdjCons2 ;
+felix+Adj:felix AdjCons1None ;
+felix+Adj:felic AdjCons1 ;
 
+! ``Normal'' (that is, thematic) adjectives.
 LEXICON AdjStd
 +Pos:0 AdjStdPos ;
     AdjComp ;
@@ -161,15 +177,103 @@ LEXICON AdjStdPos
 +Fem:0 D1 ;
 +Neut:0 D2N ;
 
+LEXICON AdjCons3
++Pos+Masc:0 AdjCons23EndingsM ;
++Pos+Fem:0 AdjCons23EndingsF ;
++Pos+Neut:0 AdjCons3EndingsN ;
+    AdjComp ;
++Super:rim AdjStdPos ; ! No - to indicate morpheme boundary, so that the e isn't dropped.
+
+! Consonant root adjectives with two forms in the nom.sg.
+! XXX: I think this works. And even better, it's diachronically correct, if I read Ernout correctly.
+LEXICON AdjCons2
++Pos+Masc:0 AdjCons23EndingsF ; ! Conveniently enough the feminine endings in the 3-form adjectives are the mf endings in the 2-form ones. This fits diachronically as well.
++Pos+Fem:0 AdjCons23EndingsF ;
++Pos+Neut:0 AdjCons3EndingsN ;
+    AdjComp ;
+    AdjSuper ;
+
+! Consonant root adjectives with a single form in the nom.sg.
+LEXICON AdjCons1None
++Pos+Masc:0 AdjCons1NoneMF ;
++Pos+Fem:0 AdjCons1NoneMF ;
++Pos+Neut:0 AdjCons1NoneN ;
+
+LEXICON AdjCons1NoneMF
++Nom+Sg:0 # ;
++Voc+Sg:0 # ;
+
+LEXICON AdjCons1NoneN
+    AdjCons1NoneMF ;
++Acc+Sg:0 # ;
+
+LEXICON AdjCons1
++Pos+Masc:0 AdjConsEndingsMF ;
++Pos+Fem:0 AdjConsEndingsMF ;
++Pos+Neut:0 AdjConsEndingsN ;
+    AdjComp ;
+    AdjSuper ;
+
+! XXX: These endings are mostly duplicated from the D3 lexicons above. Try to
+! factor them together? Unfortunately, that means a bit of weird
+! special-casing, since the cases that need to be changed are abl.sg.,
+! gen.pl., and nom.voc.acc.pl.neut. Might be easier to do if I implemented the
+! securis and urbs declinations, which follow a similar pattern...
+LEXICON AdjCons23EndingsM
++Nom+Sg:0 # ;
++Voc+Sg:0 # ;
+    AdjConsEndingsMF ;
+
+LEXICON AdjCons23EndingsF
++Nom+Sg:-is # ;
++Voc+Sg:-is # ;
+    AdjConsEndingsMF ;
+
+LEXICON AdjConsEndingsMF
++Acc+Sg:-em # ;
+
++Nom+Pl:-es # ;
++Voc+Pl:-es # ;
++Acc+Pl:-es # ;
+    AdjConsEndingsCommon ;
+
+LEXICON AdjCons3EndingsN
++Nom+Sg:-e # ;
++Voc+Sg:-e # ;
++Acc+Sg:-e # ;
+    AdjConsEndingsN ;
+
+LEXICON AdjConsEndingsN
++Nom+Pl:-ia # ;
++Voc+Pl:-ia # ;
++Acc+Pl:-ia # ;
+    AdjConsEndingsCommon ;
+
+LEXICON AdjConsEndingsCommon
++Gen+Sg:-is # ;
++Dat+Sg:-i # ;
++Abl+Sg:-i # ;
+
++Gen+Pl:-ium # ;
++Dat+Pl:-ibus # ;
++Abl+Pl:-ibus # ;
+
+! Comparatives of adjectives.
 LEXICON AdjComp
-+Comp+Masc:ior AdjCompMF ;
-+Comp+Fem:ior AdjCompMF ;
-+Comp+Neut:ius D3EndingsNoneN ;
-+Comp+Neut:ior D3EndingsN ;
++Comp+Masc:-ior AdjCompMF ;
++Comp+Fem:-ior AdjCompMF ;
++Comp+Neut:-ius D3EndingsNoneN ;
++Comp+Neut:-ior D3EndingsN ;
 
 LEXICON AdjCompMF
     D3EndingsNoneMF ;
     D3EndingsMF ;
 
+! Superlatives of adjectives.
 LEXICON AdjSuper
 +Super:issim AdjStdPos ;
+
+! Adverbs derived from thematic adjectives.
+! TODO: This stuff. It'll require a refactor of how the +Adj tag is added in
+! the adjective code, so that we can use the same root to generate both
+! adjective and adverb forms.

@@ -1,2 +1,8 @@
+load stack nouns-twolc.fst
+define phon
+
 read lexc nouns-lexc.txt
+define lex
+
+read regex [ lex .o. phon ] ;
 save stack nouns.fst

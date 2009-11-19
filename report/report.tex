@@ -43,22 +43,6 @@ finne ut hvor kompliserte regler som trengtes. Etter dette var planen \aa{}
 implementere det som gjensto av de regelrette verbal-- og
 substantivparadigmene.
 
-%The plan of attack is as follows: first read up on the tools to be used and
-%the theory involved. Then, start with implementing a subset of verbal
-%morphology; this will probably be the active present system of regular verbs
-%of the first class, then the perfect system. Experiences from this should give
-%some ideas on how to structure different inflectional stems for a single
-%lexical entry, and from this it will hopefully be relatively easy to implement
-%regular nominal morphology. After this we may either proceed to pronominal or
-%adjectival morphology, or return to the verbal morpholgy and add more verb
-%classes, passives and non-finite forms of the verb.
-
-%Certain factors may alter this plan, however. The current corpus should be
-%consulted to generate statistics of which parts of the morphology are more
-%frequent and thus more likely to be useful to implement first. Also, the users
-%of the system should be asked about which parts they would prefer to be
-%implemented first.
-
 \subsection{Funksjonalitet}
 % TODO: Dette maa skrives naar systemet er ferdig(ere).
 
@@ -74,20 +58,13 @@ Selve analysatoren er skrevet med Xerox-verkt\o{}ykassen for endelig
 tilstandsmorfologi, dokumentert i \citeNP{xfst}; prosjektet benytter seg av
 \texttt{lexc} til leksikon og \texttt{twolc} for fonetiske regler.
 \texttt{lexc} spesifiserer regul\ae{}re relasjoner som h\o{}yrerekursive
-grammatikker (grammatikker der alle produksjonene er p\aa{} formen $A \to
-\alpha\ X$, der $\alpha$ er null eller flere terminaler og $X$ er en
-ikke-terminal). \texttt{twolc} spesifiserer relasjoner i form av tegn som er
+grammatikker og \texttt{twolc} spesifiserer relasjoner i form av tegn som er
 relatert, og i hvilke kontekster de kan, m\aa{} eller ikke kan opptre.
 
 Slik Xerox-verkt\o{}yene fungerer er prosjektet b\aa{}de en morfologisk
 analysator og generator, ettersom alle nettverkene som produseres kan
 kj\o{}res i begge retninger: b\aa{}de fra en leksikonform som
 \emph{amo+Verb+Pres+Subj+2S+Pass} og fra en overflateform som \emph{ameris}.
-
-%\begin{itemize}
-%    \item XFST \cite{xfst}
-%    \item Lewis and Short from Perseus for lexicon data? % TODO: Find reference
-%\end{itemize}
 
 \subsection{Nominalsystemet}
 Det viser seg at nominalmorfologien er enkel nok til at det holder \aa{} ha et
@@ -197,15 +174,15 @@ foran \emph{a} faller ogs\aa{} bort.
 bortfalt \emph{v} foran \emph{a}, eller foran \emph{i} og etter bortfalt
 \emph{v} foran \emph{i}, faller ogs\aa{} bort.
 
-%\paragraph{\texttt{}}
-%\paragraph{\texttt{}}
-%\paragraph{\texttt{}}
-%\paragraph{\texttt{}}
+\section{Synkroni vs.~diakroni}
+En morfologisk modell er synkron av natur, men det kan kan ogs\aa{} v\ae{}re
+interessant \aa{} se hvordan den synkrone modellen passer med den diakrone
+utviklingen av det morfologiske systemet.
 
 \section{Konklusjon} % TODO: Better title!
 
 \clearpage
-\bibliographystyle{chicago}
+\bibliographystyle{norchicago}
 \bibliography{report}{}
 
 \end{document}

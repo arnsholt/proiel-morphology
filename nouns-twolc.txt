@@ -1,0 +1,19 @@
+Alphabet a b c d e f g h i k l m n o p q r s t u v w x y z %-:0 ;
+
+Sets
+    V = a e i o u ;
+    C = b c d f g h k l m n p q r s t v w x y z ;
+
+Definitions
+    Cons = [ C | q u ] ;
+    ! Roots that keep the -er in oblique cases.
+    KeepRoot = [ p u |           ! puer
+                 g e n |         ! gener
+                 s o c |         ! socer
+                 l i b |         ! liberi
+                 v e s p |       ! vesper
+                 s i g n i f ] ; ! signifer
+
+Rules
+"-er to -r contraction"
+e:0 <=> .#. ~KeepRoot _ r %-: ;
