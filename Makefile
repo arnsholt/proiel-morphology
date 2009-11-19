@@ -1,3 +1,5 @@
+SHELL=/bin/bash
+
 .PHONY: test
 
 latin.fst: nouns.fst verbs.fst
