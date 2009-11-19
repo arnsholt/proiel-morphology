@@ -20,3 +20,7 @@ Things TODO:
   implemented with the actual diachronous developments of the morphology (see
   Meillet).
 - Comment and document the code.
+- Write tests. They should be structured as a lexicon form paired to a list of
+  correct forms. Testing should ensure that applying the lexicon form down
+  produces the exact list of forms. As many forms as possible should be
+  tested.
