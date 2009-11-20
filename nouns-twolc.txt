@@ -6,15 +6,15 @@ Sets
 
 Definitions
     Cons = [ C | q u ] ;
-    ! Roots that keep the -er in oblique cases.
-    KeepRoot = [ p u |           ! puer
-                 g e n |         ! gener
-                 s o c |         ! socer
-                 l i b |         ! liberi
-                 v e s p |       ! vesper
-                 s i g n i f ] ; ! signifer
+    !! Roots that keep the -er in oblique cases.
+    !KeepRoot = [ p u |           ! puer
+    !             g e n |         ! gener
+    !             s o c |         ! socer
+    !             l i b |         ! liberi
+    !             v e s p |       ! vesper
+    !             s i g n i f ] ; ! signifer
 
 Rules
 "-er to -r contraction"
-e:0 <=> .#. ~KeepRoot _ r %-: ;
-!E:0 <=> _ r %-: ;
+!e:0 <=> .#. ~KeepRoot _ r %-: ;
+E:0 <=> _ r %-: ;

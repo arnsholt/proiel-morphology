@@ -17,14 +17,15 @@ a:0 <=> _ %-: [ o | e ] ;
 "Short -i to -e before -r"
 I:e <=> _ %-: r ;
 
-"Loss of -I before present passive infinitive ending"
-I:0 <=> _ %-: i .#. ;
+"Loss of -I before present passive infinitive and first person imperative ending"
+I:0 <=> _ %-: [ i | e ] .#. ;
 
 "-i theme vowel between consonant and s, t and m"
 %-:i <=> Cons _ [ s | t | m ] ;
 
 "-u theme vowel between consonant and n"
-%-:u <=> [ Cons | ~r :i ] _ n ;
+!%-:u <=> [ Cons | ~[ %-: e r ] :i ] _ n ;
+%-:u <=> [ Cons | \%-: \e \r :i | .#. (i^1,2) :i ] _ n ; ! This works. It's ugly as sin, but it works.
 
 ! This rule has to be refined. First of all, it's possible for verbs ending in
 ! -e to have perfect stem -ev. Second, it's a bit more complicated than what
@@ -37,7 +38,7 @@ v:0 => a _ %-: [ i: | e: ] [ s | r ] ;
 
 ! TODO: This rule has to be extended to remove all illegal forms.
 "Stop -v syncope when it would cause confusion with other forms"
-v:0 /<= a _ %-: ? r e .#. ;
+v:0 /<= [ a | i ] _ %-: ? r e .#. ;
 
 "Weird perfects, -i loss"
 i:0 <=> a v:0 %-: _ ;

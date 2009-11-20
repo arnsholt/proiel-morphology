@@ -1,9 +1,9 @@
-#!/local/bin/python
+#!/usr/bin/python
 
 from morph import *
 from TAP.Simple import *
 
-plan(213)
+plan(236)
 
 test_hash('amo+Verb', {
     '+Pres+Ind': {
@@ -116,4 +116,21 @@ test_hash('amo+Verb', {
         '+2P+Act': ['amaveritis','amaritis'],
         '+3P+Act': ['amaverint', 'amarint'],
     },
+    '+Pres+Impv': {
+        '+2S+Act' : ['ama'],
+        '+2P+Act' : ['amate'],
+        '+2S+Pass': ['amare'],
+        '+2P+Pass': ['amamini'],
+    },
+    '+Fut+Impv': {
+        '+2S+Act': ['amato'],
+        '+3S+Act': ['amato'],
+        '+2P+Act': ['amatote'],
+        '+3P+Act': ['amanto'],
+    },
+    '+Inf': {
+        '+Pres+Act': ['amare'],
+        '+Pres+Pass': ['amari'],
+        '+Perf+Act': ['amavisse', 'amasse'],
+    }
 })

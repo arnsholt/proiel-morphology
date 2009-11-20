@@ -1,4 +1,4 @@
-#!/local/bin/python
+#!/usr/bin/python
 
 from morph import *
 from TAP.Simple import *

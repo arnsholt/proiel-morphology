@@ -215,10 +215,10 @@ LEXICON CommonImpv
 +Pres+Impv+2P+Act:-te # ;
     C14ImpvPass ;
 
-+Fut+Impv+2S+Act:to # ;
-+Fut+Impv+3S+Act:to # ;
-+Fut+Impv+2P+Act:tote # ;
-+Fut+Impv+3P+Act:nto # ;
++Fut+Impv+2S+Act:-to # ;
++Fut+Impv+3S+Act:-to # ;
++Fut+Impv+2P+Act:-tote # ;
++Fut+Impv+3P+Act:-nto # ;
 
 ! Passive imperatives. Factored out to make room for deponents.
 LEXICON C14ImpvPass
