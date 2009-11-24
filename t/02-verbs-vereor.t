@@ -3,7 +3,7 @@
 from morph import *
 from TAP.Simple import *
 
-plan(71)
+plan(374)
 
 test_hash('vereor+Verb+Dep', {
     '+Pres+Ind': {
@@ -52,5 +52,204 @@ test_hash('vereor+Verb+Dep', {
     },
     '+Inf': {
         '+Pres+Pass': ['vereri'],
-    }
+    },
+    '+Part': {
+        '+Pres': {
+            '+Masc': {
+                '+Nom+Sg': ['verens'],
+                '+Voc+Sg': ['verens'],
+                '+Acc+Sg': ['verentem'],
+                '+Gen+Sg': ['verentis'],
+                '+Dat+Sg': ['verenti'],
+                '+Abl+Sg': ['verenti', 'verente'],
+
+                '+Nom+Pl': ['verentes'],
+                '+Voc+Pl': ['verentes'],
+                '+Acc+Pl': ['verentes'],
+                '+Gen+Pl': ['verentium'],
+                '+Dat+Pl': ['verentibus'],
+                '+Abl+Pl': ['verentibus'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['verens'],
+                '+Voc+Sg': ['verens'],
+                '+Acc+Sg': ['verentem'],
+                '+Gen+Sg': ['verentis'],
+                '+Dat+Sg': ['verenti'],
+                '+Abl+Sg': ['verenti', 'verente'],
+
+                '+Nom+Pl': ['verentes'],
+                '+Voc+Pl': ['verentes'],
+                '+Acc+Pl': ['verentes'],
+                '+Gen+Pl': ['verentium'],
+                '+Dat+Pl': ['verentibus'],
+                '+Abl+Pl': ['verentibus'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['verens'],
+                '+Voc+Sg': ['verens'],
+                '+Acc+Sg': ['verens'],
+                '+Gen+Sg': ['verentis'],
+                '+Dat+Sg': ['verenti'],
+                '+Abl+Sg': ['verenti', 'verente'],
+
+                '+Nom+Pl': ['verentia'],
+                '+Voc+Pl': ['verentia'],
+                '+Acc+Pl': ['verentia'],
+                '+Gen+Pl': ['verentium'],
+                '+Dat+Pl': ['verentibus'],
+                '+Abl+Pl': ['verentibus'],
+            },
+        },
+        '+Perf': {
+            '+Masc': {
+                '+Nom+Sg': ['veritus'],
+                '+Voc+Sg': ['verite'],
+                '+Acc+Sg': ['veritum'],
+                '+Gen+Sg': ['veriti'],
+                '+Dat+Sg': ['verito'],
+                '+Abl+Sg': ['verito'],
+
+                '+Nom+Pl': ['veriti'],
+                '+Voc+Pl': ['veriti'],
+                '+Acc+Pl': ['veritos'],
+                '+Gen+Pl': ['veritorum'],
+                '+Dat+Pl': ['veritis'],
+                '+Abl+Pl': ['veritis'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['verita'],
+                '+Voc+Sg': ['verita'],
+                '+Acc+Sg': ['veritam'],
+                '+Gen+Sg': ['veritae'],
+                '+Dat+Sg': ['veritae'],
+                '+Abl+Sg': ['verita'],
+
+                '+Nom+Pl': ['veritae'],
+                '+Voc+Pl': ['veritae'],
+                '+Acc+Pl': ['veritas'],
+                '+Gen+Pl': ['veritarum'],
+                '+Dat+Pl': ['veritis'],
+                '+Abl+Pl': ['veritis'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['veritum'],
+                '+Voc+Sg': ['veritum'],
+                '+Acc+Sg': ['veritum'],
+                '+Gen+Sg': ['veriti'],
+                '+Dat+Sg': ['verito'],
+                '+Abl+Sg': ['verito'],
+
+                '+Nom+Pl': ['verita'],
+                '+Voc+Pl': ['verita'],
+                '+Acc+Pl': ['verita'],
+                '+Gen+Pl': ['veritorum'],
+                '+Dat+Pl': ['veritis'],
+                '+Abl+Pl': ['veritis'],
+            },
+        },
+        '+Fut': {
+            '+Masc': {
+                '+Nom+Sg': ['veriturus'],
+                '+Voc+Sg': ['veriture'],
+                '+Acc+Sg': ['veriturum'],
+                '+Gen+Sg': ['verituri'],
+                '+Dat+Sg': ['verituro'],
+                '+Abl+Sg': ['verituro'],
+
+                '+Nom+Pl': ['verituri'],
+                '+Voc+Pl': ['verituri'],
+                '+Acc+Pl': ['verituros'],
+                '+Gen+Pl': ['veriturorum'],
+                '+Dat+Pl': ['verituris'],
+                '+Abl+Pl': ['verituris'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['veritura'],
+                '+Voc+Sg': ['veritura'],
+                '+Acc+Sg': ['verituram'],
+                '+Gen+Sg': ['veriturae'],
+                '+Dat+Sg': ['veriturae'],
+                '+Abl+Sg': ['veritura'],
+
+                '+Nom+Pl': ['veriturae'],
+                '+Voc+Pl': ['veriturae'],
+                '+Acc+Pl': ['verituras'],
+                '+Gen+Pl': ['veriturarum'],
+                '+Dat+Pl': ['verituris'],
+                '+Abl+Pl': ['verituris'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['veriturum'],
+                '+Voc+Sg': ['veriturum'],
+                '+Acc+Sg': ['veriturum'],
+                '+Gen+Sg': ['verituri'],
+                '+Dat+Sg': ['verituro'],
+                '+Abl+Sg': ['verituro'],
+
+                '+Nom+Pl': ['veritura'],
+                '+Voc+Pl': ['veritura'],
+                '+Acc+Pl': ['veritura'],
+                '+Gen+Pl': ['veriturorum'],
+                '+Dat+Pl': ['verituris'],
+                '+Abl+Pl': ['verituris'],
+            },
+        },
+    },
+    '+Ger': {
+        '+Acc': ['verendum'],
+        '+Gen': ['verendi'],
+        '+Dat': ['verendo'],
+        '+Abl': ['verendo'],
+    },
+    '+Gerv': {
+        '+Masc': {
+            '+Nom+Sg': ['verendus'],
+            '+Voc+Sg': ['verende'],
+            '+Acc+Sg': ['verendum'],
+            '+Gen+Sg': ['verendi'],
+            '+Dat+Sg': ['verendo'],
+            '+Abl+Sg': ['verendo'],
+
+            '+Nom+Pl': ['verendi'],
+            '+Voc+Pl': ['verendi'],
+            '+Acc+Pl': ['verendos'],
+            '+Gen+Pl': ['verendorum'],
+            '+Dat+Pl': ['verendis'],
+            '+Abl+Pl': ['verendis'],
+        },
+        '+Fem': {
+            '+Nom+Sg': ['verenda'],
+            '+Voc+Sg': ['verenda'],
+            '+Acc+Sg': ['verendam'],
+            '+Gen+Sg': ['verendae'],
+            '+Dat+Sg': ['verendae'],
+            '+Abl+Sg': ['verenda'],
+
+            '+Nom+Pl': ['verendae'],
+            '+Voc+Pl': ['verendae'],
+            '+Acc+Pl': ['verendas'],
+            '+Gen+Pl': ['verendarum'],
+            '+Dat+Pl': ['verendis'],
+            '+Abl+Pl': ['verendis'],
+        },
+        '+Neut': {
+            '+Nom+Sg': ['verendum'],
+            '+Voc+Sg': ['verendum'],
+            '+Acc+Sg': ['verendum'],
+            '+Gen+Sg': ['verendi'],
+            '+Dat+Sg': ['verendo'],
+            '+Abl+Sg': ['verendo'],
+
+            '+Nom+Pl': ['verenda'],
+            '+Voc+Pl': ['verenda'],
+            '+Acc+Pl': ['verenda'],
+            '+Gen+Pl': ['verendorum'],
+            '+Dat+Pl': ['verendis'],
+            '+Abl+Pl': ['verendis'],
+        },
+    },
+    '+SupI': ['veritum'],
+    '+SupII': ['veritu'],
 })
+diag("%d" % Morph.formcount)

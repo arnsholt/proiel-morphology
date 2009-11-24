@@ -3,7 +3,7 @@
 from morph import *
 from TAP.Simple import *
 
-plan(71)
+plan(374)
 
 test_hash('sequor+Verb+Dep', {
     '+Pres+Ind': {
@@ -52,5 +52,204 @@ test_hash('sequor+Verb+Dep', {
     },
     '+Inf': {
         '+Pres+Pass': ['sequi'],
-    }
+    },
+    '+Part': {
+        '+Pres': {
+            '+Masc': {
+                '+Nom+Sg': ['sequens'],
+                '+Voc+Sg': ['sequens'],
+                '+Acc+Sg': ['sequentem'],
+                '+Gen+Sg': ['sequentis'],
+                '+Dat+Sg': ['sequenti'],
+                '+Abl+Sg': ['sequenti', 'sequente'],
+
+                '+Nom+Pl': ['sequentes'],
+                '+Voc+Pl': ['sequentes'],
+                '+Acc+Pl': ['sequentes'],
+                '+Gen+Pl': ['sequentium'],
+                '+Dat+Pl': ['sequentibus'],
+                '+Abl+Pl': ['sequentibus'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['sequens'],
+                '+Voc+Sg': ['sequens'],
+                '+Acc+Sg': ['sequentem'],
+                '+Gen+Sg': ['sequentis'],
+                '+Dat+Sg': ['sequenti'],
+                '+Abl+Sg': ['sequenti', 'sequente'],
+
+                '+Nom+Pl': ['sequentes'],
+                '+Voc+Pl': ['sequentes'],
+                '+Acc+Pl': ['sequentes'],
+                '+Gen+Pl': ['sequentium'],
+                '+Dat+Pl': ['sequentibus'],
+                '+Abl+Pl': ['sequentibus'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['sequens'],
+                '+Voc+Sg': ['sequens'],
+                '+Acc+Sg': ['sequens'],
+                '+Gen+Sg': ['sequentis'],
+                '+Dat+Sg': ['sequenti'],
+                '+Abl+Sg': ['sequenti', 'sequente'],
+
+                '+Nom+Pl': ['sequentia'],
+                '+Voc+Pl': ['sequentia'],
+                '+Acc+Pl': ['sequentia'],
+                '+Gen+Pl': ['sequentium'],
+                '+Dat+Pl': ['sequentibus'],
+                '+Abl+Pl': ['sequentibus'],
+            },
+        },
+        '+Perf': {
+            '+Masc': {
+                '+Nom+Sg': ['secutus'],
+                '+Voc+Sg': ['secute'],
+                '+Acc+Sg': ['secutum'],
+                '+Gen+Sg': ['secuti'],
+                '+Dat+Sg': ['secuto'],
+                '+Abl+Sg': ['secuto'],
+
+                '+Nom+Pl': ['secuti'],
+                '+Voc+Pl': ['secuti'],
+                '+Acc+Pl': ['secutos'],
+                '+Gen+Pl': ['secutorum'],
+                '+Dat+Pl': ['secutis'],
+                '+Abl+Pl': ['secutis'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['secuta'],
+                '+Voc+Sg': ['secuta'],
+                '+Acc+Sg': ['secutam'],
+                '+Gen+Sg': ['secutae'],
+                '+Dat+Sg': ['secutae'],
+                '+Abl+Sg': ['secuta'],
+
+                '+Nom+Pl': ['secutae'],
+                '+Voc+Pl': ['secutae'],
+                '+Acc+Pl': ['secutas'],
+                '+Gen+Pl': ['secutarum'],
+                '+Dat+Pl': ['secutis'],
+                '+Abl+Pl': ['secutis'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['secutum'],
+                '+Voc+Sg': ['secutum'],
+                '+Acc+Sg': ['secutum'],
+                '+Gen+Sg': ['secuti'],
+                '+Dat+Sg': ['secuto'],
+                '+Abl+Sg': ['secuto'],
+
+                '+Nom+Pl': ['secuta'],
+                '+Voc+Pl': ['secuta'],
+                '+Acc+Pl': ['secuta'],
+                '+Gen+Pl': ['secutorum'],
+                '+Dat+Pl': ['secutis'],
+                '+Abl+Pl': ['secutis'],
+            },
+        },
+        '+Fut': {
+            '+Masc': {
+                '+Nom+Sg': ['secuturus'],
+                '+Voc+Sg': ['secuture'],
+                '+Acc+Sg': ['secuturum'],
+                '+Gen+Sg': ['secuturi'],
+                '+Dat+Sg': ['secuturo'],
+                '+Abl+Sg': ['secuturo'],
+
+                '+Nom+Pl': ['secuturi'],
+                '+Voc+Pl': ['secuturi'],
+                '+Acc+Pl': ['secuturos'],
+                '+Gen+Pl': ['secuturorum'],
+                '+Dat+Pl': ['secuturis'],
+                '+Abl+Pl': ['secuturis'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['secutura'],
+                '+Voc+Sg': ['secutura'],
+                '+Acc+Sg': ['secuturam'],
+                '+Gen+Sg': ['secuturae'],
+                '+Dat+Sg': ['secuturae'],
+                '+Abl+Sg': ['secutura'],
+
+                '+Nom+Pl': ['secuturae'],
+                '+Voc+Pl': ['secuturae'],
+                '+Acc+Pl': ['secuturas'],
+                '+Gen+Pl': ['secuturarum'],
+                '+Dat+Pl': ['secuturis'],
+                '+Abl+Pl': ['secuturis'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['secuturum'],
+                '+Voc+Sg': ['secuturum'],
+                '+Acc+Sg': ['secuturum'],
+                '+Gen+Sg': ['secuturi'],
+                '+Dat+Sg': ['secuturo'],
+                '+Abl+Sg': ['secuturo'],
+
+                '+Nom+Pl': ['secutura'],
+                '+Voc+Pl': ['secutura'],
+                '+Acc+Pl': ['secutura'],
+                '+Gen+Pl': ['secuturorum'],
+                '+Dat+Pl': ['secuturis'],
+                '+Abl+Pl': ['secuturis'],
+            },
+        },
+    },
+    '+Ger': {
+        '+Acc': ['sequendum'],
+        '+Gen': ['sequendi'],
+        '+Dat': ['sequendo'],
+        '+Abl': ['sequendo'],
+    },
+    '+Gerv': {
+        '+Masc': {
+            '+Nom+Sg': ['sequendus'],
+            '+Voc+Sg': ['sequende'],
+            '+Acc+Sg': ['sequendum'],
+            '+Gen+Sg': ['sequendi'],
+            '+Dat+Sg': ['sequendo'],
+            '+Abl+Sg': ['sequendo'],
+
+            '+Nom+Pl': ['sequendi'],
+            '+Voc+Pl': ['sequendi'],
+            '+Acc+Pl': ['sequendos'],
+            '+Gen+Pl': ['sequendorum'],
+            '+Dat+Pl': ['sequendis'],
+            '+Abl+Pl': ['sequendis'],
+        },
+        '+Fem': {
+            '+Nom+Sg': ['sequenda'],
+            '+Voc+Sg': ['sequenda'],
+            '+Acc+Sg': ['sequendam'],
+            '+Gen+Sg': ['sequendae'],
+            '+Dat+Sg': ['sequendae'],
+            '+Abl+Sg': ['sequenda'],
+
+            '+Nom+Pl': ['sequendae'],
+            '+Voc+Pl': ['sequendae'],
+            '+Acc+Pl': ['sequendas'],
+            '+Gen+Pl': ['sequendarum'],
+            '+Dat+Pl': ['sequendis'],
+            '+Abl+Pl': ['sequendis'],
+        },
+        '+Neut': {
+            '+Nom+Sg': ['sequendum'],
+            '+Voc+Sg': ['sequendum'],
+            '+Acc+Sg': ['sequendum'],
+            '+Gen+Sg': ['sequendi'],
+            '+Dat+Sg': ['sequendo'],
+            '+Abl+Sg': ['sequendo'],
+
+            '+Nom+Pl': ['sequenda'],
+            '+Voc+Pl': ['sequenda'],
+            '+Acc+Pl': ['sequenda'],
+            '+Gen+Pl': ['sequendorum'],
+            '+Dat+Pl': ['sequendis'],
+            '+Abl+Pl': ['sequendis'],
+        },
+    },
+    '+SupI': ['secutum'],
+    '+SupII': ['secutu'],
 })
+diag("%d" % Morph.formcount)

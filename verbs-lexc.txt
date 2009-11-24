@@ -1,9 +1,20 @@
+!Multichar_Symbols +Noun +Adj +Adv +Nom +Voc +Acc +Gen +Dat +Abl +Sg +Pl +Masc +Fem +Neut +Pos +Comp +Super +Verb +Part +Pres +Perf +Fut
+!    +Verb +Dep
+!    +1S +2S +3S +1P +2P +3P ! Persons
+!    +Pres +Fut +Impf ! Tempora
+!    +Ind +Impv +Subj ! Modi
+!    +Inf
+!    +Act +Pass ! Voices
 Multichar_Symbols
-    +Verb +Dep
+    +Noun +Adj +Adv +Verb ! Word classes
+    +Nom +Voc +Acc +Gen +Dat +Abl ! Cases
+    +Sg +Pl ! Numbers
+    +Masc +Fem +Neut ! Genders
+    +Pos +Comp +Super ! Comparison grades
+    +Part +Dep ! Misc. verb stuff
     +1S +2S +3S +1P +2P +3P ! Persons
-    +Pres +Fut +Impf ! Tempora
-    +Ind +Impv +Subj ! Modi
-    +Inf
+    +Pres +Perf +Fut +Impf ! Tempora
+    +Ind +Impv +Subj +Inf ! Modi
     +Act +Pass ! Voices
 
 ! Verb lexicon
@@ -78,6 +89,7 @@ rego+Verb:rex C14PerfSystem ;
 capio+Verb:capI C3Pres ;
 capio+Verb:cep C14PerfSystem ;
 sequor+Verb+Dep:sequ C3PresDep ;
+patior+Verb+Dep:patI C3PresDep ;
 
 LEXICON C3Pres
     C14Pres ;

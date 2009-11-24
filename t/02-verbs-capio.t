@@ -3,7 +3,7 @@
 from morph import *
 from TAP.Simple import *
 
-plan(208)
+plan(511)
 
 test_hash('capio+Verb', {
     '+Pres+Ind': {
@@ -132,5 +132,204 @@ test_hash('capio+Verb', {
         '+Pres+Act': ['capere'],
         '+Pres+Pass': ['capi'],
         '+Perf+Act': ['cepisse'],
-    }
+    },
+    '+Part': {
+        '+Pres': {
+            '+Masc': {
+                '+Nom+Sg': ['capiens'],
+                '+Voc+Sg': ['capiens'],
+                '+Acc+Sg': ['capientem'],
+                '+Gen+Sg': ['capientis'],
+                '+Dat+Sg': ['capienti'],
+                '+Abl+Sg': ['capienti', 'capiente'],
+
+                '+Nom+Pl': ['capientes'],
+                '+Voc+Pl': ['capientes'],
+                '+Acc+Pl': ['capientes'],
+                '+Gen+Pl': ['capientium'],
+                '+Dat+Pl': ['capientibus'],
+                '+Abl+Pl': ['capientibus'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['capiens'],
+                '+Voc+Sg': ['capiens'],
+                '+Acc+Sg': ['capientem'],
+                '+Gen+Sg': ['capientis'],
+                '+Dat+Sg': ['capienti'],
+                '+Abl+Sg': ['capienti', 'capiente'],
+
+                '+Nom+Pl': ['capientes'],
+                '+Voc+Pl': ['capientes'],
+                '+Acc+Pl': ['capientes'],
+                '+Gen+Pl': ['capientium'],
+                '+Dat+Pl': ['capientibus'],
+                '+Abl+Pl': ['capientibus'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['capiens'],
+                '+Voc+Sg': ['capiens'],
+                '+Acc+Sg': ['capiens'],
+                '+Gen+Sg': ['capientis'],
+                '+Dat+Sg': ['capienti'],
+                '+Abl+Sg': ['capienti', 'capiente'],
+
+                '+Nom+Pl': ['capientia'],
+                '+Voc+Pl': ['capientia'],
+                '+Acc+Pl': ['capientia'],
+                '+Gen+Pl': ['capientium'],
+                '+Dat+Pl': ['capientibus'],
+                '+Abl+Pl': ['capientibus'],
+            },
+        },
+        '+Perf': {
+            '+Masc': {
+                '+Nom+Sg': ['captus'],
+                '+Voc+Sg': ['capte'],
+                '+Acc+Sg': ['captum'],
+                '+Gen+Sg': ['capti'],
+                '+Dat+Sg': ['capto'],
+                '+Abl+Sg': ['capto'],
+
+                '+Nom+Pl': ['capti'],
+                '+Voc+Pl': ['capti'],
+                '+Acc+Pl': ['captos'],
+                '+Gen+Pl': ['captorum'],
+                '+Dat+Pl': ['captis'],
+                '+Abl+Pl': ['captis'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['capta'],
+                '+Voc+Sg': ['capta'],
+                '+Acc+Sg': ['captam'],
+                '+Gen+Sg': ['captae'],
+                '+Dat+Sg': ['captae'],
+                '+Abl+Sg': ['capta'],
+
+                '+Nom+Pl': ['captae'],
+                '+Voc+Pl': ['captae'],
+                '+Acc+Pl': ['captas'],
+                '+Gen+Pl': ['captarum'],
+                '+Dat+Pl': ['captis'],
+                '+Abl+Pl': ['captis'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['captum'],
+                '+Voc+Sg': ['captum'],
+                '+Acc+Sg': ['captum'],
+                '+Gen+Sg': ['capti'],
+                '+Dat+Sg': ['capto'],
+                '+Abl+Sg': ['capto'],
+
+                '+Nom+Pl': ['capta'],
+                '+Voc+Pl': ['capta'],
+                '+Acc+Pl': ['capta'],
+                '+Gen+Pl': ['captorum'],
+                '+Dat+Pl': ['captis'],
+                '+Abl+Pl': ['captis'],
+            },
+        },
+        '+Fut': {
+            '+Masc': {
+                '+Nom+Sg': ['capturus'],
+                '+Voc+Sg': ['capture'],
+                '+Acc+Sg': ['capturum'],
+                '+Gen+Sg': ['capturi'],
+                '+Dat+Sg': ['capturo'],
+                '+Abl+Sg': ['capturo'],
+
+                '+Nom+Pl': ['capturi'],
+                '+Voc+Pl': ['capturi'],
+                '+Acc+Pl': ['capturos'],
+                '+Gen+Pl': ['capturorum'],
+                '+Dat+Pl': ['capturis'],
+                '+Abl+Pl': ['capturis'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['captura'],
+                '+Voc+Sg': ['captura'],
+                '+Acc+Sg': ['capturam'],
+                '+Gen+Sg': ['capturae'],
+                '+Dat+Sg': ['capturae'],
+                '+Abl+Sg': ['captura'],
+
+                '+Nom+Pl': ['capturae'],
+                '+Voc+Pl': ['capturae'],
+                '+Acc+Pl': ['capturas'],
+                '+Gen+Pl': ['capturarum'],
+                '+Dat+Pl': ['capturis'],
+                '+Abl+Pl': ['capturis'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['capturum'],
+                '+Voc+Sg': ['capturum'],
+                '+Acc+Sg': ['capturum'],
+                '+Gen+Sg': ['capturi'],
+                '+Dat+Sg': ['capturo'],
+                '+Abl+Sg': ['capturo'],
+
+                '+Nom+Pl': ['captura'],
+                '+Voc+Pl': ['captura'],
+                '+Acc+Pl': ['captura'],
+                '+Gen+Pl': ['capturorum'],
+                '+Dat+Pl': ['capturis'],
+                '+Abl+Pl': ['capturis'],
+            },
+        },
+    },
+    '+Ger': {
+        '+Acc': ['capiendum'],
+        '+Gen': ['capiendi'],
+        '+Dat': ['capiendo'],
+        '+Abl': ['capiendo'],
+    },
+    '+Gerv': {
+        '+Masc': {
+            '+Nom+Sg': ['capiendus'],
+            '+Voc+Sg': ['capiende'],
+            '+Acc+Sg': ['capiendum'],
+            '+Gen+Sg': ['capiendi'],
+            '+Dat+Sg': ['capiendo'],
+            '+Abl+Sg': ['capiendo'],
+
+            '+Nom+Pl': ['capiendi'],
+            '+Voc+Pl': ['capiendi'],
+            '+Acc+Pl': ['capiendos'],
+            '+Gen+Pl': ['capiendorum'],
+            '+Dat+Pl': ['capiendis'],
+            '+Abl+Pl': ['capiendis'],
+        },
+        '+Fem': {
+            '+Nom+Sg': ['capienda'],
+            '+Voc+Sg': ['capienda'],
+            '+Acc+Sg': ['capiendam'],
+            '+Gen+Sg': ['capiendae'],
+            '+Dat+Sg': ['capiendae'],
+            '+Abl+Sg': ['capienda'],
+
+            '+Nom+Pl': ['capiendae'],
+            '+Voc+Pl': ['capiendae'],
+            '+Acc+Pl': ['capiendas'],
+            '+Gen+Pl': ['capiendarum'],
+            '+Dat+Pl': ['capiendis'],
+            '+Abl+Pl': ['capiendis'],
+        },
+        '+Neut': {
+            '+Nom+Sg': ['capiendum'],
+            '+Voc+Sg': ['capiendum'],
+            '+Acc+Sg': ['capiendum'],
+            '+Gen+Sg': ['capiendi'],
+            '+Dat+Sg': ['capiendo'],
+            '+Abl+Sg': ['capiendo'],
+
+            '+Nom+Pl': ['capienda'],
+            '+Voc+Pl': ['capienda'],
+            '+Acc+Pl': ['capienda'],
+            '+Gen+Pl': ['capiendorum'],
+            '+Dat+Pl': ['capiendis'],
+            '+Abl+Pl': ['capiendis'],
+        },
+    },
+    '+SupI': ['captum'],
+    '+SupII': ['captu'],
 })
+diag("%d" % Morph.formcount)

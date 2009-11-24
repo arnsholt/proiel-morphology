@@ -38,7 +38,7 @@ v:0 => a _ %-: [ i: | e: ] [ s | r ] ;
 
 ! TODO: This rule has to be extended to remove all illegal forms.
 "Stop -v syncope when it would cause confusion with other forms"
-v:0 /<= [ a | i ] _ %-: ? r e .#. ;
+v:0 /<= a _ %-: ? r e .#. ;
 
 "Weird perfects, -i loss"
 i:0 <=> a v:0 %-: _ ;

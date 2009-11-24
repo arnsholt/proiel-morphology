@@ -3,7 +3,7 @@
 from morph import *
 from TAP.Simple import *
 
-plan(208)
+plan(511)
 
 test_hash('moneo+Verb', {
     '+Pres+Ind': {
@@ -132,5 +132,204 @@ test_hash('moneo+Verb', {
         '+Pres+Act': ['monere'],
         '+Pres+Pass': ['moneri'],
         '+Perf+Act': ['monuisse'],
-    }
+    },
+    '+Part': {
+        '+Pres': {
+            '+Masc': {
+                '+Nom+Sg': ['monens'],
+                '+Voc+Sg': ['monens'],
+                '+Acc+Sg': ['monentem'],
+                '+Gen+Sg': ['monentis'],
+                '+Dat+Sg': ['monenti'],
+                '+Abl+Sg': ['monenti', 'monente'],
+
+                '+Nom+Pl': ['monentes'],
+                '+Voc+Pl': ['monentes'],
+                '+Acc+Pl': ['monentes'],
+                '+Gen+Pl': ['monentium'],
+                '+Dat+Pl': ['monentibus'],
+                '+Abl+Pl': ['monentibus'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['monens'],
+                '+Voc+Sg': ['monens'],
+                '+Acc+Sg': ['monentem'],
+                '+Gen+Sg': ['monentis'],
+                '+Dat+Sg': ['monenti'],
+                '+Abl+Sg': ['monenti', 'monente'],
+
+                '+Nom+Pl': ['monentes'],
+                '+Voc+Pl': ['monentes'],
+                '+Acc+Pl': ['monentes'],
+                '+Gen+Pl': ['monentium'],
+                '+Dat+Pl': ['monentibus'],
+                '+Abl+Pl': ['monentibus'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['monens'],
+                '+Voc+Sg': ['monens'],
+                '+Acc+Sg': ['monens'],
+                '+Gen+Sg': ['monentis'],
+                '+Dat+Sg': ['monenti'],
+                '+Abl+Sg': ['monenti', 'monente'],
+
+                '+Nom+Pl': ['monentia'],
+                '+Voc+Pl': ['monentia'],
+                '+Acc+Pl': ['monentia'],
+                '+Gen+Pl': ['monentium'],
+                '+Dat+Pl': ['monentibus'],
+                '+Abl+Pl': ['monentibus'],
+            },
+        },
+        '+Perf': {
+            '+Masc': {
+                '+Nom+Sg': ['monitus'],
+                '+Voc+Sg': ['monite'],
+                '+Acc+Sg': ['monitum'],
+                '+Gen+Sg': ['moniti'],
+                '+Dat+Sg': ['monito'],
+                '+Abl+Sg': ['monito'],
+
+                '+Nom+Pl': ['moniti'],
+                '+Voc+Pl': ['moniti'],
+                '+Acc+Pl': ['monitos'],
+                '+Gen+Pl': ['monitorum'],
+                '+Dat+Pl': ['monitis'],
+                '+Abl+Pl': ['monitis'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['monita'],
+                '+Voc+Sg': ['monita'],
+                '+Acc+Sg': ['monitam'],
+                '+Gen+Sg': ['monitae'],
+                '+Dat+Sg': ['monitae'],
+                '+Abl+Sg': ['monita'],
+
+                '+Nom+Pl': ['monitae'],
+                '+Voc+Pl': ['monitae'],
+                '+Acc+Pl': ['monitas'],
+                '+Gen+Pl': ['monitarum'],
+                '+Dat+Pl': ['monitis'],
+                '+Abl+Pl': ['monitis'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['monitum'],
+                '+Voc+Sg': ['monitum'],
+                '+Acc+Sg': ['monitum'],
+                '+Gen+Sg': ['moniti'],
+                '+Dat+Sg': ['monito'],
+                '+Abl+Sg': ['monito'],
+
+                '+Nom+Pl': ['monita'],
+                '+Voc+Pl': ['monita'],
+                '+Acc+Pl': ['monita'],
+                '+Gen+Pl': ['monitorum'],
+                '+Dat+Pl': ['monitis'],
+                '+Abl+Pl': ['monitis'],
+            },
+        },
+        '+Fut': {
+            '+Masc': {
+                '+Nom+Sg': ['moniturus'],
+                '+Voc+Sg': ['moniture'],
+                '+Acc+Sg': ['moniturum'],
+                '+Gen+Sg': ['monituri'],
+                '+Dat+Sg': ['monituro'],
+                '+Abl+Sg': ['monituro'],
+
+                '+Nom+Pl': ['monituri'],
+                '+Voc+Pl': ['monituri'],
+                '+Acc+Pl': ['monituros'],
+                '+Gen+Pl': ['moniturorum'],
+                '+Dat+Pl': ['monituris'],
+                '+Abl+Pl': ['monituris'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['monitura'],
+                '+Voc+Sg': ['monitura'],
+                '+Acc+Sg': ['monituram'],
+                '+Gen+Sg': ['moniturae'],
+                '+Dat+Sg': ['moniturae'],
+                '+Abl+Sg': ['monitura'],
+
+                '+Nom+Pl': ['moniturae'],
+                '+Voc+Pl': ['moniturae'],
+                '+Acc+Pl': ['monituras'],
+                '+Gen+Pl': ['moniturarum'],
+                '+Dat+Pl': ['monituris'],
+                '+Abl+Pl': ['monituris'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['moniturum'],
+                '+Voc+Sg': ['moniturum'],
+                '+Acc+Sg': ['moniturum'],
+                '+Gen+Sg': ['monituri'],
+                '+Dat+Sg': ['monituro'],
+                '+Abl+Sg': ['monituro'],
+
+                '+Nom+Pl': ['monitura'],
+                '+Voc+Pl': ['monitura'],
+                '+Acc+Pl': ['monitura'],
+                '+Gen+Pl': ['moniturorum'],
+                '+Dat+Pl': ['monituris'],
+                '+Abl+Pl': ['monituris'],
+            },
+        },
+    },
+    '+Ger': {
+        '+Acc': ['monendum'],
+        '+Gen': ['monendi'],
+        '+Dat': ['monendo'],
+        '+Abl': ['monendo'],
+    },
+    '+Gerv': {
+        '+Masc': {
+            '+Nom+Sg': ['monendus'],
+            '+Voc+Sg': ['monende'],
+            '+Acc+Sg': ['monendum'],
+            '+Gen+Sg': ['monendi'],
+            '+Dat+Sg': ['monendo'],
+            '+Abl+Sg': ['monendo'],
+
+            '+Nom+Pl': ['monendi'],
+            '+Voc+Pl': ['monendi'],
+            '+Acc+Pl': ['monendos'],
+            '+Gen+Pl': ['monendorum'],
+            '+Dat+Pl': ['monendis'],
+            '+Abl+Pl': ['monendis'],
+        },
+        '+Fem': {
+            '+Nom+Sg': ['monenda'],
+            '+Voc+Sg': ['monenda'],
+            '+Acc+Sg': ['monendam'],
+            '+Gen+Sg': ['monendae'],
+            '+Dat+Sg': ['monendae'],
+            '+Abl+Sg': ['monenda'],
+
+            '+Nom+Pl': ['monendae'],
+            '+Voc+Pl': ['monendae'],
+            '+Acc+Pl': ['monendas'],
+            '+Gen+Pl': ['monendarum'],
+            '+Dat+Pl': ['monendis'],
+            '+Abl+Pl': ['monendis'],
+        },
+        '+Neut': {
+            '+Nom+Sg': ['monendum'],
+            '+Voc+Sg': ['monendum'],
+            '+Acc+Sg': ['monendum'],
+            '+Gen+Sg': ['monendi'],
+            '+Dat+Sg': ['monendo'],
+            '+Abl+Sg': ['monendo'],
+
+            '+Nom+Pl': ['monenda'],
+            '+Voc+Pl': ['monenda'],
+            '+Acc+Pl': ['monenda'],
+            '+Gen+Pl': ['monendorum'],
+            '+Dat+Pl': ['monendis'],
+            '+Abl+Pl': ['monendis'],
+        },
+    },
+    '+SupI': ['monitum'],
+    '+SupII': ['monitu'],
 })
+diag("%d" % Morph.formcount)

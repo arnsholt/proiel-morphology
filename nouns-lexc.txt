@@ -1,4 +1,21 @@
-Multichar_Symbols +Noun +Adj +Adv +Nom +Voc +Acc +Gen +Dat +Abl +Sg +Pl
+!Multichar_Symbols +Noun +Adj +Adv +Nom +Voc +Acc +Gen +Dat +Abl +Sg +Pl +Masc +Fem +Neut +Pos +Comp +Super +Verb +Part +Pres +Perf +Fut
+!    +Verb +Dep
+!    +1S +2S +3S +1P +2P +3P ! Persons
+!    +Pres +Fut +Impf ! Tempora
+!    +Ind +Impv +Subj ! Modi
+!    +Inf
+!    +Act +Pass ! Voices
+Multichar_Symbols
+    +Noun +Adj +Adv +Verb ! Word classes
+    +Nom +Voc +Acc +Gen +Dat +Abl ! Cases
+    +Sg +Pl ! Numbers
+    +Masc +Fem +Neut ! Genders
+    +Pos +Comp +Super ! Comparison grades
+    +Part +Dep ! Misc. verb stuff
+    +1S +2S +3S +1P +2P +3P ! Persons
+    +Pres +Perf +Fut +Impf ! Tempora
+    +Ind +Impv +Subj +Inf ! Modi
+    +Act +Pass ! Voices
 
 ! Noun lexicon
 LEXICON Root
@@ -8,6 +25,7 @@ LEXICON Root
     Decl4 ;
     Decl5 ;
     Adj ;
+    Participles ;
 
 ! First declination: rosa.
 LEXICON Decl1
@@ -38,8 +56,9 @@ LEXICON D1Endings
 LEXICON Decl2
 dominus+Noun:domin D2M ;
 numerus+Noun:numer D2M ;
-puer+Noun:puer D2puer ;
-ager+Noun:agEr D2puer ;
+filius+Noun:fili D2M-ius ;
+puer+Noun:puer D2-er ;
+ager+Noun:agEr D2-er ;
 bellum+Noun:bell D2N ;
 
 LEXICON D2M
@@ -50,9 +69,16 @@ LEXICON D2N
     D2EndingsN ;
     D2EndingsCommon ;
 
-LEXICON D2puer
+LEXICON D2-er
 +Nom+Sg:0 # ;
 +Voc+Sg:0 # ;
+    D2EndingsCommonM ;
+    D2EndingsCommon ;
+
+LEXICON D2M-ius
++Nom+Sg:-us # ; ! XXX: Duplicate from D2EndingsM. Refactor?
++Voc+Sg:0 # ;
++Gen+Sg:0 # ;
     D2EndingsCommonM ;
     D2EndingsCommon ;
 
@@ -126,19 +152,32 @@ LEXICON D3EndingsCommon
 
 ! TODO: cornus (neuter D4 nouns)
 LEXICON Decl4
-fructus+Noun:fruct D4Endings ;
+fructus+Noun:fruct D4EndingsMF ;
+cornus+Noun:corn D4EndingsN ;
 
-LEXICON D4Endings
-+Nom+Sg:us # ;
-+Voc+Sg:us # ;
+LEXICON D4EndingsMF
 +Acc+Sg:um # ;
-+Gen+Sg:us # ;
-+Dat+Sg:ui # ;
-+Abl+Sg:u # ;
 
 +Nom+Pl:us # ;
 +Voc+Pl:us # ;
 +Acc+Pl:us # ;
+    D4EndingsCommon ;
+
+LEXICON D4EndingsN
++Acc+Sg:us # ;
+
++Nom+Pl:ua # ;
++Voc+Pl:ua # ;
++Acc+Pl:ua # ;
+    D4EndingsCommon ;
+
+LEXICON D4EndingsCommon
++Nom+Sg:us # ;
++Voc+Sg:us # ;
++Gen+Sg:us # ;
++Dat+Sg:ui # ;
++Abl+Sg:u # ;
+
 +Gen+Pl:uum # ;
 +Dat+Pl:ibus # ;
 +Abl+Pl:ibus # ;
@@ -162,7 +201,11 @@ LEXICON D5Endings
 +Abl+Pl:bus # ;
 
 ! Adjective lexicon.
-! TODO: Adverb derivation
+! XXX: To save me the trouble of refactoring the +Adj in the adjective code
+! in a reasonably sensible way, we do Adverb derivation by adding the +Adv tag
+! after the degree. A substitution is composed into the lexicon in
+! build/nouns.fst.build which converts from $root+Adj+$grade+Adv to
+! $root+Adv+$grade. It's a bit of a hack, but it's a great effort-saver. =)
 LEXICON Adj
 longus+Adj:long AdjStd ;
 acer+Adj:acEr AdjCons3 ;
@@ -180,6 +223,7 @@ LEXICON AdjStdPos
 +Masc:0 D2M ;
 +Fem:0 D1 ;
 +Neut:0 D2N ;
++Adv:e # ;
 
 LEXICON AdjCons3
 +Pos+Masc:0 AdjCons23EndingsM ;
@@ -187,6 +231,7 @@ LEXICON AdjCons3
 +Pos+Neut:0 AdjCons3EndingsN ;
     AdjComp ;
 +Super:rim AdjStdPos ; ! No - to indicate morpheme boundary, so that the e isn't dropped.
+    AdjConsAdv ;
 
 ! Consonant root adjectives with two forms in the nom.sg.
 ! XXX: I think this works. And even better, it's diachronically correct, if I read Ernout correctly.
@@ -196,6 +241,7 @@ LEXICON AdjCons2
 +Pos+Neut:0 AdjCons3EndingsN ;
     AdjComp ;
     AdjSuper ;
+    AdjConsAdv ;
 
 ! Consonant root adjectives with a single form in the nom.sg.
 LEXICON AdjCons1None
@@ -212,11 +258,15 @@ LEXICON AdjCons1NoneN
 +Acc+Sg:0 # ;
 
 LEXICON AdjCons1
-+Pos+Masc:0 AdjConsEndingsMF ;
-+Pos+Fem:0 AdjConsEndingsMF ;
-+Pos+Neut:0 AdjConsEndingsN ;
++Pos:0 AdjCons1Pos ;
     AdjComp ;
     AdjSuper ;
+    AdjConsAdv ;
+
+LEXICON AdjCons1Pos
++Masc:0 AdjConsEndingsMF ;
++Fem:0 AdjConsEndingsMF ;
++Neut:0 AdjConsEndingsN ;
 
 ! XXX: These endings are mostly duplicated from the D3 lexicons above. Try to
 ! factor them together? Unfortunately, that means a bit of weird
@@ -262,12 +312,16 @@ LEXICON AdjConsEndingsCommon
 +Dat+Pl:-ibus # ;
 +Abl+Pl:-ibus # ;
 
+LEXICON AdjConsAdv
++Pos+Adv:-iter # ;
+
 ! Comparatives of adjectives.
 LEXICON AdjComp
 +Comp+Masc:-ior AdjCompMF ;
 +Comp+Fem:-ior AdjCompMF ;
 +Comp+Neut:-ius D3EndingsNoneN ;
 +Comp+Neut:-ior D3EndingsN ;
++Comp+Adv:-ius # ;
 
 LEXICON AdjCompMF
     D3EndingsNoneMF ;
@@ -277,7 +331,58 @@ LEXICON AdjCompMF
 LEXICON AdjSuper
 +Super:issim AdjStdPos ;
 
-! Adverbs derived from thematic adjectives.
-! TODO: This stuff. It'll require a refactor of how the +Adj tag is added in
-! the adjective code, so that we can use the same root to generate both
-! adjective and adverb forms.
+! Participles and other deverbal nominals.
+LEXICON Participles
+amo+Verb:aman PresStemPart ;
+amo+Verb:amat SupinePart;
+hortor+Verb+Dep:hortan PresStemPart ;
+hortor+Verb+Dep:hortat SupinePart ;
+
+moneo+Verb:monen PresStemPart ;
+moneo+Verb:monit SupinePart ;
+vereor+Verb+Dep:veren PresStemPart ;
+vereor+Verb+Dep:verit SupinePart ;
+
+rego+Verb:regen PresStemPart ;
+rego+Verb:rect SupinePart ;
+sequor+Verb+Dep:sequen PresStemPart ;
+sequor+Verb+Dep:secut SupinePart ;
+capio+Verb:capien PresStemPart ;
+capio+Verb:capt SupinePart ;
+patior+Verb+Dep:patien PresStemPart ;
+patior+Verb+Dep:pass SupinePart ;
+
+audio+Verb:audien PresStemPart ;
+audio+Verb:audit SupinePart ;
+partior+Verb+Dep:partien PresStemPart ;
+partior+Verb+Dep:partit SupinePart ;
+
+LEXICON PresStemPart
++Part+Pres:0 PresPart ;
++Ger:d Gerund ;
++Gerv:d AdjStdPos ;
+
+LEXICON PresPart
++Masc+Nom+Sg:s # ;
++Masc+Voc+Sg:s # ;
++Fem+Nom+Sg:s # ;
++Fem+Voc+Sg:s # ;
++Neut+Nom+Sg:s # ;
++Neut+Voc+Sg:s # ;
++Neut+Acc+Sg:s # ;
+0:t AdjCons1Pos ;
++Masc+Abl+Sg:te # ;
++Fem+Abl+Sg:te # ;
++Neut+Abl+Sg:te # ;
+
+LEXICON Gerund
++Acc:um # ;
++Gen:i # ;
++Dat:o # ;
++Abl:o # ;
+
+LEXICON SupinePart
++Part+Perf:0 AdjStdPos ;
++Part+Fut:ur AdjStdPos ;
++SupI:um # ;
++SupII:u # ;

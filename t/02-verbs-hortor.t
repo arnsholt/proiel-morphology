@@ -3,7 +3,7 @@
 from morph import *
 from TAP.Simple import *
 
-plan(71)
+plan(374)
 
 test_hash('hortor+Verb+Dep', {
     '+Pres+Ind': {
@@ -52,5 +52,204 @@ test_hash('hortor+Verb+Dep', {
     },
     '+Inf': {
         '+Pres+Pass': ['hortari'],
-    }
+    },
+    '+Part': {
+        '+Pres': {
+            '+Masc': {
+                '+Nom+Sg': ['hortans'],
+                '+Voc+Sg': ['hortans'],
+                '+Acc+Sg': ['hortantem'],
+                '+Gen+Sg': ['hortantis'],
+                '+Dat+Sg': ['hortanti'],
+                '+Abl+Sg': ['hortanti', 'hortante'],
+
+                '+Nom+Pl': ['hortantes'],
+                '+Voc+Pl': ['hortantes'],
+                '+Acc+Pl': ['hortantes'],
+                '+Gen+Pl': ['hortantium'],
+                '+Dat+Pl': ['hortantibus'],
+                '+Abl+Pl': ['hortantibus'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['hortans'],
+                '+Voc+Sg': ['hortans'],
+                '+Acc+Sg': ['hortantem'],
+                '+Gen+Sg': ['hortantis'],
+                '+Dat+Sg': ['hortanti'],
+                '+Abl+Sg': ['hortanti', 'hortante'],
+
+                '+Nom+Pl': ['hortantes'],
+                '+Voc+Pl': ['hortantes'],
+                '+Acc+Pl': ['hortantes'],
+                '+Gen+Pl': ['hortantium'],
+                '+Dat+Pl': ['hortantibus'],
+                '+Abl+Pl': ['hortantibus'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['hortans'],
+                '+Voc+Sg': ['hortans'],
+                '+Acc+Sg': ['hortans'],
+                '+Gen+Sg': ['hortantis'],
+                '+Dat+Sg': ['hortanti'],
+                '+Abl+Sg': ['hortanti', 'hortante'],
+
+                '+Nom+Pl': ['hortantia'],
+                '+Voc+Pl': ['hortantia'],
+                '+Acc+Pl': ['hortantia'],
+                '+Gen+Pl': ['hortantium'],
+                '+Dat+Pl': ['hortantibus'],
+                '+Abl+Pl': ['hortantibus'],
+            },
+        },
+        '+Perf': {
+            '+Masc': {
+                '+Nom+Sg': ['hortatus'],
+                '+Voc+Sg': ['hortate'],
+                '+Acc+Sg': ['hortatum'],
+                '+Gen+Sg': ['hortati'],
+                '+Dat+Sg': ['hortato'],
+                '+Abl+Sg': ['hortato'],
+
+                '+Nom+Pl': ['hortati'],
+                '+Voc+Pl': ['hortati'],
+                '+Acc+Pl': ['hortatos'],
+                '+Gen+Pl': ['hortatorum'],
+                '+Dat+Pl': ['hortatis'],
+                '+Abl+Pl': ['hortatis'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['hortata'],
+                '+Voc+Sg': ['hortata'],
+                '+Acc+Sg': ['hortatam'],
+                '+Gen+Sg': ['hortatae'],
+                '+Dat+Sg': ['hortatae'],
+                '+Abl+Sg': ['hortata'],
+
+                '+Nom+Pl': ['hortatae'],
+                '+Voc+Pl': ['hortatae'],
+                '+Acc+Pl': ['hortatas'],
+                '+Gen+Pl': ['hortatarum'],
+                '+Dat+Pl': ['hortatis'],
+                '+Abl+Pl': ['hortatis'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['hortatum'],
+                '+Voc+Sg': ['hortatum'],
+                '+Acc+Sg': ['hortatum'],
+                '+Gen+Sg': ['hortati'],
+                '+Dat+Sg': ['hortato'],
+                '+Abl+Sg': ['hortato'],
+
+                '+Nom+Pl': ['hortata'],
+                '+Voc+Pl': ['hortata'],
+                '+Acc+Pl': ['hortata'],
+                '+Gen+Pl': ['hortatorum'],
+                '+Dat+Pl': ['hortatis'],
+                '+Abl+Pl': ['hortatis'],
+            },
+        },
+        '+Fut': {
+            '+Masc': {
+                '+Nom+Sg': ['hortaturus'],
+                '+Voc+Sg': ['hortature'],
+                '+Acc+Sg': ['hortaturum'],
+                '+Gen+Sg': ['hortaturi'],
+                '+Dat+Sg': ['hortaturo'],
+                '+Abl+Sg': ['hortaturo'],
+
+                '+Nom+Pl': ['hortaturi'],
+                '+Voc+Pl': ['hortaturi'],
+                '+Acc+Pl': ['hortaturos'],
+                '+Gen+Pl': ['hortaturorum'],
+                '+Dat+Pl': ['hortaturis'],
+                '+Abl+Pl': ['hortaturis'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['hortatura'],
+                '+Voc+Sg': ['hortatura'],
+                '+Acc+Sg': ['hortaturam'],
+                '+Gen+Sg': ['hortaturae'],
+                '+Dat+Sg': ['hortaturae'],
+                '+Abl+Sg': ['hortatura'],
+
+                '+Nom+Pl': ['hortaturae'],
+                '+Voc+Pl': ['hortaturae'],
+                '+Acc+Pl': ['hortaturas'],
+                '+Gen+Pl': ['hortaturarum'],
+                '+Dat+Pl': ['hortaturis'],
+                '+Abl+Pl': ['hortaturis'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['hortaturum'],
+                '+Voc+Sg': ['hortaturum'],
+                '+Acc+Sg': ['hortaturum'],
+                '+Gen+Sg': ['hortaturi'],
+                '+Dat+Sg': ['hortaturo'],
+                '+Abl+Sg': ['hortaturo'],
+
+                '+Nom+Pl': ['hortatura'],
+                '+Voc+Pl': ['hortatura'],
+                '+Acc+Pl': ['hortatura'],
+                '+Gen+Pl': ['hortaturorum'],
+                '+Dat+Pl': ['hortaturis'],
+                '+Abl+Pl': ['hortaturis'],
+            },
+        },
+    },
+    '+Ger': {
+        '+Acc': ['hortandum'],
+        '+Gen': ['hortandi'],
+        '+Dat': ['hortando'],
+        '+Abl': ['hortando'],
+    },
+    '+Gerv': {
+        '+Masc': {
+            '+Nom+Sg': ['hortandus'],
+            '+Voc+Sg': ['hortande'],
+            '+Acc+Sg': ['hortandum'],
+            '+Gen+Sg': ['hortandi'],
+            '+Dat+Sg': ['hortando'],
+            '+Abl+Sg': ['hortando'],
+
+            '+Nom+Pl': ['hortandi'],
+            '+Voc+Pl': ['hortandi'],
+            '+Acc+Pl': ['hortandos'],
+            '+Gen+Pl': ['hortandorum'],
+            '+Dat+Pl': ['hortandis'],
+            '+Abl+Pl': ['hortandis'],
+        },
+        '+Fem': {
+            '+Nom+Sg': ['hortanda'],
+            '+Voc+Sg': ['hortanda'],
+            '+Acc+Sg': ['hortandam'],
+            '+Gen+Sg': ['hortandae'],
+            '+Dat+Sg': ['hortandae'],
+            '+Abl+Sg': ['hortanda'],
+
+            '+Nom+Pl': ['hortandae'],
+            '+Voc+Pl': ['hortandae'],
+            '+Acc+Pl': ['hortandas'],
+            '+Gen+Pl': ['hortandarum'],
+            '+Dat+Pl': ['hortandis'],
+            '+Abl+Pl': ['hortandis'],
+        },
+        '+Neut': {
+            '+Nom+Sg': ['hortandum'],
+            '+Voc+Sg': ['hortandum'],
+            '+Acc+Sg': ['hortandum'],
+            '+Gen+Sg': ['hortandi'],
+            '+Dat+Sg': ['hortando'],
+            '+Abl+Sg': ['hortando'],
+
+            '+Nom+Pl': ['hortanda'],
+            '+Voc+Pl': ['hortanda'],
+            '+Acc+Pl': ['hortanda'],
+            '+Gen+Pl': ['hortandorum'],
+            '+Dat+Pl': ['hortandis'],
+            '+Abl+Pl': ['hortandis'],
+        },
+    },
+    '+SupI': ['hortatum'],
+    '+SupII': ['hortatu'],
 })
+diag("%d" % Morph.formcount)

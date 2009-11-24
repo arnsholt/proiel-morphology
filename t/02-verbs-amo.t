@@ -3,7 +3,7 @@
 from morph import *
 from TAP.Simple import *
 
-plan(236)
+plan(539)
 
 test_hash('amo+Verb', {
     '+Pres+Ind': {
@@ -132,5 +132,204 @@ test_hash('amo+Verb', {
         '+Pres+Act': ['amare'],
         '+Pres+Pass': ['amari'],
         '+Perf+Act': ['amavisse', 'amasse'],
-    }
+    },
+    '+Part': {
+        '+Pres': {
+            '+Masc': {
+                '+Nom+Sg': ['amans'],
+                '+Voc+Sg': ['amans'],
+                '+Acc+Sg': ['amantem'],
+                '+Gen+Sg': ['amantis'],
+                '+Dat+Sg': ['amanti'],
+                '+Abl+Sg': ['amanti', 'amante'],
+
+                '+Nom+Pl': ['amantes'],
+                '+Voc+Pl': ['amantes'],
+                '+Acc+Pl': ['amantes'],
+                '+Gen+Pl': ['amantium'],
+                '+Dat+Pl': ['amantibus'],
+                '+Abl+Pl': ['amantibus'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['amans'],
+                '+Voc+Sg': ['amans'],
+                '+Acc+Sg': ['amantem'],
+                '+Gen+Sg': ['amantis'],
+                '+Dat+Sg': ['amanti'],
+                '+Abl+Sg': ['amanti', 'amante'],
+
+                '+Nom+Pl': ['amantes'],
+                '+Voc+Pl': ['amantes'],
+                '+Acc+Pl': ['amantes'],
+                '+Gen+Pl': ['amantium'],
+                '+Dat+Pl': ['amantibus'],
+                '+Abl+Pl': ['amantibus'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['amans'],
+                '+Voc+Sg': ['amans'],
+                '+Acc+Sg': ['amans'],
+                '+Gen+Sg': ['amantis'],
+                '+Dat+Sg': ['amanti'],
+                '+Abl+Sg': ['amanti', 'amante'],
+
+                '+Nom+Pl': ['amantia'],
+                '+Voc+Pl': ['amantia'],
+                '+Acc+Pl': ['amantia'],
+                '+Gen+Pl': ['amantium'],
+                '+Dat+Pl': ['amantibus'],
+                '+Abl+Pl': ['amantibus'],
+            },
+        },
+        '+Perf': {
+            '+Masc': {
+                '+Nom+Sg': ['amatus'],
+                '+Voc+Sg': ['amate'],
+                '+Acc+Sg': ['amatum'],
+                '+Gen+Sg': ['amati'],
+                '+Dat+Sg': ['amato'],
+                '+Abl+Sg': ['amato'],
+
+                '+Nom+Pl': ['amati'],
+                '+Voc+Pl': ['amati'],
+                '+Acc+Pl': ['amatos'],
+                '+Gen+Pl': ['amatorum'],
+                '+Dat+Pl': ['amatis'],
+                '+Abl+Pl': ['amatis'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['amata'],
+                '+Voc+Sg': ['amata'],
+                '+Acc+Sg': ['amatam'],
+                '+Gen+Sg': ['amatae'],
+                '+Dat+Sg': ['amatae'],
+                '+Abl+Sg': ['amata'],
+
+                '+Nom+Pl': ['amatae'],
+                '+Voc+Pl': ['amatae'],
+                '+Acc+Pl': ['amatas'],
+                '+Gen+Pl': ['amatarum'],
+                '+Dat+Pl': ['amatis'],
+                '+Abl+Pl': ['amatis'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['amatum'],
+                '+Voc+Sg': ['amatum'],
+                '+Acc+Sg': ['amatum'],
+                '+Gen+Sg': ['amati'],
+                '+Dat+Sg': ['amato'],
+                '+Abl+Sg': ['amato'],
+
+                '+Nom+Pl': ['amata'],
+                '+Voc+Pl': ['amata'],
+                '+Acc+Pl': ['amata'],
+                '+Gen+Pl': ['amatorum'],
+                '+Dat+Pl': ['amatis'],
+                '+Abl+Pl': ['amatis'],
+            },
+        },
+        '+Fut': {
+            '+Masc': {
+                '+Nom+Sg': ['amaturus'],
+                '+Voc+Sg': ['amature'],
+                '+Acc+Sg': ['amaturum'],
+                '+Gen+Sg': ['amaturi'],
+                '+Dat+Sg': ['amaturo'],
+                '+Abl+Sg': ['amaturo'],
+
+                '+Nom+Pl': ['amaturi'],
+                '+Voc+Pl': ['amaturi'],
+                '+Acc+Pl': ['amaturos'],
+                '+Gen+Pl': ['amaturorum'],
+                '+Dat+Pl': ['amaturis'],
+                '+Abl+Pl': ['amaturis'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['amatura'],
+                '+Voc+Sg': ['amatura'],
+                '+Acc+Sg': ['amaturam'],
+                '+Gen+Sg': ['amaturae'],
+                '+Dat+Sg': ['amaturae'],
+                '+Abl+Sg': ['amatura'],
+
+                '+Nom+Pl': ['amaturae'],
+                '+Voc+Pl': ['amaturae'],
+                '+Acc+Pl': ['amaturas'],
+                '+Gen+Pl': ['amaturarum'],
+                '+Dat+Pl': ['amaturis'],
+                '+Abl+Pl': ['amaturis'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['amaturum'],
+                '+Voc+Sg': ['amaturum'],
+                '+Acc+Sg': ['amaturum'],
+                '+Gen+Sg': ['amaturi'],
+                '+Dat+Sg': ['amaturo'],
+                '+Abl+Sg': ['amaturo'],
+
+                '+Nom+Pl': ['amatura'],
+                '+Voc+Pl': ['amatura'],
+                '+Acc+Pl': ['amatura'],
+                '+Gen+Pl': ['amaturorum'],
+                '+Dat+Pl': ['amaturis'],
+                '+Abl+Pl': ['amaturis'],
+            },
+        },
+    },
+    '+Ger': {
+        '+Acc': ['amandum'],
+        '+Gen': ['amandi'],
+        '+Dat': ['amando'],
+        '+Abl': ['amando'],
+    },
+    '+Gerv': {
+        '+Masc': {
+            '+Nom+Sg': ['amandus'],
+            '+Voc+Sg': ['amande'],
+            '+Acc+Sg': ['amandum'],
+            '+Gen+Sg': ['amandi'],
+            '+Dat+Sg': ['amando'],
+            '+Abl+Sg': ['amando'],
+
+            '+Nom+Pl': ['amandi'],
+            '+Voc+Pl': ['amandi'],
+            '+Acc+Pl': ['amandos'],
+            '+Gen+Pl': ['amandorum'],
+            '+Dat+Pl': ['amandis'],
+            '+Abl+Pl': ['amandis'],
+        },
+        '+Fem': {
+            '+Nom+Sg': ['amanda'],
+            '+Voc+Sg': ['amanda'],
+            '+Acc+Sg': ['amandam'],
+            '+Gen+Sg': ['amandae'],
+            '+Dat+Sg': ['amandae'],
+            '+Abl+Sg': ['amanda'],
+
+            '+Nom+Pl': ['amandae'],
+            '+Voc+Pl': ['amandae'],
+            '+Acc+Pl': ['amandas'],
+            '+Gen+Pl': ['amandarum'],
+            '+Dat+Pl': ['amandis'],
+            '+Abl+Pl': ['amandis'],
+        },
+        '+Neut': {
+            '+Nom+Sg': ['amandum'],
+            '+Voc+Sg': ['amandum'],
+            '+Acc+Sg': ['amandum'],
+            '+Gen+Sg': ['amandi'],
+            '+Dat+Sg': ['amando'],
+            '+Abl+Sg': ['amando'],
+
+            '+Nom+Pl': ['amanda'],
+            '+Voc+Pl': ['amanda'],
+            '+Acc+Pl': ['amanda'],
+            '+Gen+Pl': ['amandorum'],
+            '+Dat+Pl': ['amandis'],
+            '+Abl+Pl': ['amandis'],
+        },
+    },
+    '+SupI': ['amatum'],
+    '+SupII': ['amatu'],
 })
+diag("%d" % Morph.formcount)
