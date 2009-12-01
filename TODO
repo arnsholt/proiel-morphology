@@ -11,7 +11,4 @@ Things TODO:
   implemented with the actual diachronous developments of the morphology (see
   Meillet).
 - Comment and document the code.
-- Add participle tests to all non-amo verb tests; add gerund* tests to all
-  verb tests.
-- Add a deponent 3B verb to the lexicon, to improve coverage.
 - Add morpheme boundaries to all morphemes in nouns-lexc.txt.
