@@ -37,13 +37,12 @@ Den planlagte fremgangsm\aa{}ten, som stort sett korresponderer med den
 faktiske gangen i arbeidet med implementasjonen, var \aa{} begynne i det
 sm\aa{} med regelrette substantiver for \aa{} bli kjent med verkt\o{}yene og
 gi grunnleggende f\o{}ringer p\aa{} hvordan de kan integreres med standard
-UNIX-verkt\o{}y som \texttt{make} for \aa{} automatisere
-kompilasjonsprosessen. Etter dette sto verbalsystemet for tur. Siden
-verbalparadigmet er den mest kompliserte delen av den latinske morfologien
-ans\aa{} jeg det som viktig \aa{} utforske denne delen av systemet for \aa{}
-finne ut hvor kompliserte regler som trengtes. Etter dette var planen \aa{}
-implementere det som gjensto av de regelrette verbal-- og
-substantivparadigmene.
+UNIX-verkt\o{}y som \prog{make} for \aa{} automatisere kompilasjonsprosessen.
+Etter dette sto verbalsystemet for tur. Siden verbalparadigmet er den mest
+kompliserte delen av den latinske morfologien ans\aa{} jeg det som viktig
+\aa{} utforske denne delen av systemet for \aa{} finne ut hvor kompliserte
+regler som trengtes. Etter dette var planen \aa{} implementere det som gjensto
+av de regelrette verbal-- og substantivparadigmene.
 
 \subsection{Funksjonalitet}\note{Dette m\aa{} skrives.}
 Systemet analyserer og genererer verb-- og substantivformer, for leksikonet
@@ -56,7 +55,7 @@ verb, b\aa{}de finitte og infinitte former samt verbaladjektiver. Til grunn
 for forml\ae{}ren ligger stort sett paradigmene og reglene fra \citeN{eitrem},
 supplert med oppklarende detaljer fra \citeN{ernout}.
 
-\begin{table}[hp]
+\begin{table}
 \begin{center}
 \begin{tabular}{|ccc|}
     \hline
@@ -95,21 +94,37 @@ ting som burde sies, men s\aa{}nn teksten flyter rundt dette n\aa{} er det
 ikke bra nok\ldots}
 Selve analysatoren er skrevet med Xerox-verkt\o{}ykassen for endelig
 tilstandsmorfologi, dokumentert i \citeN{xfst}; prosjektet benytter seg av
-\texttt{lexc} til leksikon og \texttt{twolc} for fonetiske regler.
-\texttt{lexc} spesifiserer regul\ae{}re relasjoner som h\o{}yrerekursive
-grammatikker og \texttt{twolc} spesifiserer relasjoner i form av tegn som er
-relatert, og i hvilke kontekster de kan, m\aa{} eller ikke kan opptre.
+verkt\o{}yene \prog{lexc} til leksikon og \prog{twolc} for fonetiske regler.
+\prog{lexc} spesifiserer regul\ae{}re relasjoner som h\o{}yrerekursive
+grammatikker; \prog{twolc} spesifiserer relasjoner i form av kontekstsensitive
+grammatikker, men p\aa{} grunn av antagelsen at bare \'en regel kan benyttes
+p\aa{} et vilk\aa{}rlig punkt i inputstr\o{}mmen er uttrykkskraften i
+grammatikkene begrenset til regul\ae{}re relasjoner \cite{xfst}.
 
 Slik Xerox-verkt\o{}yene fungerer er prosjektet b\aa{}de en morfologisk
 analysator og generator, ettersom alle nettverkene som produseres kan
 kj\o{}res i begge retninger: b\aa{}de fra en leksikonform som
-\form{amo+Verb+Pres+Subj+2S+Pass} og fra en overflateform som \w{ameris}.
+\form{amo+Verb+Pres+Subj+2S+Pass} og fra en overflateform som \w{ameris}. Jeg
+har derfor valgt \aa{} skrive systemet som en morfologisk generator, selv om
+m\aa{}let er \aa{} implementere en analysator, ettersom de fleste beskrivelser
+av latinsk morfologi er strukturert p\aa{} denne m\aa{}ten, og det for meg er
+kognitivt lettere \aa{} gi alle formene i et paradigme enn \aa{} enumerere
+alle mulighetene for en gitt endelse.
 
-\subsection{Bruk av systemet}
-Beskrive kort hvordan systemet brukes. Ta utgangspunkt i web-grensesnittet.
-
+\subsection{Bruk av systemet}\note{Dette m\aa{} plasseres et annet sted.}
 Et webgrensesnitt mot applikasjonen er tilgjengelig p\aa{}
-\texttt{http://heim.ifi.uio.no/arnskj/cgi-bin/latin/analyse.cgi}.
+\texttt{http://heim.ifi.uio.no/arnskj/cgi-bin/latin/analyse.cgi}, og
+grensesnittet burde v\ae{}re ganske selvforklarende. En b\o{}yd form skrives
+inn i tekstfeltet, og man klikker p\aa{} ``Analyser'' for \aa{} f\aa{} alle
+mulige analyser av formen, eller man skriver inn en analyse og klikker p\aa{}
+``Generer'' for \aa{} f\aa{} en liste over mulige overflateformer. Formatet
+p\aa{} analysebeskrivelsene er fors\o{}kt holdt s\aa{} enhetlig som mulig,
+p\aa{} formatet \form{lemma+Klasse[+Info\ldots]} og med rekkef\o{}lgen av
+informasjonstaggene s\aa{} intuitivt som mulig. For verb er formatet
+\form{lamma+Verb+Tempus+Modus+PersTall+Diatese}, for substantiver
+\form{lemma\-+Noun\-+Kasus\-+Tall}, for adjektiver
+\form{lemma+Adj+Grad\-+Kj\o{}nn+Kasus+Tall}, og for adverb
+\form{lemma+Adv+Grad}.
 
 \subsection{Nominalsystemet}
 \label{deklinasjon}
@@ -180,7 +195,7 @@ bortfall av lyder; for eksempel omskrives \w{ama-o} til \w{amo} og \w{reg-ris}
 til \w{regeris}. Tabellene \ref{endelser} og \ref{tempus} gir en oversikt over
 de viktigste person-- og tempusendelsene, henholdsvis, som brukes i systemet.
 
-\begin{table}[hp]
+\begin{table}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
     \hline
@@ -200,7 +215,7 @@ de viktigste person-- og tempusendelsene, henholdsvis, som brukes i systemet.
 \end{center}
 \end{table}
 
-\begin{table}[hp]
+\begin{table}
 \begin{center}
 \begin{tabular}{|c|c|c|}
     \hline
@@ -225,39 +240,39 @@ spesielle.}
 
 \note{De fonetiske reglene er oppdatert siden dette ble skrevet. Sjekk mot
 verbs-twolc.txt!}
-\paragraph{\texttt{a:0 <=> \_ \%-: [ o | e ]}} Denne regelen h\aa{}ndterer to
+\paragraph{\code{a:0 <=> \_ \%-: [ o | e ]}} Denne regelen h\aa{}ndterer to
 tilfeller hvor stammefinal \w{--a} faller bort: foran \w{--o} i 1.~person
 entall presens indikativ og foran suffikset for presens konjunktiv.
 
-\paragraph{\texttt{\%-:i <=> Cons \_ [ s | t | m ]}} Temavokal i
+\paragraph{\code{\%-:i <=> Cons \_ [ s | t | m ]}} Temavokal i
 konsonantstammer er \w{i} foran \w{s}, \w{t} og \w{m}.
 
-\paragraph{\texttt{\%-:e <=> Cons \_ r}} Temavokal i konsonantstammer er
+\paragraph{\code{\%-:e <=> Cons \_ r}} Temavokal i konsonantstammer er
 \w{e} foran \w{r}.
 
-\paragraph{\texttt{\%-:u <=> Cons \_ n}} Temavokal i konsonantstammer er
+\paragraph{\code{\%-:u <=> Cons \_ n}} Temavokal i konsonantstammer er
 \w{u} foran \w{n}.
 
-\paragraph{\texttt{I:e <=> \_ \%-: r}} Som foreg\aa{}ende regel, men for
+\paragraph{\code{I:e <=> \_ \%-: r}} Som foreg\aa{}ende regel, men for
 stammer p\aa{} kort \w{i}.
 
-\paragraph{\texttt{I:0 <=> \_ \%-: i .\#.}} Stammefinal kort \w{i} faller bort
+\paragraph{\code{I:0 <=> \_ \%-: i .\#.}} Stammefinal kort \w{i} faller bort
 foran endelsen \w{--i} (presens infinitiv passiv).
 
 Disse reglene beskriver mer eller mindre generelle regler. De resterende
 reglene h\aa{}ndterer den valgfrie \w{v}-synkopen i perfektumssystemet.
 
-\paragraph{\texttt{v:0 => \ldots}} \w{v} mellom vokal og morfemgrense kan i
+\paragraph{\code{v:0 => \ldots}} \w{v} mellom vokal og morfemgrense kan i
 enkelte tilfeller falle bort (se \S 41.3 i \citeN{eitrem} og \citeN{ernout},
 s.~209-212).
 
-\paragraph{\texttt{v:0 /<= a \_ \%-: ? r e .\#.}} Bortfall av \w{v} m\aa{}
+\paragraph{\code{v:0 /<= a \_ \%-: ? r e .\#.}} Bortfall av \w{v} m\aa{}
 ikke skje n\aa{}r resultatet vil kunne forveksles med en infinitiv.
 
-\paragraph{\texttt{e:0 <=> a v:0 \%-: \_}} \w{e} etter bortfalt \w{v} foran
+\paragraph{\code{e:0 <=> a v:0 \%-: \_}} \w{e} etter bortfalt \w{v} foran
 \w{a} faller ogs\aa{} bort.
 
-\paragraph{\texttt{i:0 <=> a v:0 \%-: \_ ; i v:0 \%-: \_ s}} \w{i} etter
+\paragraph{\code{i:0 <=> a v:0 \%-: \_ ; i v:0 \%-: \_ s}} \w{i} etter
 bortfalt \w{v} foran \w{a}, eller foran \w{i} og etter bortfalt \w{v} foran
 \w{i}, faller ogs\aa{} bort.
 

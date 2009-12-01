@@ -12,3 +12,4 @@ Things TODO:
   Meillet).
 - Comment and document the code.
 - Add morpheme boundaries to all morphemes in nouns-lexc.txt.
+- Apparently longus+Adj+Super+Adv is legal. Fix.
