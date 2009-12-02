@@ -4,7 +4,10 @@ define phon
 read lexc nouns-lexc.txt
 define lex
 
-define advmapper [ %+Adv%+Pos -> %+Adj %+Pos %+Adv ] .o. [ %+Adv %+Comp -> %+Adj %+Comp %+Adv ] .o. [ %+Adv %+Super -> %+Adj %+Super %+Adv ] ;
+!define advmapper [ %+Adv %+Pos -> %+Adj %+Pos %+Adv ] .o. [ %+Adv %+Comp -> %+Adj %+Comp %+Adv ] .o. [ %+Adv %+Super -> %+Adj %+Super %+Adv ] ;
+read regex [ %+Adj %+Pos %+Adv -> %+Adv %+Pos, %+Adj %+Comp %+Adv -> %+Adv %+Comp, %+Adj %+Super %+Adv -> %+Adv %+Super ];
+invert net
+define advmapper
 
 read regex [ advmapper .o. lex .o. phon ] ;
 !read regex [ lex .o. phon ] ;

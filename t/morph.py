@@ -25,3 +25,7 @@ def test_hash(tag_base, forms):
         else:
             test(tag_base + tag, forms)
     #diag("Forms: %d" % Morph.formcount)
+
+def test_not(tag, form):
+    gens = latin.apply_down(tag)
+    ok(form not in gens, "%s not generated from %s" % (form, tag))
