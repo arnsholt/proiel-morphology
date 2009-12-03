@@ -88,6 +88,27 @@ Substantiv  & Adjektiv   & Verb \\
 %paragrafene i \citeN{eitrem}, men med en del detaljer fylt ut av
 %\citeN{ernout}; sistnevnte var s\ae{}rlig opplysende i enkelte detaljer
 %omkring perfektumsformer med synkope av \w{--v}.
+\subsection{Koden}
+Koden er tilgjengelig fra TODO, og best\aa{}r av f\o{}lgende filer og
+kataloger:
+
+\note{Finn en bedre m\aa{}te \aa{} presentere dette p\aa{}.}
+\begin{itemize}
+\item[build/] Korte script som bygger og komponerer de forskjellige FSTene
+p\aa{} riktig m\aa{}te.
+\item[report/] \LaTeX{}-kildekoden til denne rapporten. % XXX: Fjerne fra den endelige leveransen?
+\item[t/] Python-script som tester at koden virker som den skal.
+\item[vim/] Script for editoren \prog{vim} for \aa{} f\aa{} syntaksmarkering
+for \prog{lexc}-- og \prog{twolc}-kode.
+\item[web/] Pythonkoden for webgrensesnittet.
+
+\item[Makefile] Regler for \prog{make} for \aa{} bygge FSTene.
+\item[TODO] Liste over ting som m\aa{} gj\o{}res. % XXX: Fjerne fra den endelige leveransen?
+\item[nouns-lexc.txt] Leksikonspesifikasjon for substantiver.
+\item[nouns-twolc.txt] Fonetiske regler for substantiver.
+\item[verbs-lexc.txt] Leksikonspesifikasjon for verb.
+\item[verbs-twolc.txt] Fonetiske regler for verb.
+\end{itemize}
 
 \subsection{Verkt\o{}yene}\note{Ikke forn\o{}yd med dette avsnittet. Det er
 ting som burde sies, men s\aa{}nn teksten flyter rundt dette n\aa{} er det
@@ -126,7 +147,9 @@ informasjonstaggene s\aa{} intuitivt som mulig. For verb er formatet
 \form{lemma+Adj+Grad\-+Kj\o{}nn+Kasus+Tall}, og for adverb
 \form{lemma+Adv+Grad}.
 
-\subsection{Nominalsystemet}
+\subsection{Nominalsystemet}\note{Skrive om, og beskrive den historiske
+utviklingen i koden i stedet? Snakke om leksikon og slikt f\o{}rst, og s\aa{}
+f\o{}ye til at det viste seg at fonologi ble nyttig?}
 \label{deklinasjon}
 Den latinske nominalmorfologien er forholdsvis enkel. I motsetning til for
 eksempel nominalsystemet i sanskrit er det ingen lydendringer innad i
@@ -157,30 +180,13 @@ eksempel \w{numerus}, og at synkopen er leksikalisert (se for\o{}vrig
 
 Adjektivb\o{}yningen h\aa{}ndteres p\aa{} akkurat samme m\aa{}te som
 substantivene, inkludert \w{e}-synkope. Derimot er avledningen av adverb noe
-utradisjonelt implentert.\note{Finne ut riktig m\aa{}te \aa{} formulere dette
-p\aa{}\ldots}
-
-
-%Det viser seg at nominalmorfologien er enkel nok til at det holder \aa{} ha et
-%leksikon med r\o{}tter koblet til b\o{}yningsklasse der de forskjellige
-%b\o{}yningsklassene deler ut egnede endelser til de forskjellige kasus.
-%\note{Dette er ikke sant lenger. F\aa{} med reglene for \aa{} h\aa{}ndtere
-%\w{ager} et al.}
-%
-%Rent lingvistisk hadde kanskje en tiln\ae{}rming lik den som er benyttet for
-%konjugasjonen (se seksjon \ref{konjugasjon}) v\ae{}rt riktigere, men for \aa{}
-%lette implementasjonen (og for min sjelefred) er en forenklet metode
-%foretrukket. Den viktigste konsekvensen av dette er at enhver form for
-%veksling mellom b\o{}yningsstammen i de oblike kasus og formen i nominativ
-%entall i tredje deklinasjon er ansett som leksikalsk, selv om den kan anses
-%som regelmessig, \`a la \w{reg-s} > \w{rex}. P\aa{} samme m\aa{}te ender
-%stammefinal vokal opp som endelsesinitiell vokal i stedet i
-%vokaldeklinasjonene p\aa{} grunn av stammevokalens bortfall i enkelte former;
-%for eksempel er stammen til \w{rosa} ansett for \aa{} v\ae{}re \w{ros--} slik
-%at endelsen i dat/ablativ flertall kan v\ae{}re \w{--is} uten flere regler for
-%\aa{} h\aa{}ndtere tapet av den stammefinale \w{--a}. \note{Faa med
-%adjektiver, adverb (med nota om hacken for aa faa riktige tagger) og
-%partisipper.}
+utradisjonelt implentert. Adverbavledning er implementert slik at de
+forskjellige adverbformene er avledet fra adjektivets b\o{}yningsstamme i den
+tilsvarende b\o{}yningsgraden. Dessverre inneb\ae{}rer dette at den genererte
+analysen blir \form{lemma+Adj+Pos+Adv} eller tilsvarende, noe som helt klart
+ikke er optimalt. Jeg har derfor lagt til en omskrivningsregel p\aa{} toppen
+av substantivleksikonet som skriver om analyser p\aa{} denne formen til den
+korrekte formen: \form{lemma+Adv+Pos}.
 
 \subsection{Verbalsystemet}
 \label{konjugasjon}
@@ -195,6 +201,8 @@ bortfall av lyder; for eksempel omskrives \w{ama-o} til \w{amo} og \w{reg-ris}
 til \w{regeris}. Tabellene \ref{endelser} og \ref{tempus} gir en oversikt over
 de viktigste person-- og tempusendelsene, henholdsvis, som brukes i systemet.
 
+% TODO: Prov aa flette disse tabellene bedre inn i teksten, saann at det er et
+% avsnitt eller to mellom dem.
 \begin{table}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
