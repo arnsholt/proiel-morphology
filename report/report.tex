@@ -7,32 +7,62 @@
 \usepackage{multirow}
 \usepackage{verbatim}
 
-\newcommand\code[1]{\texttt{#1}}
-\newcommand\form[1]{\texttt{#1}}
+%\newcommand\code[1]{\texttt{#1}}
+%\newcommand\form[1]{\texttt{#1}}
 \newcommand\note[1]{\marginpar{\raggedright\tiny#1}}
-\newcommand\prog[1]{\texttt{#1}}
-\newcommand\w[1]{\emph{#1}}
+%\newcommand\prog[1]{\texttt{#1}}
+%\newcommand\w[1]{\emph{#1}}
+
+\let\code\texttt
+\let\form\texttt
+\let\lib\emph
+\let\prog\texttt
+\let\w\emph
 
 \title{Toniv\aa{}morfologi for latin}
-\author{Arne Skj\ae{}rholt}
+%\author{Kandidat 6472}
+%\author{Arne Skj\ae{}rholt}
+\date{} % XXX: Ja of nee?
 
 \begin{document}
 \maketitle
 
 \section{Introduksjon}
-\subsection{Form\aa{}l}
-Det \aa{} implementere en komplett toniv\aa{}modell er ikke en triviell
-oppgave, det er blant annet skrevet hovedfagsoppgaver der m\aa{}let er nettopp
-det, se \citeN{bondihoved} og \citeN{french}, s\aa{} m\aa{}let for dette
-prosjektet har v\ae{}rt \aa{} implementere en delmengde av det latinske
-formverket som er s\aa{} interessant som mulig; der interessant er definert
-slik at s\aa{} mange implementasjonstekniske problemer som mulig blir
-eksponert. Uregelmessige former, selv om de kanskje rent praktisk sett er
+%\subsection{Historisk bakgrunn}
+Tradisjonelle generative modeller for morfologi ble skrevet som
+kontekst-sensitive omskrivningsregler p\aa{} m\o{}nsteret $\alpha \to
+\beta/\gamma \_ \delta$: $\alpha$ omskrives til $\beta$ mellom $\gamma$ og
+$\delta$, der $\alpha$, $\beta$, $\gamma$ og $\delta$ er vilk\aa{}rlig
+kompliserte strenger. I det generelle tilfellet er slike regler et meget
+vanskelig problem \aa{} l\o{}se\footnote{Problemet er det som kalles
+PSPACE-komplett. Dette inneb\ae{}rer antageligvis at tiden det tar \aa{}
+l\o{}se problemet tar tid som \o{}ker eksponensielt med st\o{}rrelsen p\aa{}
+grammatikken. Hvorvidt dette faktisk er tilfellet er et av de store ul\o{}ste
+problemene i teoretisk informatikk, men de fleste mener det er tilfelle.}, men
+det viser seg at man i generativ morfologi antar at man beveger seg videre i
+strengen etter at en omskrivning er utf\o{}rt, slik at n\aa{}r
+$\gamma\alpha\delta$ er omskrevet til $\gamma\beta\delta$ forblir
+$\beta$-delen uendret, og man fortsetter \aa{} omskrive til h\o{}yre eller
+venstre for $\beta$. Dette endrer kompleksiteten p\aa{} problemet radikalt, og
+dette problemet viser seg \aa{} kunne l\o{}ses med endelige
+tilstandsmaskiner\footnote{Et problem som kan l\o{}ses i polynomisk tid.}.
+Dette arbeidet, som begynte p\aa{} 60-tallet, kuliminerte i Kimmo Koskenniemis
+toniv\aa{}formalisme i 1983, som fort ble det gjeldende paradigmet i feltet. \cite{twolc}
+
+%\subsection{Form\aa{}l}
+Selv om problemet viser seg \aa{} v\ae{}re beregningsmessing forholdsvis lett
+\aa{} h\aa{}ndtere, er det \aa{} implementere en komplett toniv\aa{}modell
+ikke en triviell oppgave, det er blant annet skrevet hovedfagsoppgaver der
+m\aa{}let er nettopp dette, se \citeN{bondihoved} og \citeN{french}. M\aa{}let
+for dette prosjektet har derfor v\ae{}rt \aa{} implementere en delmengde av
+det latinske formverket som er s\aa{} interessant som mulig; der interessant
+er definert slik at s\aa{} mange implementasjonstekniske problemer som mulig
+blir eksponert. Uregelmessige former, selv om de kanskje rent praktisk sett er
 veldig interessante, er for eksempel ikke s\ae{}rlig inspirerende i denne
 sammenhengen ettersom implementasjonen stort sett kan oppsummeres som ``for
 denne roten ser denne formen slik ut''.
 
-\subsection{Planen}
+%\subsection{Planen}
 Den planlagte fremgangsm\aa{}ten, som stort sett korresponderer med den
 faktiske gangen i arbeidet med implementasjonen, var \aa{} begynne i det
 sm\aa{} med regelrette substantiver for \aa{} bli kjent med verkt\o{}yene og
@@ -44,16 +74,17 @@ kompliserte delen av den latinske morfologien ans\aa{} jeg det som viktig
 regler som trengtes. Etter dette var planen \aa{} implementere det som gjensto
 av de regelrette verbal-- og substantivparadigmene.
 
-\subsection{Funksjonalitet}\note{Dette m\aa{} skrives.}
-Systemet analyserer og genererer verb-- og substantivformer, for leksikonet
-gitt i tabell \ref{leksikon}. For substantiver skal systemet ha full dekning
-for regelrette ord i alle fem deklinasjoner \note{Trippelsjekke at dette er
-s\aa{} riktig som mulig!}; likeledes skal systemet klare alle regelrette
-adjektiver i alle kj\o{}nn, kasus og grader, samt adverbene avledet av dem i
-alle tre grader. Systemet skal ogs\aa{} ha full dekning p\aa{} regelrette
-verb, b\aa{}de finitte og infinitte former samt verbaladjektiver. Til grunn
-for forml\ae{}ren ligger stort sett paradigmene og reglene fra \citeN{eitrem},
-supplert med oppklarende detaljer fra \citeN{ernout}.
+%\subsection{Funksjonalitet}\note{Dette m\aa{} skrives.}
+I sin n\aa{}v\ae{}rende form analyserer og genererer systemet verb--,
+substantiv-- og adjektivformer for leksikonet gitt i tabell \ref{leksikon}.
+For substantiv skal applikasjonen ha full dekning for regelrette ord i
+f\o{}rste, andre, fjerde og femte deklinasjon. I den tredje deklinasjonen
+mangler paradigmene p\aa{} \w{--ium} i genitiv flertall. Systemet skal
+ogs\aa{} klare regelrette adjektiver i alle kj\o{}nn og grader, samt deres
+avledede adverber. I verbalparadigmet skal det ogs\aa{} v\ae{}re full dekning
+for regelrette verb, b\aa{}de vanlige og deponente verb, etter alle de fire
+konjugasjonene, inklusive i-stammeverbene i tredje konjugasjon (eksklusive
+perifrastiske former).
 
 \begin{table}
 \begin{center}
@@ -80,6 +111,11 @@ Substantiv  & Adjektiv   & Verb \\
 \label{leksikon}
 \end{table}
 
+Vi skal n\aa{} f\o{}rst se p\aa{} hvilken programvare systemet er avhengig av,
+hva slags modell som ligger til grunn for implementasjonen, og hvordan selve
+implementasjonen er utf\o{}rt. Til slutt skal vi s\aa{} hvordan systemet
+passer inn i en mer teoretisk lingvistisk kontekst.
+
 \section{Implementasjonen}
 % TODO: Flette dette inn andre steder i teksten!
 %\subsection{Kilder}\note{Bedre tittel! Eller bare sl\o{}yfe hele avsnittet og
@@ -88,33 +124,11 @@ Substantiv  & Adjektiv   & Verb \\
 %paragrafene i \citeN{eitrem}, men med en del detaljer fylt ut av
 %\citeN{ernout}; sistnevnte var s\ae{}rlig opplysende i enkelte detaljer
 %omkring perfektumsformer med synkope av \w{--v}.
-\subsection{Koden}
-Koden er tilgjengelig fra TODO, og best\aa{}r av f\o{}lgende filer og
-kataloger:
-
-\note{Finn en bedre m\aa{}te \aa{} presentere dette p\aa{}.}
-\begin{itemize}
-\item[build/] Korte script som bygger og komponerer de forskjellige FSTene
-p\aa{} riktig m\aa{}te.
-\item[report/] \LaTeX{}-kildekoden til denne rapporten. % XXX: Fjerne fra den endelige leveransen?
-\item[t/] Python-script som tester at koden virker som den skal.
-\item[vim/] Script for editoren \prog{vim} for \aa{} f\aa{} syntaksmarkering
-for \prog{lexc}-- og \prog{twolc}-kode.
-\item[web/] Pythonkoden for webgrensesnittet.
-
-\item[Makefile] Regler for \prog{make} for \aa{} bygge FSTene.
-\item[TODO] Liste over ting som m\aa{} gj\o{}res. % XXX: Fjerne fra den endelige leveransen?
-\item[nouns-lexc.txt] Leksikonspesifikasjon for substantiver.
-\item[nouns-twolc.txt] Fonetiske regler for substantiver.
-\item[verbs-lexc.txt] Leksikonspesifikasjon for verb.
-\item[verbs-twolc.txt] Fonetiske regler for verb.
-\end{itemize}
-
 \subsection{Verkt\o{}yene}\note{Ikke forn\o{}yd med dette avsnittet. Det er
 ting som burde sies, men s\aa{}nn teksten flyter rundt dette n\aa{} er det
 ikke bra nok\ldots}
 Selve analysatoren er skrevet med Xerox-verkt\o{}ykassen for endelig
-tilstandsmorfologi, dokumentert i \citeN{xfst}; prosjektet benytter seg av
+tilstandsmorfologi (XFST), dokumentert i \citeN{xfst}; prosjektet benytter seg av
 verkt\o{}yene \prog{lexc} til leksikon og \prog{twolc} for fonetiske regler.
 \prog{lexc} spesifiserer regul\ae{}re relasjoner som h\o{}yrerekursive
 grammatikker; \prog{twolc} spesifiserer relasjoner i form av kontekstsensitive
@@ -131,6 +145,47 @@ m\aa{}let er \aa{} implementere en analysator, ettersom de fleste beskrivelser
 av latinsk morfologi er strukturert p\aa{} denne m\aa{}ten, og det for meg er
 kognitivt lettere \aa{} gi alle formene i et paradigme enn \aa{} enumerere
 alle mulighetene for en gitt endelse.
+
+Webgrensesnittet er et helt grunnleggende grensesnitt mot applikasjonens
+fundamentale funksjoner, analyse og generering av latinsk morfologi,
+implementert som et CGI-script i Python. Testene er ogs\aa{} skrevet i Python,
+men genererer testdata i et format vanligvis brukt for \aa{} teste Perl-kode
+(TAP). Jeg har valgt \aa{} gj\o{}re det p\aa{} denne m\aa{}ten ettersom TAP
+har en sv\ae{}rt lav terskel for bruk, noe som har gjort at testene kan
+implementeres med et minimum av arbeid.
+
+\subsection{N\o{}dvendig programvare}
+For \aa{} kompilere selve morfologidelen av applikasjonen trengs bare
+XFST, og en implementasjon av \prog{make} for \aa{} bygge applikasjonen
+(applikasjonen kan ogs\aa{} bygges manuelt). I tillegg trenger testsuiten
+Python-grensesnittet mot XFST\footnote{http://link.to.code/}, biblioteket
+\lib{PyTAP}\footnote{http://link.to.code/} og applikasjonen \prog{prove} fra
+Perl-biblioteket \lib{Test::Harness} (installeres sammen med de fleste moderne
+versjoner av Perl\note{Sjekke at dette stemmer.}). Webgrensesnittet krever
+bare Python-grensesnittet mot XFST.
+
+\subsection{Koden}
+Koden er tilgjengelig fra TODO, og best\aa{}r av f\o{}lgende filer og
+kataloger:
+
+\note{Finn en bedre m\aa{}te \aa{} presentere dette p\aa{}.}
+\begin{itemize}
+\item[build/] Korte script som bygger og komponerer de forskjellige FSTene
+p\aa{} riktig m\aa{}te.
+\item[report/] \LaTeX{}-kildekoden til denne rapporten. % XXX: Fjerne fra den endelige leveransen?
+\item[t/] Python-script som tester at koden virker som den skal.
+\item[vim/] Script for editoren \prog{vim} for \aa{} f\aa{} syntaksmarkering
+for \prog{lexc}-- og \prog{twolc}-kode.
+\item[web/] Pythonkoden for webgrensesnittet.
+
+\item[Makefile] Regler for \prog{make} for \aa{} bygge FSTene.
+\item[TODO] Liste over ting som m\aa{} gj\o{}res. % XXX: Fjerne fra den endelige leveransen?
+\item[README] Instruksjoner om bruk og installasjon av applikasjonen.
+\item[nouns-lexc.txt] Leksikonspesifikasjon for substantiver.
+\item[nouns-twolc.txt] Fonetiske regler for substantiver.
+\item[verbs-lexc.txt] Leksikonspesifikasjon for verb.
+\item[verbs-twolc.txt] Fonetiske regler for verb.
+\end{itemize}
 
 \subsection{Bruk av systemet}\note{Dette m\aa{} plasseres et annet sted.}
 Et webgrensesnitt mot applikasjonen er tilgjengelig p\aa{}
