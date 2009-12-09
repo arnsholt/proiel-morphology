@@ -6,7 +6,7 @@ from TAP.Simple import *
 plan(
     24*12 # Number of tests per noun (24) * number of nouns
   + 1 # Fudge for one additional test in filius
-  + 222*4 # Number of tests per adjective (216) * number of adjectives
+  + 222*5 # Number of tests per adjective (216) * number of adjectives
 )
 
 # BEGIN: Nouns
@@ -229,7 +229,6 @@ test_hash('+Noun', {
 
 # BEGIN: Adjectives
 # Thematics
-
 test_hash('longus', {
     '+Adj': {
         '+Pos': {
@@ -378,6 +377,157 @@ test_hash('longus', {
         '+Pos':   ['longe'],
         '+Comp':  ['longius'],
         '+Super': ['longissime'],
+    },
+})
+
+test_hash('pulcher', {
+    '+Adj': {
+        '+Pos': {
+            '+Masc': {
+                '+Nom+Sg': ['pulcher'],
+                '+Voc+Sg': ['pulcher'],
+                '+Acc+Sg': ['pulchrum'],
+                '+Gen+Sg': ['pulchri'],
+                '+Dat+Sg': ['pulchro'],
+                '+Abl+Sg': ['pulchro'],
+
+                '+Nom+Pl': ['pulchri'],
+                '+Voc+Pl': ['pulchri'],
+                '+Acc+Pl': ['pulchros'],
+                '+Gen+Pl': ['pulchrorum'],
+                '+Dat+Pl': ['pulchris'],
+                '+Abl+Pl': ['pulchris'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['pulchra'],
+                '+Voc+Sg': ['pulchra'],
+                '+Acc+Sg': ['pulchram'],
+                '+Gen+Sg': ['pulchrae'],
+                '+Dat+Sg': ['pulchrae'],
+                '+Abl+Sg': ['pulchra'],
+
+                '+Nom+Pl': ['pulchrae'],
+                '+Voc+Pl': ['pulchrae'],
+                '+Acc+Pl': ['pulchras'],
+                '+Gen+Pl': ['pulchrarum'],
+                '+Dat+Pl': ['pulchris'],
+                '+Abl+Pl': ['pulchris'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['pulchrum'],
+                '+Voc+Sg': ['pulchrum'],
+                '+Acc+Sg': ['pulchrum'],
+                '+Gen+Sg': ['pulchri'],
+                '+Dat+Sg': ['pulchro'],
+                '+Abl+Sg': ['pulchro'],
+
+                '+Nom+Pl': ['pulchra'],
+                '+Voc+Pl': ['pulchra'],
+                '+Acc+Pl': ['pulchra'],
+                '+Gen+Pl': ['pulchrorum'],
+                '+Dat+Pl': ['pulchris'],
+                '+Abl+Pl': ['pulchris'],
+            },
+        },
+        '+Comp': {
+            '+Masc': {
+                '+Nom+Sg': ['pulchrior'],
+                '+Voc+Sg': ['pulchrior'],
+                '+Acc+Sg': ['pulchriorem'],
+                '+Gen+Sg': ['pulchrioris'],
+                '+Dat+Sg': ['pulchriori'],
+                '+Abl+Sg': ['pulchriore'],
+
+                '+Nom+Pl': ['pulchriores'],
+                '+Voc+Pl': ['pulchriores'],
+                '+Acc+Pl': ['pulchriores'],
+                '+Gen+Pl': ['pulchriorum'],
+                '+Dat+Pl': ['pulchrioribus'],
+                '+Abl+Pl': ['pulchrioribus'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['pulchrior'],
+                '+Voc+Sg': ['pulchrior'],
+                '+Acc+Sg': ['pulchriorem'],
+                '+Gen+Sg': ['pulchrioris'],
+                '+Dat+Sg': ['pulchriori'],
+                '+Abl+Sg': ['pulchriore'],
+
+                '+Nom+Pl': ['pulchriores'],
+                '+Voc+Pl': ['pulchriores'],
+                '+Acc+Pl': ['pulchriores'],
+                '+Gen+Pl': ['pulchriorum'],
+                '+Dat+Pl': ['pulchrioribus'],
+                '+Abl+Pl': ['pulchrioribus'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['pulchrius'],
+                '+Voc+Sg': ['pulchrius'],
+                '+Acc+Sg': ['pulchrius'],
+                '+Gen+Sg': ['pulchrioris'],
+                '+Dat+Sg': ['pulchriori'],
+                '+Abl+Sg': ['pulchriore'],
+
+                '+Nom+Pl': ['pulchriora'],
+                '+Voc+Pl': ['pulchriora'],
+                '+Acc+Pl': ['pulchriora'],
+                '+Gen+Pl': ['pulchriorum'],
+                '+Dat+Pl': ['pulchrioribus'],
+                '+Abl+Pl': ['pulchrioribus'],
+            },
+        },
+        '+Super': {
+            '+Masc': {
+                '+Nom+Sg': ['pulcherrimus'],
+                '+Voc+Sg': ['pulcherrime'],
+                '+Acc+Sg': ['pulcherrimum'],
+                '+Gen+Sg': ['pulcherrimi'],
+                '+Dat+Sg': ['pulcherrimo'],
+                '+Abl+Sg': ['pulcherrimo'],
+
+                '+Nom+Pl': ['pulcherrimi'],
+                '+Voc+Pl': ['pulcherrimi'],
+                '+Acc+Pl': ['pulcherrimos'],
+                '+Gen+Pl': ['pulcherrimorum'],
+                '+Dat+Pl': ['pulcherrimis'],
+                '+Abl+Pl': ['pulcherrimis'],
+            },
+            '+Fem': {
+                '+Nom+Sg': ['pulcherrima'],
+                '+Voc+Sg': ['pulcherrima'],
+                '+Acc+Sg': ['pulcherrimam'],
+                '+Gen+Sg': ['pulcherrimae'],
+                '+Dat+Sg': ['pulcherrimae'],
+                '+Abl+Sg': ['pulcherrima'],
+
+                '+Nom+Pl': ['pulcherrimae'],
+                '+Voc+Pl': ['pulcherrimae'],
+                '+Acc+Pl': ['pulcherrimas'],
+                '+Gen+Pl': ['pulcherrimarum'],
+                '+Dat+Pl': ['pulcherrimis'],
+                '+Abl+Pl': ['pulcherrimis'],
+            },
+            '+Neut': {
+                '+Nom+Sg': ['pulcherrimum'],
+                '+Voc+Sg': ['pulcherrimum'],
+                '+Acc+Sg': ['pulcherrimum'],
+                '+Gen+Sg': ['pulcherrimi'],
+                '+Dat+Sg': ['pulcherrimo'],
+                '+Abl+Sg': ['pulcherrimo'],
+
+                '+Nom+Pl': ['pulcherrima'],
+                '+Voc+Pl': ['pulcherrima'],
+                '+Acc+Pl': ['pulcherrima'],
+                '+Gen+Pl': ['pulcherrimorum'],
+                '+Dat+Pl': ['pulcherrimis'],
+                '+Abl+Pl': ['pulcherrimis'],
+            },
+        },
+    },
+    '+Adv': {
+        '+Pos':   ['pulchre'],
+        '+Comp':  ['pulchrius'],
+        '+Super': ['pulcherrime'],
     },
 })
 

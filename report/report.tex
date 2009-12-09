@@ -4,22 +4,25 @@
 \usepackage{chicago}
 \usepackage[T1]{fontenc}
 \usepackage{footnote}
+\usepackage[dvips]{hyperref}
 \usepackage{multirow}
 \usepackage{verbatim}
 
 %\newcommand\code[1]{\texttt{#1}}
 %\newcommand\form[1]{\texttt{#1}}
 \newcommand\note[1]{\marginpar{\raggedright\tiny#1}}
+\newcommand\link[1]{\href{#1}{#1}}
 %\newcommand\prog[1]{\texttt{#1}}
 %\newcommand\w[1]{\emph{#1}}
 
 \let\code\texttt
-\let\form\texttt
+\let\form\emph
 \let\lib\emph
 \let\prog\texttt
 \let\w\emph
 
-\title{Toniv\aa{}morfologi for latin}
+\title{Toniv\aa{}morfologi for latin\footnote{Denne rapporten er ogs\aa{}
+tilgjengelig som PDF fra \link{http://heim.ifi.uio.no/arnskj/TODO}}}
 %\author{Kandidat 6472}
 %\author{Arne Skj\ae{}rholt}
 \date{} % XXX: Ja of nee?
@@ -90,20 +93,20 @@ perifrastiske former).
 \begin{center}
 \begin{tabular}{|ccc|}
     \hline
-Substantiv  & Adjektiv   & Verb \\
+Substantiv  & Adjektiv    & Verb \\
     \hline
-\w{rosa}    & \w{longus} & \w{amo}     \\
-\w{dominus} & \w{acer}   & \w{hortor}  \\
-\w{numerus} & \w{brevis} & \w{moneo}   \\
-\w{filius}  & \w{felix}  & \w{vereor}  \\
-\w{puer}    &            & \w{rego}    \\
-\w{ager}    &            & \w{sequor}  \\
-\w{bellum}  &            & \w{capio}   \\
-\w{rex}     &            & \w{patior}  \\
-\w{corpus}  &            & \w{audio}   \\
-\w{fructus} &            & \w{partior} \\
-\w{cornus}  &            &             \\
-\w{res}     &            &             \\
+\w{rosa}    & \w{longus}  & \w{amo}     \\
+\w{dominus} & \w{pulcher} & \w{hortor}  \\
+\w{numerus} & \w{acer}    & \w{moneo}   \\
+\w{filius}  & \w{brevis}  & \w{vereor}  \\
+\w{puer}    & \w{felix}   & \w{rego}    \\
+\w{ager}    &             & \w{sequor}  \\
+\w{bellum}  &             & \w{capio}   \\
+\w{rex}     &             & \w{patior}  \\
+\w{corpus}  &             & \w{audio}   \\
+\w{fructus} &             & \w{partior} \\
+\w{cornus}  &             &             \\
+\w{res}     &             &             \\
     \hline
 \end{tabular}
 \end{center}
@@ -117,34 +120,52 @@ implementasjonen er utf\o{}rt. Til slutt skal vi s\aa{} hvordan systemet
 passer inn i en mer teoretisk lingvistisk kontekst.
 
 \section{Implementasjonen}
-% TODO: Flette dette inn andre steder i teksten!
-%\subsection{Kilder}\note{Bedre tittel! Eller bare sl\o{}yfe hele avsnittet og
-%flette dette inn andre steder i teksten?}
-%Grunnlaget for forml\ae{}ren er i all hovedsak tatt fra de relevante
-%paragrafene i \citeN{eitrem}, men med en del detaljer fylt ut av
-%\citeN{ernout}; sistnevnte var s\ae{}rlig opplysende i enkelte detaljer
-%omkring perfektumsformer med synkope av \w{--v}.
-\subsection{Verkt\o{}yene}\note{Ikke forn\o{}yd med dette avsnittet. Det er
-ting som burde sies, men s\aa{}nn teksten flyter rundt dette n\aa{} er det
-ikke bra nok\ldots}
-Selve analysatoren er skrevet med Xerox-verkt\o{}ykassen for endelig
-tilstandsmorfologi (XFST), dokumentert i \citeN{xfst}; prosjektet benytter seg av
-verkt\o{}yene \prog{lexc} til leksikon og \prog{twolc} for fonetiske regler.
-\prog{lexc} spesifiserer regul\ae{}re relasjoner som h\o{}yrerekursive
-grammatikker; \prog{twolc} spesifiserer relasjoner i form av kontekstsensitive
-grammatikker, men p\aa{} grunn av antagelsen at bare \'en regel kan benyttes
-p\aa{} et vilk\aa{}rlig punkt i inputstr\o{}mmen er uttrykkskraften i
-grammatikkene begrenset til regul\ae{}re relasjoner \cite{xfst}.
+%\subsection{N\o{}dvendig programvare}
+For \aa{} kompilere selve morfologidelen av applikasjonen trengs bare
+Xerox-verkt\o{}ykassen for endelig tilstandsmorfologi (XFST), og en
+implementasjon av \prog{make} for \aa{} bygge applikasjonen (applikasjonen kan
+ogs\aa{} bygges manuelt). I tillegg trenger testsuiten Python-grensesnittet mot
+XFST\footnote{\href{http://www.stanford.edu/~laurik/.book2software/download.html}
+{http://www.stanford.edu/\~{}laurik/.book2software/download.html}}, biblioteket
+\lib{PyTAP}\footnote{\link{http://git.codesimply.com/?p=PyTAP.git;a=summary}}
+og applikasjonen \prog{prove} fra Perl-biblioteket
+\lib{Test::Harness}\footnote{\href{http://search.cpan.org/~andya/Test-Harness/}
+{http://search.cpan.org/\~{}andya/Test-Harness/}},
+versjon 3 eller h\o{}yere. Hvis 
+(installeres sammen med de fleste moderne versjoner av Perl\note{Sjekke at
+dette stemmer.}).
+Webgrensesnittet\footnote{\link{http://heim.ifi.uio.no/arnskj/cgi-bin/latin/analyse.cgi}}
+krever bare Python-grensesnittet mot XFST.
 
-Slik Xerox-verkt\o{}yene fungerer er prosjektet b\aa{}de en morfologisk
-analysator og generator, ettersom alle nettverkene som produseres kan
-kj\o{}res i begge retninger: b\aa{}de fra en leksikonform som
-\form{amo+Verb+Pres+Subj+2S+Pass} og fra en overflateform som \w{ameris}. Jeg
-har derfor valgt \aa{} skrive systemet som en morfologisk generator, selv om
-m\aa{}let er \aa{} implementere en analysator, ettersom de fleste beskrivelser
-av latinsk morfologi er strukturert p\aa{} denne m\aa{}ten, og det for meg er
-kognitivt lettere \aa{} gi alle formene i et paradigme enn \aa{} enumerere
-alle mulighetene for en gitt endelse.
+XFST gir tre alternativer for \aa{} skrive endelige tilstandsautomater:
+\prog{xfst}, \prog{lexc} og \prog{twolc}. \prog{xfst} er et generelt
+verkt\o{}y for \aa{} skrive automater, og fungerer generelt p\aa{} et for lavt
+niv\aa{} for dette prosjektet og brukes bare for \aa{} regularisere
+dataformatet fra adverbavledningen (seksjon \ref{deklinasjon}). \prog{lexc} er
+et verkt\o{}y for \aa{} skrive leksikon, og spesifiserer regul\ae{}re
+relasjoner som h\o{}yrerekursive grammatikker. Hoveddelen av applikasjonen er
+implementert i \prog{lexc}. \prog{twolc} spesifiserer relasjoner i form av
+kontekstsensitive regler, men som nevng over er uttrykkskraften likevel
+begrenset til regul\ae{}re relasjoner p\aa{} grunn av antagelsen om at bare
+\'en regel kan benyttes p\aa{} et vilk\aa{}rlig punkt i inputstrengen.
+\cite{xfst,twolc}
+
+Automatene som XFST genererer har den nyttige egenskapen at de kan kj\o{}res i
+begge retninger, det vil si at en automat som analyserer morfologi ogs\aa{}
+kan generere former fra en analyse, og en generator kan analysere former. Jeg
+har benyttet meg av denne egenskapen, og koden som er skrevet spesifiserer en
+\emph{generator} for latinsk morfologi, ikke en analysator. Men siden
+resultatet er en automat som g\aa{}r i begge retninger fungerer den like godt
+som analysator. Dette har lettet implementasjonen betraktelig av to grunner.
+For det f\o{}rste er alle beskrivelser av morfologien strukturert som
+beskrivelser av hvordan en overflateform dannes fra en analyse; for det andre
+er det kognitivt lettere for meg \aa{} ta for meg en b\o{}yningsklasse og
+hvilke endelser de forskjellige formene tar enn \aa{} enumerere alle mulige
+analyser for en gitt endelse. I all hovedsak har jeg tatt utgangspunkt i
+\citeN{eitrem} sin beskrivelse av morfologien (\S\S 8--24 for substantiv og
+adjektiv, \S\S 36--41 for verbene). I tillegg var \citeN{ernout} oppklarende i
+enkelte detaljer omkring sammentrukne fomer p\aa{} \w{--vi} i
+perfektumssystemet (pp.~209--212).
 
 Webgrensesnittet er et helt grunnleggende grensesnitt mot applikasjonens
 fundamentale funksjoner, analyse og generering av latinsk morfologi,
@@ -154,19 +175,24 @@ men genererer testdata i et format vanligvis brukt for \aa{} teste Perl-kode
 har en sv\ae{}rt lav terskel for bruk, noe som har gjort at testene kan
 implementeres med et minimum av arbeid.
 
-\subsection{N\o{}dvendig programvare}
-For \aa{} kompilere selve morfologidelen av applikasjonen trengs bare
-XFST, og en implementasjon av \prog{make} for \aa{} bygge applikasjonen
-(applikasjonen kan ogs\aa{} bygges manuelt). I tillegg trenger testsuiten
-Python-grensesnittet mot XFST\footnote{http://link.to.code/}, biblioteket
-\lib{PyTAP}\footnote{http://link.to.code/} og applikasjonen \prog{prove} fra
-Perl-biblioteket \lib{Test::Harness} (installeres sammen med de fleste moderne
-versjoner av Perl\note{Sjekke at dette stemmer.}). Webgrensesnittet krever
-bare Python-grensesnittet mot XFST.
+Webgrensesnittet\footnote{\link{http://heim.ifi.uio.no/arnskj/cgi-bin/latin/analyse.cgi}}
+har et ganske rudiment\ae{}rt brukergrensesnitt som burde v\ae{}re ganske
+selvforklarende: En b\o{}yd form skrives inn i tekstfeltet og man klikker
+p\aa{} ``Analyser'' for \aa{} f\aa{} en liste over analyser, eller man skriver
+inn en formbeskrivelse og trykker p\aa{} ``Generer'' og f\aa{}r en liste
+genererte former. Formatet p\aa{} analysebeskrivelsene er fors\o{}kt holdt
+s\aa{} enhetlig som mulig, p\aa{} formatet \form{lemma+Klasse[+Info\ldots]} og
+med rekkef\o{}lgen av informasjonstaggene s\aa{} intuitiv som mulig. For verb
+\note{Kanskje like greit \aa{} si at taggene kan finnes ved \aa{}
+eksperimentere med systemet?}
+er formatet  \form{lamma+Verb+Tempus+Modus+PersTall+Diatese}, for substantiver
+\form{lemma\-+Noun\-+Kasus\-+Tall}, for adjektiver
+\form{lemma\-+Adj\-+Grad\-+Kj\o{}nn\-+Kasus\-+Tall}, og for adverb
+\form{lemma+Adv+Grad}.
 
-\subsection{Koden}
-Koden er tilgjengelig fra TODO, og best\aa{}r av f\o{}lgende filer og
-kataloger:
+\subsection{Koden}\note{Dette m\aa{} utbedres}
+Koden er tilgjengelig fra \link{http://heim.ifi.uio.no/arnskj/TODO}, og
+best\aa{}r av f\o{}lgende filer og kataloger:
 
 \note{Finn en bedre m\aa{}te \aa{} presentere dette p\aa{}.}
 \begin{itemize}
@@ -187,49 +213,35 @@ for \prog{lexc}-- og \prog{twolc}-kode.
 \item[verbs-twolc.txt] Fonetiske regler for verb.
 \end{itemize}
 
-\subsection{Bruk av systemet}\note{Dette m\aa{} plasseres et annet sted.}
-Et webgrensesnitt mot applikasjonen er tilgjengelig p\aa{}
-\texttt{http://heim.ifi.uio.no/arnskj/cgi-bin/latin/analyse.cgi}, og
-grensesnittet burde v\ae{}re ganske selvforklarende. En b\o{}yd form skrives
-inn i tekstfeltet, og man klikker p\aa{} ``Analyser'' for \aa{} f\aa{} alle
-mulige analyser av formen, eller man skriver inn en analyse og klikker p\aa{}
-``Generer'' for \aa{} f\aa{} en liste over mulige overflateformer. Formatet
-p\aa{} analysebeskrivelsene er fors\o{}kt holdt s\aa{} enhetlig som mulig,
-p\aa{} formatet \form{lemma+Klasse[+Info\ldots]} og med rekkef\o{}lgen av
-informasjonstaggene s\aa{} intuitivt som mulig. For verb er formatet
-\form{lamma+Verb+Tempus+Modus+PersTall+Diatese}, for substantiver
-\form{lemma\-+Noun\-+Kasus\-+Tall}, for adjektiver
-\form{lemma+Adj+Grad\-+Kj\o{}nn+Kasus+Tall}, og for adverb
-\form{lemma+Adv+Grad}.
-
 \subsection{Nominalsystemet}\note{Skrive om, og beskrive den historiske
 utviklingen i koden i stedet? Snakke om leksikon og slikt f\o{}rst, og s\aa{}
 f\o{}ye til at det viste seg at fonologi ble nyttig?}
 \label{deklinasjon}
 Den latinske nominalmorfologien er forholdsvis enkel. I motsetning til for
-eksempel nominalsystemet i sanskrit er det ingen lydendringer innad i
-b\o{}yningsr\o{}ttene, og de f\aa{} tilfellene av lydendringer i m\o{}tet
-mellom rot og endelse er enkle \aa{} hanskes med. Dette gir en oppbygning der
-hver rot er bundet mot en b\o{}yningsklasse med sine karakteristiske endelser
-for de enkelte formene, samt \'en fonetisk regel for \aa{} h\aa{}ndtere
-r\o{}tter p\aa{} \w{-er} som mister \w{e} n\aa{}r det legges til en endelse.
+eksempel nominalsystemet i sanskrit er det ingen vanskelige fenomener som
+lydendringer innad i b\o{}yningsr\o{}ttene, og de f\aa{} tilfellene av
+lydendringer i m\o{}tet mellom rot og endelse er enkle \aa{} hanskes med.
+Dette gir en oppbygning der hver rot er bundet mot en b\o{}yningsklasse med
+sine karakteristiske endelser for de enkelte formene, samt \'en fonetisk regel
+for \aa{} h\aa{}ndtere r\o{}tter p\aa{} \w{--er} som mister \w{e} n\aa{}r det
+legges til en endelse.
 
 For \aa{} lette implementasjonen har de fleste vekslinger av overflateformen
 til roten blitt ansett for \aa{} v\ae{}re leksikalske (unntaket er bortfall av
-\w{e} i \w{-er}). Rent lingvistisk hadde det kanskje v\ae{}rt riktigere \aa{}
+\w{e} i \w{--er}). Rent lingvistisk hadde det kanskje v\ae{}rt riktigere \aa{}
 modellere flere av disse fenomenene som regelrette med fonetiske regler, for
 eksempel \w{reg-s} > \w{rex} og \w{flos-is} > \w{floris}. P\aa{} samme
 m\aa{}te ender stammefinal vokal opp som endelsesinitial i f\o{}rste og fjerde
 deklinasjon, slik at bortfallet av vokalen i dativ/ablativ flertall kan
 h\aa{}ndteres i leksikon i stedet for med fonetiske regler. Som nevnt er den
 ene fonetiske regelen i nominalsystemet for \aa{} h\aa{}ndtere
-synkope\note{Synkope er riktig, no?} i \w{-er}-endelsen. Den fungerer ganske
+synkope\note{Synkope er riktig, no?} i \w{--er}-endelsen. Den fungerer ganske
 enkelt slik at de r\o{}ttene som mister \w{e} med endelse har denne markert
 som s\aa{}dan i leksikon og den fonetiske regelen fjerner den hvis det kommer
 en endelse etter; opprinnelig var denne regelen mer generell, og synkoperte
-alle forekomster av \w{-er} foran morfemgrense (unntatt i r\o{}ttene \w{puer},
+alle forekomster av \w{--er} foran morfemgrense (unntatt i r\o{}ttene \w{puer},
 \w{gener}, \w{socer}, \w{liber}, \w{vesper} og \w{signifer}), men det viser
-seg at det finnes r\o{}tter p\aa{} \w{-er} som \emph{ikke} har synkope, for
+seg at det finnes r\o{}tter p\aa{} \w{--er} som \emph{ikke} har synkope, for
 eksempel \w{numerus}, og at synkopen er leksikalisert (se for\o{}vrig
 \ref{diakroni} for mer diskusjon om dette).
 
@@ -298,6 +310,8 @@ Futurum exactum   & \w{--eri} & ---        \\
 \end{center}
 \end{table}
 
+\note{Frem hit er jeg ganske forn\o{}yd. Resten av avsnittet er skit.}
+
 \note{Faa med at 3B verb noteres med -I i leksikon for aa merke dem som
 spesielle.}
 
@@ -360,7 +374,7 @@ En morfologisk modell er synkron av natur, men det kan kan ogs\aa{} v\ae{}re
 interessant \aa{} se hvordan den synkrone modellen passer med den diakrone
 utviklingen av det morfologiske systemet.\note{Ting som m\aa{} med:
 \begin{itemize}
-\item \w{-er}-synkope. Leksikalisert. Hvorfor?
+\item \w{--er}-synkope. Leksikalisert. Hvorfor?
 \end{itemize}
 }
 

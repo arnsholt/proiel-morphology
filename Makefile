@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 
-.PHONY: test clean experiment
+.PHONY: test clean
 
 latin.fst: nouns.fst verbs.fst
 	xfst -f build/latin.fst.build

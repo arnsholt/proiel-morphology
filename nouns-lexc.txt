@@ -35,19 +35,19 @@ LEXICON D1
     D1Endings ;
 
 LEXICON D1Endings
-+Nom+Sg:a # ;
-+Voc+Sg:a # ;
-+Acc+Sg:am # ;
-+Gen+Sg:ae # ;
-+Dat+Sg:ae # ;
-+Abl+Sg:a # ;
++Nom+Sg:-a # ;
++Voc+Sg:-a # ;
++Acc+Sg:-am # ;
++Gen+Sg:-ae # ;
++Dat+Sg:-ae # ;
++Abl+Sg:-a # ;
 
-+Nom+Pl:ae # ;
-+Voc+Pl:ae # ;
-+Acc+Pl:as # ;
-+Gen+Pl:arum # ;
-+Dat+Pl:is # ;
-+Abl+Pl:is # ;
++Nom+Pl:-ae # ;
++Voc+Pl:-ae # ;
++Acc+Pl:-as # ;
++Gen+Pl:-arum # ;
++Dat+Pl:-is # ;
++Abl+Pl:-is # ;
 
 ! Second declination: dominus, puer, bellum.
 ! BUG: Not all nouns on -er drop the e before ending. Some, like numerus, keep
@@ -124,11 +124,11 @@ LEXICON D3EndingsNoneMF
 
 LEXICON D3EndingsMF
     D3EndingsCommon ;
-+Acc+Sg:em # ;
++Acc+Sg:-em # ;
 
-+Nom+Pl:es # ;
-+Voc+Pl:es # ;
-+Acc+Pl:es # ;
++Nom+Pl:-es # ;
++Voc+Pl:-es # ;
++Acc+Pl:-es # ;
 
 LEXICON D3EndingsNoneN
     D3EndingsNoneMF ;
@@ -137,18 +137,18 @@ LEXICON D3EndingsNoneN
 LEXICON D3EndingsN
     D3EndingsCommon ;
 
-+Nom+Pl:a # ;
-+Voc+Pl:a # ;
-+Acc+Pl:a # ;
++Nom+Pl:-a # ;
++Voc+Pl:-a # ;
++Acc+Pl:-a # ;
 
 LEXICON D3EndingsCommon
-+Gen+Sg:is # ;
-+Dat+Sg:i # ;
-+Abl+Sg:e # ;
++Gen+Sg:-is # ;
++Dat+Sg:-i # ;
++Abl+Sg:-e # ;
 
-+Gen+Pl:um # ;
-+Dat+Pl:ibus # ;
-+Abl+Pl:ibus # ;
++Gen+Pl:-um # ;
++Dat+Pl:-ibus # ;
++Abl+Pl:-ibus # ;
 
 ! TODO: cornus (neuter D4 nouns)
 LEXICON Decl4
@@ -156,49 +156,49 @@ fructus+Noun:fruct D4EndingsMF ;
 cornus+Noun:corn D4EndingsN ;
 
 LEXICON D4EndingsMF
-+Acc+Sg:um # ;
++Acc+Sg:-um # ;
 
-+Nom+Pl:us # ;
-+Voc+Pl:us # ;
-+Acc+Pl:us # ;
++Nom+Pl:-us # ;
++Voc+Pl:-us # ;
++Acc+Pl:-us # ;
     D4EndingsCommon ;
 
 LEXICON D4EndingsN
-+Acc+Sg:us # ;
++Acc+Sg:-us # ;
 
-+Nom+Pl:ua # ;
-+Voc+Pl:ua # ;
-+Acc+Pl:ua # ;
++Nom+Pl:-ua # ;
++Voc+Pl:-ua # ;
++Acc+Pl:-ua # ;
     D4EndingsCommon ;
 
 LEXICON D4EndingsCommon
-+Nom+Sg:us # ;
-+Voc+Sg:us # ;
-+Gen+Sg:us # ;
-+Dat+Sg:ui # ;
-+Abl+Sg:u # ;
++Nom+Sg:-us # ;
++Voc+Sg:-us # ;
++Gen+Sg:-us # ;
++Dat+Sg:-ui # ;
++Abl+Sg:-u # ;
 
-+Gen+Pl:uum # ;
-+Dat+Pl:ibus # ;
-+Abl+Pl:ibus # ;
++Gen+Pl:-uum # ;
++Dat+Pl:-ibus # ;
++Abl+Pl:-ibus # ;
 
 LEXICON Decl5
 res+Noun:re D5Endings ;
 
 LEXICON D5Endings
-+Nom+Sg:s # ;
-+Voc+Sg:s # ;
-+Acc+Sg:m # ;
-+Gen+Sg:i # ;
-+Dat+Sg:i # ;
++Nom+Sg:-s # ;
++Voc+Sg:-s # ;
++Acc+Sg:-m # ;
++Gen+Sg:-i # ;
++Dat+Sg:-i # ;
 +Abl+Sg:0 # ;
 
-+Nom+Pl:s # ;
-+Voc+Pl:s # ;
-+Acc+Pl:s # ;
-+Gen+Pl:rum # ;
-+Dat+Pl:bus # ;
-+Abl+Pl:bus # ;
++Nom+Pl:-s # ;
++Voc+Pl:-s # ;
++Acc+Pl:-s # ;
++Gen+Pl:-rum # ;
++Dat+Pl:-bus # ;
++Abl+Pl:-bus # ;
 
 ! Adjective lexicon.
 ! XXX: To save me the trouble of refactoring the +Adj in the adjective code
@@ -208,6 +208,7 @@ LEXICON D5Endings
 ! $root+Adv+$grade. It's a bit of a hack, but it's a great effort-saver. =)
 LEXICON Adj
 longus+Adj:long AdjStd ;
+pulcher+Adj:pulchEr AdjStd-er ;
 acer+Adj:acEr AdjCons3 ;
 brevis+Adj:brev AdjCons2 ;
 felix+Adj:felix AdjCons1None ;
@@ -219,11 +220,24 @@ LEXICON AdjStd
     AdjComp ;
     AdjSuper ;
 
+LEXICON AdjStd-er
++Pos:0 AdjStdPos-er ;
+    AdjComp ;
+    !AdjSuper ;
++Super:rim AdjStdPos ;
+
 LEXICON AdjStdPos
 +Masc:0 D2M ;
+    AdjStdPosCommon ;
+
+LEXICON AdjStdPos-er
++Masc:0 D2-er ;
+    AdjStdPosCommon ;
+
+LEXICON AdjStdPosCommon
 +Fem:0 D1 ;
 +Neut:0 D2N ;
-+Adv:e # ;
++Adv:-e # ;
 
 LEXICON AdjCons3
 +Pos+Masc:0 AdjCons23EndingsM ;
