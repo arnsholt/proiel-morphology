@@ -1,0 +1,26 @@
+This archive contains the following files:
+
+README - This file
+Makefile - make rules to build the application
+nouns-lexc.txt - Noun lexicon definitions
+verbs-lexc.txt - Verb lexicon definitions
+nouns-twolc.txt - Noun phonetic rules
+verbs-twolc.txt - Verb phonetic rules
+t/ - Directory containing test files and support code
+build/ - Directory containing build scripts, used by the make rules
+vim/ - Directory containing syntax highlighting rules for lexc and twolc code
+       for the vim editor.
+
+BUILDING THE APPLICATION
+------------------------
+To compile the application, first make sure you have installed the Xerox tools
+from http://www.stanford.edu/~laurik/fsmbook/home.html and that they are in
+your path. Then execute the command make in the application's root directory.
+The transducer can then be tested by invoking ``xfst -s latin.fst'' and using
+the up and down commands to analyse and generate, respectively.
+
+The test suite can be invoked by executing the command ``make test'', however
+UiO's default linux has an outdated version of Python installed in the default
+location (/usr/bin/python) which causes problems with the Python interface to
+xfsm. To run the test suite on these systems, try the command ``prove -r
+--perl /local/bin/python t/''.

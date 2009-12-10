@@ -1,0 +1,83 @@
+#!/usr/bin/env ruby
+require 'sfst'
+
+PERSEUS_FEATURES_MAP = {
+  "1st" => "1",
+  "2nd" => "2",
+  "3rd" => "3",
+  "act" => "active",
+  "pass" => "passive",
+
+  "ind" => "indicative",
+  "subj" => "subjunctive",
+  "inf" => "infinitive",
+  "imperat" => "imperative",
+  "part" => "participle",
+  "gerundive" => "gerundive",
+
+  "pres" => "present",
+  "imperf" => "imperfect",
+  "perf" => "perfect",
+  "fut" => "future",
+  "futperf" => "futureperfect",
+
+  "masc" => "m",
+  "fem" => "f",
+  "neut" => "n",
+
+  "adj" => "adjective",
+
+  "pos" => "positive",
+  "comp" => "comparative",
+  "superl" => "superlative",
+}
+
+def any_match?(features, lemma, analyses)
+  analyses.each do |analysis|
+    l, *fs = analysis.split('<').map { |f| f.sub(/>/, '') }
+    fs = fs.sort!
+    
+    return true if l == lemma and fs.join(',') == features.join(',')
+  end
+  return false
+end
+
+analyzer = SFST::CompactTransducer.new('lat.a')
+
+n = 0
+m = 0
+g = 0
+
+File.open("unmatched.csv", "w") do |f_unmatched|
+  File.open("perseus-fixed.csv") do |f|
+    f.each_line do |l|
+      n += 1
+      l.chomp!
+      form, lemma, pos, *features = l.split(',')
+      form.downcase! #FIXME: ditto
+
+      analyses = analyzer.analyze(form)
+
+      if analyses.empty?
+        f_unmatched.puts [pos, lemma, form, features].join(',')
+      else
+        lemma.sub!(/#\d$/, '') #FIXME: removing variant numbers for now.
+
+        # Add pos back to features
+        features << pos
+
+        features.map! { |feature|  PERSEUS_FEATURES_MAP[feature] || feature }
+        features.sort!
+
+        if any_match?(features, lemma, analyses)
+          m += 1
+        else
+          g += 1
+          f_unmatched.puts [pos, lemma].join(',') #, form, features].join(',')
+        end
+      end
+    end
+  end
+end
+
+puts "%d Perseus lines, %d matched (%2.2f%%), %d failed (%2.2f%%)" % [n, m, m/n.to_f * 100.0, g, g/n.to_f * 100.0]

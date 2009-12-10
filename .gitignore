@@ -3,3 +3,5 @@
 .*.swp
 *.fst
 *.pyc
+morphology
+morphology.tar.gz

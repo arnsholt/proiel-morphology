@@ -10,3 +10,5 @@ plan(3)
 test_not("longus+Adj+Pos+Adv")
 test_not("longus+Adj+Comp+Adv")
 test_not("longus+Adj+Super+Adv")
+
+diag("%d" % Morph.formcount)

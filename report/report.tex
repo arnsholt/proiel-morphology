@@ -5,6 +5,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{footnote}
 \usepackage[dvips]{hyperref}
+\usepackage{listings}
 \usepackage{multirow}
 \usepackage{verbatim}
 
@@ -18,7 +19,7 @@
 \let\w\emph
 
 \title{Toniv\aa{}morfologi for latin\footnote{Denne rapporten er ogs\aa{}
-tilgjengelig som PDF fra \link{http://heim.ifi.uio.no/arnskj/TODO}}}
+tilgjengelig som PDF fra \link{http://heim.ifi.uio.no/arnskj/latin/report.pdf}}}
 %\author{Kandidat 6472}
 %\author{Arne Skj\ae{}rholt}
 \date{} % XXX: Ja of nee?
@@ -28,7 +29,11 @@ tilgjengelig som PDF fra \link{http://heim.ifi.uio.no/arnskj/TODO}}}
 
 \section{Introduksjon}
 %\subsection{Historisk bakgrunn}
-\note{Litt mykere start. ``Denne oppgaven presenterer\ldots''}
+Denne oppgaven presenterer funksjonaliteten og implementasjonen til et system
+for analyse og generering av latinsk morfologi. Systemet bygger p\aa{} en
+generativ toniv\aa{}-modell for latinsk morfologi, implementert i
+Xerox-verkt\o{}y\-kassen for endelige tilstandsmaskiner.
+
 Tradisjonelle generative modeller for morfologi ble skrevet som
 kontekst-sensitive omskrivningsregler p\aa{} m\o{}nsteret $\alpha \to
 \beta/\gamma \_ \delta$: $\alpha$ omskrives til $\beta$ mellom $\gamma$ og
@@ -48,7 +53,13 @@ p\aa{} problemet radikalt, og dette problemet viser seg \aa{} kunne l\o{}ses
 med endelige tilstandsmaskiner\footnote{Et problem som kan l\o{}ses i
 polynomisk tid.}. Dette arbeidet begynte p\aa{} 60-tallet og kuliminerte i
 Kimmo Koskenniemis toniv\aa{}formalisme i 1983, som fort ble det gjeldende
-paradigmet i feltet. \cite{twolc}
+paradigmet i feltet. \cite{twolc} Kort fortalt inneb\ae{}rer
+toniv\aa{}formalismen at man opererer med to morfologiske niv\aa{}er: et
+leksikalsk niv\aa{} og et overflateniv\aa{}. P\aa{} det leksikalske niv\aa{}et
+er ordet et lemma med en serie morfologiske tagger, som til sammen beskriver
+en eller annen form. En regul\ae{}r relasjon beskriver s\aa{} forholdet mellom
+en leksikonform og de mulige overflateformene, det vil si de mulige
+realiseringene i spr\aa{}ket. \cite{jnm}
 
 %\subsection{Form\aa{}l}
 Selv om problemet viser seg \aa{} v\ae{}re beregningsmessing forholdsvis lett
@@ -75,7 +86,7 @@ kompliserte delen av den latinske morfologien ans\aa{} jeg det som viktig
 regler som trengtes. Etter dette var planen \aa{} implementere det som gjensto
 av de regelrette verbal-- og substantivparadigmene.
 
-%\subsection{Funksjonalitet}\note{Dette m\aa{} skrives.}
+%\subsection{Funksjonalitet}
 I sin n\aa{}v\ae{}rende form analyserer og genererer systemet verb--,
 substantiv-- og adjektivformer for leksikonet gitt i tabell \ref{leksikon}.
 For substantiv skal applikasjonen ha full dekning for regelrette ord i
@@ -120,7 +131,7 @@ passer inn i en mer teoretisk lingvistisk kontekst.
 \section{Implementasjonen}
 %\subsection{N\o{}dvendig programvare}
 For \aa{} kompilere selve morfologidelen av applikasjonen trengs bare
-Xerox-verkt\o{}y\-kassen for endelig tilstandsmorfologi (XFST), og en
+Xerox-verkt\o{}y\-kassen for endelige tilstandsmaskiner (XFST), og en
 implementasjon av \prog{make} for \aa{} bygge applikasjonen (applikasjonen kan
 ogs\aa{} bygges manuelt). I tillegg trenger testsuiten Python-grensesnittet mot
 XFST\footnote{\href{http://www.stanford.edu/~laurik/.book2software/download.html}
@@ -129,9 +140,7 @@ XFST\footnote{\href{http://www.stanford.edu/~laurik/.book2software/download.html
 og applikasjonen \prog{prove} fra Perl-biblioteket
 \lib{Test::Harness}\footnote{\href{http://search.cpan.org/~andya/Test-Harness/}
 {http://search.cpan.org/\~{}andya/Test-Harness/}},
-versjon 3 eller h\o{}yere. Hvis FIXMEFIXMEFIXME
-(installeres sammen med de fleste moderne versjoner av Perl\note{Sjekke at
-dette stemmer.}).
+versjon 3 eller h\o{}yere.
 Webgrensesnittet\footnote{\link{http://heim.ifi.uio.no/arnskj/cgi-bin/latin/analyse.cgi}}
 krever bare Python-grensesnittet mot XFST.
 
@@ -139,9 +148,9 @@ XFST gir tre alternativer for \aa{} skrive endelige tilstandsautomater:
 \prog{xfst}, \prog{lexc} og \prog{twolc}. \prog{xfst} er et generelt
 verkt\o{}y for \aa{} skrive automater, og fungerer generelt p\aa{} et for lavt
 niv\aa{} for dette prosjektet og brukes bare for \aa{} regularisere
-dataformatet fra adverbavledningen (seksjon \ref{deklinasjon}). \prog{lexc} er
-et verkt\o{}y for \aa{} skrive leksikon, og spesifiserer regul\ae{}re
-relasjoner som h\o{}yrerekursive grammatikker. Hoveddelen av applikasjonen er
+dataformatet fra adverbavledningen (del \ref{deklinasjon}). \prog{lexc} er et
+verkt\o{}y for \aa{} skrive leksikon, og spesifiserer regul\ae{}re relasjoner
+som h\o{}yrerekursive grammatikker. Hoveddelen av applikasjonen er
 implementert i \prog{lexc}. \prog{twolc} spesifiserer relasjoner i form av
 kontekstsensitive regler, men som nevnt over er uttrykkskraften likevel
 begrenset til regul\ae{}re relasjoner p\aa{} grunn av antagelsen om at bare
@@ -173,45 +182,32 @@ men genererer testdata i et format vanligvis brukt for \aa{} teste Perl-kode
 har en sv\ae{}rt lav terskel for bruk, noe som har gjort at testene kan
 implementeres med et minimum av arbeid.
 
-Webgrensesnittet\footnote{\link{http://heim.ifi.uio.no/arnskj/cgi-bin/latin/analyse.cgi}}
-har et ganske rudiment\ae{}rt brukergrensesnitt som burde v\ae{}re
-selvforklarende: En b\o{}yd form skrives inn i tekstfeltet og man klikker
-p\aa{} ``Analyser'' for \aa{} f\aa{} en liste over analyser, eller man skriver
-inn en formbeskrivelse og trykker p\aa{} ``Generer'' og f\aa{}r en liste
-genererte former. Formatet p\aa{} analysebeskrivelsene er fors\o{}kt holdt
-s\aa{} enhetlig som mulig, p\aa{} formatet \form{lemma+Klasse[+Info\ldots]} og
-med rekkef\o{}lgen av informasjonstaggene s\aa{} intuitiv som mulig. For verb
-er formatet \form{lamma+Verb+Tempus+Modus+PersTall+Diatese}, for substantiver
+Webgrensesnittet har et ganske rudiment\ae{}rt brukergrensesnitt som burde
+v\ae{}re selvforklarende: En b\o{}yd form skrives inn i tekstfeltet og man
+klikker p\aa{} ``Analyser'' for \aa{} f\aa{} en liste over analyser, eller man
+skriver inn en formbeskrivelse og trykker p\aa{} ``Generer'' og f\aa{}r en
+liste genererte former. Formatet p\aa{} analysebeskrivelsene er fors\o{}kt
+holdt s\aa{} enhetlig som mulig, p\aa{} formatet
+\form{lemma+Klasse[+Info\ldots]} og med rekkef\o{}lgen av informasjonstaggene
+s\aa{} intuitiv som mulig. For verb er formatet
+\form{lamma+Verb+Tempus+Modus+PersTall+Diatese}, for substantiver
 \form{lemma\-+Noun\-+Kasus\-+Tall}, for adjektiver
 \form{lemma\-+Adj\-+Grad\-+Kj\o{}nn\-+Kasus\-+Tall}, og for adverb
 \form{lemma+Adv+Grad}.
 
-\subsection{Koden}\note{Dette m\aa{} utbedres}
-Koden er tilgjengelig fra \link{http://heim.ifi.uio.no/arnskj/TODO}, og
-best\aa{}r av f\o{}lgende filer og kataloger:
+Koden er tilgjengelig fra
+\link{http://heim.ifi.uio.no/arnskj/latin/morphology.tar.gz}. Arkivet
+inneholder flere filer og kataloger, men de mest interessante for oss er
+\prog{nouns-lexc.txt} og \prog{verbs-lexc.txt} som inneholder
+leksikondefinisjonene for nominalsystemet og verbalsystemet, og
+\prog{nouns-twolc.txt} og \prog{verbs-twolc.txt} som inneholder de fonetiske
+reglene. I tillegg inneholder \prog{build/} scriptene som brukes for \aa{}
+bygge systemet. Se ellers \prog{README} for en utf\o{}rlig beskrivelse av de
+forskjellige filene og katalogene. Koden til webgrensesnittet er ikke
+inkludert, ettersom den forel\o{}pig er avhengig av \aa{} kj\o{}re fra en
+katalog p\aa{} mitt hjemmeomr\aa{}de.
 
-\note{Finn en bedre m\aa{}te \aa{} presentere dette p\aa{}.}
-\begin{itemize}
-\item[build/] Korte script som bygger og komponerer de forskjellige FSTene
-p\aa{} riktig m\aa{}te.
-\item[report/] \LaTeX{}-kildekoden til denne rapporten. % XXX: Fjerne fra den endelige leveransen?
-\item[t/] Python-script som tester at koden virker som den skal.
-\item[vim/] Script for editoren \prog{vim} for \aa{} f\aa{} syntaksmarkering
-for \prog{lexc}-- og \prog{twolc}-kode.
-\item[web/] Pythonkoden for webgrensesnittet.
-
-\item[Makefile] Regler for \prog{make} for \aa{} bygge FSTene.
-\item[TODO] Liste over ting som m\aa{} gj\o{}res. % XXX: Fjerne fra den endelige leveransen?
-\item[README] Instruksjoner om bruk og installasjon av applikasjonen.
-\item[nouns-lexc.txt] Leksikonspesifikasjon for substantiver.
-\item[nouns-twolc.txt] Fonetiske regler for substantiver.
-\item[verbs-lexc.txt] Leksikonspesifikasjon for verb.
-\item[verbs-twolc.txt] Fonetiske regler for verb.
-\end{itemize}
-
-\subsection{Nominalsystemet}\note{Skrive om, og beskrive den historiske
-utviklingen i koden i stedet? Snakke om leksikon og slikt f\o{}rst, og s\aa{}
-f\o{}ye til at det viste seg at fonologi ble nyttig?}
+\subsection{Nominalsystemet}
 \label{deklinasjon}
 Nominalmorfologien er den delen av systemet som ble skrevet f\o{}rst, og
 ogs\aa{} den enkleste. Den latinske nominalmorfologien er forholds enkel, og i
@@ -221,36 +217,35 @@ lydendringer i m\o{}tet mellom rot og endelse er enkle \aa{} hanskes med.
 Dette gir en oppbygning der hver rot er bundet mot en b\o{}yningsklasse, og
 hver klasse har et sett med endelser for hver enkelt form.
 
+I den f\o{}rste iterasjonen var nominalmorfologien kun definert i
+leksikonfilen, og trengte ingen fonetiske regler. Det er to grunner til dette:
+For det f\o{}rste er morfologien s\aa{} som regel enkel at fonetiske regler
+ganske enkelt er overfl\o{}dig. For det andre er de f\aa{} endringene som
+finnes tiln\ae{}rmet leksikaliserte. Rent lingvistisk hadde det kanskje
+v\ae{}rt riktigere \aa{} modellere flere av disse fenomenene med fonetiske
+regler, for eksempel \w{reg-s} > \w{rex}, eller \w{severitas-is} >
+\w{severitatis}, men \aa{} implementere dette korrekt ville v\ae{}rt krevende.
+Dessuten er disse endringene s\aa{}pass varierte at det er lettere \aa{} legge
+all informasjonen i leksikon og anse hele prosessen som leksikalisert.
+Ogs\aa{} for \aa{} lette implementasjonen anses stammefinal vokal i f\o{}rste
+og fjerde deklinasjon som endelsesinitial, slik at bortfallet av vokalen i
+dativ/ablativ kan h\aa{}ndteres i leksikon i stedet for med fonetiske regler.
 
-
-
-Den latinske nominalmorfologien er forholdsvis enkel. I motsetning til for
-eksempel nominalsystemet i sanskrit er det ingen vanskelige fenomener som
-lydendringer innad i b\o{}yningsr\o{}ttene, og de f\aa{} tilfellene av
-lydendringer i m\o{}tet mellom rot og endelse er enkle \aa{} hanskes med.
-Dette gir en oppbygning der hver rot er bundet mot en b\o{}yningsklasse med
-sine karakteristiske endelser for de enkelte formene, samt \'en fonetisk regel
-for \aa{} h\aa{}ndtere r\o{}tter p\aa{} \w{--er} som mister \w{e} n\aa{}r det
-legges til en endelse.
-
-For \aa{} lette implementasjonen har de fleste vekslinger av overflateformen
-til roten blitt ansett for \aa{} v\ae{}re leksikalske (unntaket er bortfall av
-\w{e} i \w{--er}). Rent lingvistisk hadde det kanskje v\ae{}rt riktigere \aa{}
-modellere flere av disse fenomenene som regelrette med fonetiske regler, for
-eksempel \w{reg-s} > \w{rex} og \w{flos-is} > \w{floris}. P\aa{} samme
-m\aa{}te ender stammefinal vokal opp som endelsesinitial i f\o{}rste og fjerde
-deklinasjon, slik at bortfallet av vokalen i dativ/ablativ flertall kan
-h\aa{}ndteres i leksikon i stedet for med fonetiske regler. Som nevnt er den
-ene fonetiske regelen i nominalsystemet for \aa{} h\aa{}ndtere
-synkope\note{Synkope er riktig, no?} i \w{--er}-endelsen. Den fungerer ganske
-enkelt slik at de r\o{}ttene som mister \w{e} med endelse har denne markert
-som s\aa{}dan i leksikon og den fonetiske regelen fjerner den hvis det kommer
-en endelse etter; opprinnelig var denne regelen mer generell og synkoperte
-alle forekomster av \w{--er} foran morfemgrense (unntatt i r\o{}ttene \w{puer},
-\w{gener}, \w{socer}, \w{liber}, \w{vesper} og \w{signifer}), men det viser
-seg at det finnes r\o{}tter p\aa{} \w{--er} som \emph{ikke} har synkope, for
-eksempel \w{numerus}, og at synkopen er leksikalisert (se for\o{}vrig
-\ref{diakroni} for mer diskusjon om dette).
+Dette f\o{}rsteutkastet h\aa{}ndterte ord fra alle fem
+b\o{}yningsm\o{}nsterene, men adjektivene og en del variasjoner av de
+grunnleggende m\o{}nsterene, s\ae{}rlig i andre deklinasjon, manglet.
+Innimellom f\o{}rste og andre revisjon av nominalsystemet ble
+f\o{}rsteutkastet til verbene skrevet, og jeg tok med en del l\ae{}rdom
+tilbake fra det. Det er ett fenomen i nominalsystemet som bruker fonetiske
+regler: synkope i \w{--er}-endelsen foran b\o{}yningsmorfem. Dette er
+implementert slik at \w{e} som faller bort er markert som s\aa{}dan i
+leksikon, og den fonetiske regelen fjerner alle slike foran \w{r} og
+morfemgrense. Opprinnelig var denne regelen mer generell (og krevde ikke
+markering i leksikon), og synkoperte ganske enkelt alle \w{--er} til \w{--r}
+foran morfemgrense, unntatt i r\o{}ttene \w{puer}, \w{gener}, \w{socer},
+\w{liber}, \w{vesper} og \w{signifer}. Men det viser seg at ikke alle
+r\o{}tter p\aa{} \w{--er} skal ha synkope, for eksempel \w{numerus}, og at
+synkopen er leksikalisert (se for\o{}vrig del \ref{diakroni}).
 
 Adjektivb\o{}yningen h\aa{}ndteres p\aa{} akkurat samme m\aa{}te som
 substantivene, inkludert \w{e}-synkope. Derimot er avledningen av adverb noe
@@ -260,23 +255,35 @@ tilsvarende b\o{}yningsgraden. Dessverre inneb\ae{}rer dette at den genererte
 analysen blir \form{lemma+Adj+Pos+Adv} eller tilsvarende, noe som helt klart
 ikke er optimalt. Jeg har derfor lagt til en omskrivningsregel p\aa{} toppen
 av substantivleksikonet som skriver om analyser p\aa{} denne formen til den
-korrekte formen: \form{lemma+Adv+Pos}.
+korrekte formen: \form{lemma+Adv+Pos}. Partisipper p\aa{} samme m\aa{}te som
+adjektiver, men uten gradb\o{}yning og adverbavledning.
+
+Selve koden for nominalsystemet kan deles inn i to hoveddeler, \'en for
+substantiver og \'en for adjektiver og partisipper. Substantivdelen er videre
+delt inn i fem deler, \'en for hver deklinasjon. Innad i de forskjellige
+deklinasjonene har jeg fors\o{}kt \aa{} spesifisere like endelser p\aa{} ett
+enkelt sted, og \aa{} komponere forskjellige grupper endelser sammen til de
+forskjellige m\o{}nstrene i den enkelte deklinasjonen. Adjektivdelenen f\aa{}r
+alle sine tematiske endelser, det vil si de fra f\o{}rste og andre
+deklinasjon, fra de relevante endelsene i substantivdelen, men endelsene etter
+tredje deklinasjon f\o{}lger et litt avvikende m\o{}nster, og minste motstands
+vei n\aa{}r denne delen av koden ble skrevet var \aa{} ganske enkelt
+spesifisere de av endelsene som er like en gang til i adjektivleksikonet.
 
 \subsection{Verbalsystemet}
 \label{konjugasjon}
-Verbalmorfologien er den mest interessante og kompliserte delen av systemet;
-den er delt inn i to deler: en leksikondel, som inneholder mesteparten av
-koden, og et sett fonetiske omskrivningsregler. Reglene i verbleksikonet tar
-leksikonformer og skriver dem om til r\o{}tter etterfulgt av en streng
-morfemer, for eksempel er resultatet for \w{amo} presens konjunktiv 2.~person
-entall passiv \w{ama-e-ris}. Denne mellomformen behandles s\aa{} av de
-fonetiske reglene som setter inn korrekte temavokaler og h\aa{}ndterer
-bortfall av lyder; for eksempel omskrives \w{ama-o} til \w{amo} og \w{reg-ris}
-til \w{regeris}. Tabellene \ref{endelser} og \ref{tempus} gir en oversikt over
-de viktigste person-- og tempusendelsene, henholdsvis, som brukes i systemet.
+Verbalmorfologien er den mest kompliserte og interessante delen av systemet;
+som for nominalene er den delt inn i en leksikondel som inneholder mesteparten
+av koden, og et sett fonetiske omskrivningsregler. Reglene i verbleksikonet
+tar leksikonformer og skriver dem om til r\o{}tter etterfulgt av en streng
+morfemer. For eksempel er resultatet for \w{amo} presens konjunktiv 2.~person
+entall passiv (\form{amo+Verb+Pres+Subj+2S+Pass}) \w{ama-e-ris}. Denne
+mellomformen behandles s\aa{} av de fonetiske reglene som setter inn korrekte
+temavokaler og h\aa{}ndterer bortfall av lyder; for eksempel omskrives
+\w{ama-e-ris} til \w{ameris} og \w{reg-ris} til \w{regeris}. Tabellene
+\ref{endelser} og \ref{tempus} gir en oversikt over de viktigste person-- og
+tempusendelsene, som brukes i systemet.
 
-% TODO: Prov aa flette disse tabellene bedre inn i teksten, saann at det er et
-% avsnitt eller to mellom dem.
 \begin{table}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
@@ -304,8 +311,8 @@ de viktigste person-- og tempusendelsene, henholdsvis, som brukes i systemet.
                   & Indikativ   & Konjunktiv \\
     \hline
 Presens           & $\emptyset$ & \w{--e} (1), \w{--a} (2, 3, 4) \\
-Imperfektum       & \w{--ba} & \w{--re} \\
-Futurum           & \w{--b} (1, 2), \w{--a} (3, 4) & --- \\
+Imperfektum       & \w{--ba} (1, 2), \w{--eba} (3, 4) & \w{--re} \\
+Futurum           & \w{--b} (1, 2), \w{--e} (3, 4) & --- \\
     \hline
 Perfektum         & $\emptyset$ & \w{--eri} \\
 Pluskvamperfektum & \w{--era} & \w{--isse} \\
@@ -317,48 +324,44 @@ Futurum exactum   & \w{--eri} & ---        \\
 \end{center}
 \end{table}
 
-\note{Frem hit er jeg ganske forn\o{}yd. Resten av avsnittet er skit.}
+I likhet med nominalleksikonet er ogs\aa{} verballeksikonet delt opp i flere
+deler, \'en del for hver konjugasjon i dette tilfellet. I alle konjugasjonene
+er avledningen av perfektumstammen fra presensstammen ansett som leksikalsk,
+og for ikke-deponente verb reflekteres dette i at de to systemene defineres av
+forskjellige leksikon, og at hvert verb m\aa{} spesifiseres to ganger: en gang
+med presensstammen for presenssysteme, og en gang med perfektumstammen for
+perfektumsystemet. Deponente verb i de enkelte klassene har egne leksikon hvor
+bare passivformene inng\aa{}r.
 
-\note{Faa med at 3B verb noteres med -I i leksikon for aa merke dem som
-spesielle.}
+Perfektumleksikonet er felles for de fire konjugasjonene, og inneholder regler
+for de fem finitte formene i perfektumsystemet, perfektum indikativ og
+konjunktiv, pluskvamperfektum indikativ og konjunktiv, futurum exactum, og
+perfektum infinitiv. I presenssystemet har hver konjugasjon sitt eget
+leksikon, men for de forskjellige formene er det st\o{}rre eller mindre grad
+av overlapp. Presens indikativ, presens konunktiv og imperfektum konjunktiv er
+felles for alle fire konugasjonene, og deles mellom de forskjellige delene.
+F\o{}rste og andre konjugasjon, og tredje og fjerde konjugasjon deler reglene
+for imperfektum indikativ og futurum. I imperativ og infinitiv har tredje
+konjugasjon egne m\o{}nstre der de andre har felles, mens i presens konjunktiv
+er det f\o{}rste konugasjon som skiller seg ut. Til slutt m\aa{} det ogs\aa{}
+nevnes at verbene med stamme p\aa{} kort \w{i} (``3B-konjugasjonen'') er
+markert spesielt i leksikon for \aa{} skille dem fra verbene etter fjerde
+konjugasjon.
 
-\note{De fonetiske reglene er oppdatert siden dette ble skrevet. Sjekk mot
-verbs-twolc.txt!}
-\paragraph{\code{a:0 <=> \_ \%-: [ o | e ]}} Denne regelen h\aa{}ndterer to
-tilfeller hvor stammefinal \w{--a} faller bort: foran \w{--o} i 1.~person
-entall presens indikativ og foran suffikset for presens konjunktiv.
-
-\paragraph{\code{\%-:i <=> Cons \_ [ s | t | m ]}} Temavokal i
-konsonantstammer er \w{i} foran \w{s}, \w{t} og \w{m}.
-
-\paragraph{\code{\%-:e <=> Cons \_ r}} Temavokal i konsonantstammer er
-\w{e} foran \w{r}.
-
-\paragraph{\code{\%-:u <=> Cons \_ n}} Temavokal i konsonantstammer er
-\w{u} foran \w{n}.
-
-\paragraph{\code{I:e <=> \_ \%-: r}} Som foreg\aa{}ende regel, men for
-stammer p\aa{} kort \w{i}.
-
-\paragraph{\code{I:0 <=> \_ \%-: i .\#.}} Stammefinal kort \w{i} faller bort
-foran endelsen \w{--i} (presens infinitiv passiv).
-
-Disse reglene beskriver mer eller mindre generelle regler. De resterende
-reglene h\aa{}ndterer den valgfrie \w{v}-synkopen i perfektumssystemet.
-
-\paragraph{\code{v:0 => \ldots}} \w{v} mellom vokal og morfemgrense kan i
-enkelte tilfeller falle bort (se \S 41.3 i \citeN{eitrem} og \citeN{ernout},
-s.~209-212).
-
-\paragraph{\code{v:0 /<= a \_ \%-: ? r e .\#.}} Bortfall av \w{v} m\aa{}
-ikke skje n\aa{}r resultatet vil kunne forveksles med en infinitiv.
-
-\paragraph{\code{e:0 <=> a v:0 \%-: \_}} \w{e} etter bortfalt \w{v} foran
-\w{a} faller ogs\aa{} bort.
-
-\paragraph{\code{i:0 <=> a v:0 \%-: \_ ; i v:0 \%-: \_ s}} \w{i} etter
-bortfalt \w{v} foran \w{a}, eller foran \w{i} og etter bortfalt \w{v} foran
-\w{i}, faller ogs\aa{} bort.
+I motsetning til i nominalsystemet er fonetiske regler en sentral del av
+verbalmorfologien, og uten disse reglene ville verballeksikonet ha blitt langt
+mer komplisert og uoversiktlig. Grovt sett kan vi dele inn reglene i tre: \'en
+regel for \aa{} h\aa{}ndtere bortfall av stammefinal \w{--a} foran
+vokalendelser (dvs.~f\o{}rste konjugasjon f\o{}rste person entall presens
+indikativ aktiv og passiv, og f\o{}rste konjugasjon presens konjunktiv), fem
+regler for \aa{} h\aa{}ndtere temavokaler i tredje og fjerde konjugasjon, og
+fire regler for \aa{} h\aa{}ndtere synkoperte perfektumsformer der
+perfektumstammen slutter p\aa{} vokal pluss \w{v}. Se ellers del
+\ref{verbphon} p\aa{} side \pageref{verbphon} for en n\o{}ye gjennomgang av de
+fonetiske reglene for verbalsystemet.\note{Tror dette er den beste m\aa{}ten
+\aa{} gj\o{}re det p\aa{}. Hadde v\ae{}rt fint \aa{} ha alt p\aa{} ett sted,
+men de fonetiske reglene er s\aa{}pass kompliserte at det bryter teksten opp
+veldig \aa{} ha det med her\ldots}
 
 \subsection{Verifisering}
 For \aa{} kontrollere at endringer i en del av koden ikke \o{}delegger andre
@@ -370,26 +373,192 @@ skrevet slik at for hvert par av leksikonform og korrekte former blir de
 mulige overflateformene i f\o{}lge reglene generert, og programmet sjekker at:
 1) reglene genererer samme antall former som er spesifisert i testprogrammet
 og 2) alle formene i testprogrammet blir generert. Totalt blir det utf\o{}rt
-5638 tester, for 2892 overflateformer \note{Disse tallene m\aa{} oppdateres!}
-(inklusive tilfeller der forskjellige leksikonformer har samme overflateform).
-Testene er i stor grad generert ved hjelp av klipp-og-lim og erstatninger ved
-hjelp av regul\ae{}re uttrykk.
+5887 tester, for 3018 overflateformer (inklusive tilfeller der forskjellige
+leksikonformer har samme overflateform). Testene er i stor grad generert ved
+hjelp av klipp-og-lim og erstatninger ved hjelp av regul\ae{}re uttrykk,
+s\aa{} man skal ikke se bort i fra det kan v\ae{}re feil i testene, men i de
+tilfellene testene og systemet har v\ae{}rt uenige har jeg f\o{}rst konsultert
+grammatikker for \aa{} kontrollere hva som er korrekt, og rettet den delen som
+var feil. Jeg velger derfor \aa{} tolke det store antallet former som testes
+som en indikasjon p\aa{} at det er relativt f\aa{} feil.
+
+\subsection{Videre utvikling}
+Systemet i sin n\aa{}v\ae{}rende tilstand er langt ifra ferdig, og kan vel
+heller ikke sies \aa{} v\ae{}re s\ae{}rlig nyttig. Den kanskje enkleste
+m\aa{}ten \aa{} \o{}ke systemets nytteverdi ville nok v\ae{}re \aa{} \o{}ke
+st\o{}rrelsen p\aa{} leksikonet. Dette vil fordre en del endringer i hvordan
+systemet bygges; s\ae{}rlig viktig vil det v\ae{}re \aa{} skille ut de
+h\aa{}ndkodede avledningsreglene fra spesifikasjonene av hvilke lemmaer som
+f\o{}lger hvilke m\o{}nstre. Man m\aa{} s\aa{} skrive kode som tar en
+lemmaliste, genererer den korrekte \prog{lexc}-koden og komponerer den med de
+h\aa{}ndskrevne reglene til den endelige koden som kompileres. Dette vil
+forh\aa{}pentligvis \o{}ke dekningen til systemet mye i forhold til
+arbeidsmengden det krever \aa{} utf\o{}re arbeidet. PROIEL-prosjektet og
+Perseus er begge gode kandidater for lemmalister.
+
+Foruten \aa{} generelt \o{}ke st\o{}rrelsen p\aa{} leksikonet m\aa{} ogs\aa{}
+de mer uregelmessige delene av morfologien tas med i systemet. Det er en del
+marginale tilfeller i nominalsystemet som ikke er implementert, s\ae{}rlig
+viktig er kanskje ordene i tredje deklinasjon med genitiv flertall p\aa{}
+\w{--ium}, som enn\aa{} ikke er implementert. Implementasjonen av disse ordene
+vil ogs\aa{} v\ae{}re en anledning til \aa{} f\aa{} adjektivparadigmene etter
+tredje deklinasjon og substantivene etter samme til \aa{} benytte seg av samme
+kode.
+
+Pronomenb\o{}yningen er forel\o{}pig fullstendig oversett, noe som absolutt
+m\aa{} rettes opp i en fullverdig analysator. P\aa{} samme m\aa{}te m\aa{} en
+del uregelmessige verb tas med i systemet, s\ae{}rlig viktig er kanskje
+\w{sum}, \w{possum} og \w{eo}. Den beste m\aa{}ten \aa{} h\aa{}ndtere defekte
+verb som \w{aio} og \w{inquam} p\aa{} m\aa{} ogs\aa{} vurderes.
+
+Til slutt burde ogs\aa{} systemet utsettes for brukere for \aa{} luke ut
+eventuelle feil som har sneket seg inn. Jeg er ganske sikker p\aa{} at det er
+f\aa{} feil i analysene av former som faktisk er korrekte latinske former, men
+hvorvidt systemet overgenererer eller ikke er et noe mer \aa{}pent
+sp\o{}rsm\aa{}l. Jeg har gjort noe kontroll etter overgenerering uten \aa{}
+finne noe, men skikkelig brukertesting er uerstattelig.
 
 \section{Synkroni vs.~diakroni}
 \label{diakroni}
-En morfologisk modell er synkron av natur, men det kan kan ogs\aa{} v\ae{}re
-interessant \aa{} se hvordan den synkrone modellen passer med den diakrone
-utviklingen av det morfologiske systemet.\note{Ting som m\aa{} med:
+\note{Ting som m\aa{} med:
 \begin{itemize}
 \item \w{--er}-synkope. Leksikalisert. Hvorfor?
+\item Diskutere litt hvordan morsm\aa{}lstalere forh\aa{}ldt seg til disse
+tingene?
+\item Diskutere muligheten for \aa{} notere vokalkvantiteter i leksikon.
+Fordeler og ulemper.
 \end{itemize}
 }
+En morfologisk modell er synkron av natur, men det kan kan ogs\aa{} v\ae{}re
+interessant \aa{} se hvordan den synkrone modellen passer med den diakrone
+utviklingen av det morfologiske systemet.
 
-\section{Konklusjon}\note{Bedre tittel!}
-\note{Ta med ideen om \aa{} simulere historiske regler med
+\section{Konklusjon}\note{La synkroni/diakroni-delen og konklusjonen v\ae{}re
+en del?}
+\note{Ta med id\'een om \aa{} simulere historiske regler med
 toniv\aa{}formalismen? Det er en riktig festlig ide, og er ikke helt p\aa{}
 jordet irrelevant heller, gitt den siste delen med sammenligning av synkroni
 og diakroni\ldots}
+
+\appendix
+
+\section{Fonetiske regler for verbalsystemet}
+\label{verbphon}
+I koden som f\o{}lger har hver regel f\o{}rst en beskrivelse av regelen,
+s\aa{} selve regelspesifikasjonen, et par tegn adskilt av \code{:} der tegnet
+til venstre i leksikonformen blir omskrevet til tegnet til h\o{}yre i
+overflateformen. \code{0} angir at tegnet blir fjernet s\aa{} en operator som
+angir om korrespondansen er obligatorisk (\code{<=>}), valgfri (\code{=>})
+eller forbudt (\code{/<=}) og til slutt en serie kontekster der
+korrespondansen forekommer. \code{\_} angir posisjonen korrespondansen
+forekommer i, tegnsekvensene til venstre angir tegnene som kommer f\o{}r og
+tegnene til h\o{}yre tegnsekvensen etter. Den kontekstsensitive regelen
+$\alpha \to \beta/\gamma \_ \delta$ blir alts\aa{} \code{$\alpha$:$\beta$ <=>
+$\gamma$ \_ $\delta$} i denne notasjonen. I kontekstspesifikasjonene angir
+\code{a:} betyr at tegnet \w{a} i leksikonformen kan korrespondere med et
+vilk\aa{}rlig tegn i overflateformen, og \code{:a} at \w{a} i overflateformen
+kan korrespondere med et vilk\aa{}rlig tegn i leksikonformen. Se ellers
+\citeN{twolc} for en utf\o{}rlig introduksjon til syntaks og semantikk til
+\prog{twolc}-regler.
+
+Det som f\o{}lger er hele filen \code{verbs-twolc.txt}, med glosser.
+
+\lstset{basicstyle=\small,numbers=left}
+\begin{lstlisting}[name=verbs-twolc.txt]
+Alphabet a b c d e f g h i I:i k l m n o p q r s t u v w x y z %-:0 ;
+\end{lstlisting}
+
+Aller f\o{}rst definerer vi alfabetet. \code{I} angir et 3B-verb i leksikon,
+og omskrives til \w{i} i overflaten. \code{-} angir morfemgrense og skrives om
+til ingenting. \code{-} er prefigert med \code{\%} siden \code{-} alene har
+spesiell betydning i \prog{twolc} (\code{\%} har samme funksjon som
+$\backslash$ i de fleste andre programmeringsspr\aa{}k).
+
+\begin{lstlisting}[name=verbs-twolc.txt]
+Sets
+    V = a e i o u ;
+    C = b c d f g h k l m n p q r s t v w x y z ;
+\end{lstlisting}
+
+Vi definerer konsonanter og vokaler som delmengder av alfabetet.
+
+\begin{lstlisting}[name=verbs-twolc.txt]
+Definitions
+    Cons = [ C | q u ] ;
+\end{lstlisting}
+
+Vi trenger ogs\aa{} en spesialdefinisjon for konsonanter ettersom digrafen
+\w{qu} regnes som en konsonant i latinsk ortografi.
+
+\begin{lstlisting}[name=verbs-twolc.txt]
+Rules
+"-a drop before -o and -e"
+a:0 <=> _ %-: [ o | e ] ;
+\end{lstlisting}
+
+\w{a} foran morfemgrense etterfulgt at \w{e} eller \w{e} faller bort. Dette
+h\aa{}ndterer f\o{}rstepersonformene i presens indikativ og alle formene i
+presens konjunktiv av verb etter f\o{}rste konjugasjon, som ikke har
+stammefinal \w{--a}.
+
+\begin{lstlisting}[name=verbs-twolc.txt]
+"-i theme vowel between consonant and s, t and m"
+%-:i <=> Cons _ [ s | t | m ] ;
+
+"-e theme vowel before -r"
+%-:e <=> Cons _ r ;
+
+"Short -i to -e before -r"
+I:e <=> _ %-: r ;
+
+"-u theme vowel between consonant and n"
+%-:u <=> [ Cons | \%-: \e \r :i | .#. (i^1,2) :i ] _ n ;
+\end{lstlisting}
+
+Disse fire reglene h\aa{}ndterer temavokaler i tredje og fjerde konjugasjon.
+Den f\o{}rste regelen skriver om morfemgrensen til \w{i} mellom konsonant og
+\w{s}, \w{t} eller \w{m} (de eneste konsonantene som forekommer f\o{}rst i en
+verbalendelse, foruten \w{r} og \w{n}). De to neste reglene setter inn \w{e} som
+temavokal foran \w{r}. Den f\o{}rste h\aa{}ndterer konsonantstammer, den andre
+3B-verbene.
+
+Den siste regelen setter inn \w{u} som temavokal etter konsonant og \w{i}, men
+regelen er mer komplisert enn de andre ettersom leksikon vil produsere
+\w{-eri-nt} og \w{-eri-ntur} i tredje person flertall av perfektum konjunktiv
+og futurum exactum. Det er derfor litt ekstra koden for \aa{} forhindre at
+disse endelsene blir realisert som \w{eriunt} og \w{eriuntur}.
+
+\begin{lstlisting}[name=verbs-twolc.txt]
+"Loss of -I before present passive infinitive and first person imperative ending"
+I:0 <=> _ %-: [ i | e ] .#. ;
+\end{lstlisting}
+
+Denne regelen h\aa{}ndterer bortfall av kort \w{i} i 3B-verb foran endelsen i
+presens aktiv imperativ singularis og presens infinitiv passiv.
+
+\begin{lstlisting}[name=verbs-twolc.txt]
+"Weird perfects, -v loss"
+v:0 => a _ %-: [ i: | e: ] [ s | r ] ;
+       i _ %-: [ i: | e: ] ;
+       e _ %-: [ i: | e: ] ;
+
+"Stop -v syncope when it would cause confusion with other forms"
+v:0 /<= a _ %-: ? r e .#. ;
+
+"Weird perfects, -i loss"
+i:0 <=> a v:0 %-: _ ;
+        i v:0 %-: _ s ;
+
+"Weird perfects, -e loss"
+e:0 <=> a v:0 %-: _ ;
+\end{lstlisting}
+
+De fire siste reglene definerer reglene for synkoperte perfektumformer. Dette
+er lagt opp rundt en definisjon er \w{v} valgfritt kan synkoperes i en del
+kontekster (den f\o{}rste regelen), unntatt de der det ville medf\o{}re
+forvirring med andre former (den andre regelen). Denne synkoperingen
+medf\o{}rer s\aa{} enkelte andre obligatoriske synkoper i gitte kontekster (de
+to siste reglene).
 
 \clearpage
 \bibliographystyle{norchicago}

@@ -24,8 +24,8 @@ def test_hash(tag_base, forms):
             test_hash(tag_base + tag, forms)
         else:
             test(tag_base + tag, forms)
-    #diag("Forms: %d" % Morph.formcount)
 
 def test_not(tag):
     gens = latin.apply_down(tag)
-    eq_ok(len(gens), 0, "Nothin generated from %s" % tag)
+    eq_ok(len(gens), 0, "Nothing generated from %s" % tag)
+    Morph.formcount += 1

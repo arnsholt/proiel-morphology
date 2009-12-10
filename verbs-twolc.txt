@@ -1,4 +1,4 @@
-Alphabet a b c d e f g h i I:i k l m n o p q r s t u v w x y z %-:0 ;
+Alphabet a b c d e f g h i I:i I:0 k l m n o p q r s t u v w x y z %-:0 ;
 
 Sets
     V = a e i o u ;
@@ -11,21 +11,27 @@ Rules
 "-a drop before -o and -e"
 a:0 <=> _ %-: [ o | e ] ;
 
+"-i theme vowel between consonant and s, t and m"
+%-:i <=> Cons _ [ s | t | m ] ;
+
 "-e theme vowel before -r"
 %-:e <=> Cons _ r ;
 
 "Short -i to -e before -r"
 I:e <=> _ %-: r ;
 
-"Loss of -I before present passive infinitive and first person imperative ending"
-I:0 <=> _ %-: [ i | e ] .#. ;
-
-"-i theme vowel between consonant and s, t and m"
-%-:i <=> Cons _ [ s | t | m ] ;
+!"-e theme vowel before -r"
+!%-:e <=> [ Cons | I: ] _ r ;
+!
+!"Short -i drops before -e morpheme boundary"
+!I:0 <=> _ %-:e ;
 
 "-u theme vowel between consonant and n"
 !%-:u <=> [ Cons | ~[ %-: e r ] :i ] _ n ;
 %-:u <=> [ Cons | \%-: \e \r :i | .#. (i^1,2) :i ] _ n ; ! This works. It's ugly as sin, but it works.
+
+"Loss of -I before present passive infinitive and first person imperative ending"
+I:0 <=> _ %-: [ i | e ] .#. ;
 
 ! This rule has to be refined. First of all, it's possible for verbs ending in
 ! -e to have perfect stem -ev. Second, it's a bit more complicated than what
