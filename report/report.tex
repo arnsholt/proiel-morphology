@@ -45,21 +45,21 @@ l\o{}se problemet tar tid som \o{}ker eksponensielt med st\o{}rrelsen p\aa{}
 grammatikken. Hvorvidt dette faktisk er tilfelle er et av de store ul\o{}ste
 problemene i teoretisk informatikk, men den gjengse oppfatning er at dette er
 tilfelle.}, men det viser seg at man i generativ morfologi antar at man
-beveger seg videre i strengen etter at en omskrivning er utf\o{}rt. Dette
-inneb\ae{}rer at n\aa{}r $\gamma\alpha\delta$ er omskrevet til
-$\gamma\beta\delta$ forblir $\beta$-delen uendret, og man fortsetter \aa{}
-omskrive til h\o{}yre eller venstre for $\beta$. Dette endrer kompleksiteten
-p\aa{} problemet radikalt, og dette problemet viser seg \aa{} kunne l\o{}ses
-med endelige tilstandsmaskiner\footnote{Et problem som kan l\o{}ses i
-polynomisk tid.}. Dette arbeidet begynte p\aa{} 60-tallet og kuliminerte i
-Kimmo Koskenniemis toniv\aa{}formalisme i 1983, som fort ble det gjeldende
-paradigmet i feltet. \cite{twolc} Kort fortalt inneb\ae{}rer
-toniv\aa{}formalismen at man opererer med to morfologiske niv\aa{}er: et
-leksikalsk niv\aa{} og et overflateniv\aa{}. P\aa{} det leksikalske niv\aa{}et
-er ordet et lemma med en serie morfologiske tagger, som til sammen beskriver
-en eller annen form. En regul\ae{}r relasjon beskriver s\aa{} forholdet mellom
-en leksikonform og de mulige overflateformene, det vil si de mulige
-realiseringene i spr\aa{}ket. \cite{jnm}
+beveger seg videre etter at en omskrivning er utf\o{}rt. Dette inneb\ae{}rer
+at n\aa{}r $\gamma\alpha\delta$ er omskrevet til $\gamma\beta\delta$ forblir
+$\beta$-delen uendret, og man fortsetter \aa{} omskrive til h\o{}yre eller
+venstre for $\beta$. Dette endrer kompleksiteten p\aa{} problemet radikalt, og
+dette problemet viser seg \aa{} kunne l\o{}ses med endelige
+tilstandsmaskiner\footnote{Et problem som kan l\o{}ses i polynomisk tid.}.
+Dette arbeidet begynte p\aa{} 60-tallet og kuliminerte i Kimmo Koskenniemis
+toniv\aa{}formalisme i 1983, som fort ble det gjeldende paradigmet i feltet
+\cite{twolc}. Kort fortalt inneb\ae{}rer toniv\aa{}formalismen at man opererer
+med to morfologiske niv\aa{}er: et leksikalsk niv\aa{} og et
+overflateniv\aa{}. P\aa{} det leksikalske niv\aa{}et er ordet et lemma med en
+serie morfologiske tagger, som til sammen beskriver en eller annen form. En
+regul\ae{}r relasjon beskriver s\aa{} forholdet mellom en leksikonform og de
+mulige overflateformene, det vil si de mulige realiseringene i spr\aa{}ket
+\cite{jnm}.
 
 %\subsection{Form\aa{}l}
 Selv om problemet viser seg \aa{} v\ae{}re beregningsmessing forholdsvis lett
@@ -219,7 +219,7 @@ hver klasse har et sett med endelser for hver enkelt form.
 
 I den f\o{}rste iterasjonen var nominalmorfologien kun definert i
 leksikonfilen, og trengte ingen fonetiske regler. Det er to grunner til dette:
-For det f\o{}rste er morfologien s\aa{} som regel enkel at fonetiske regler
+For det f\o{}rste er morfologien som regel s\aa{} enkel at fonetiske regler
 ganske enkelt er overfl\o{}dig. For det andre er de f\aa{} endringene som
 finnes tiln\ae{}rmet leksikaliserte. Rent lingvistisk hadde det kanskje
 v\ae{}rt riktigere \aa{} modellere flere av disse fenomenene med fonetiske
@@ -365,8 +365,8 @@ veldig \aa{} ha det med her\ldots}
 
 \subsection{Verifisering}
 For \aa{} kontrollere at endringer i en del av koden ikke \o{}delegger andre
-deler av programmet har jeg skrevet en del tester. Testene er implementert som
-Python-programmer som genererer output etter protokollen ``Test Anything
+deler av programmet har jeg utviklet en rekket tester. Testene er implementert
+som Python-programmer som genererer output etter protokollen ``Test Anything
 Protocol'' (TAP). Programmet \prog{prove} kj\o{}rer s\aa{} alle
 testprogrammene, tolker resultatene og skriver ut statistikker. Testene er
 skrevet slik at for hvert par av leksikonform og korrekte former blir de
@@ -385,15 +385,15 @@ som en indikasjon p\aa{} at det er relativt f\aa{} feil.
 \subsection{Videre utvikling}
 Systemet i sin n\aa{}v\ae{}rende tilstand er langt ifra ferdig, og kan vel
 heller ikke sies \aa{} v\ae{}re s\ae{}rlig nyttig. Den kanskje enkleste
-m\aa{}ten \aa{} \o{}ke systemets nytteverdi ville nok v\ae{}re \aa{} \o{}ke
-st\o{}rrelsen p\aa{} leksikonet. Dette vil fordre en del endringer i hvordan
-systemet bygges; s\ae{}rlig viktig vil det v\ae{}re \aa{} skille ut de
+m\aa{}ten \aa{} \o{}ke systemets nytteverdi p\aa{} ville nok v\ae{}re \aa{}
+\o{}ke st\o{}rrelsen p\aa{} leksikonet. Dette vil fordre flere endringer i
+hvordan systemet bygges; s\ae{}rlig viktig vil det v\ae{}re \aa{} skille ut de
 h\aa{}ndkodede avledningsreglene fra spesifikasjonene av hvilke lemmaer som
-f\o{}lger hvilke m\o{}nstre. Man m\aa{} s\aa{} skrive kode som tar en
+f\o{}lger hvilke m\o{}nstre. Man m\aa{} deretter skrive kode som tar en
 lemmaliste, genererer den korrekte \prog{lexc}-koden og komponerer den med de
 h\aa{}ndskrevne reglene til den endelige koden som kompileres. Dette vil
-forh\aa{}pentligvis \o{}ke dekningen til systemet mye i forhold til
-arbeidsmengden det krever \aa{} utf\o{}re arbeidet. PROIEL-prosjektet og
+forh\aa{}pentligvis \o{}ke dekningen til systemet betraktelig i forhold til
+arbeidsmengden som kreves for \aa{} utf\o{}re arbeidet. PROIEL-prosjektet og
 Perseus er begge gode kandidater for lemmalister.
 
 Foruten \aa{} generelt \o{}ke st\o{}rrelsen p\aa{} leksikonet m\aa{} ogs\aa{}
@@ -415,8 +415,8 @@ Til slutt burde ogs\aa{} systemet utsettes for brukere for \aa{} luke ut
 eventuelle feil som har sneket seg inn. Jeg er ganske sikker p\aa{} at det er
 f\aa{} feil i analysene av former som faktisk er korrekte latinske former, men
 hvorvidt systemet overgenererer eller ikke er et noe mer \aa{}pent
-sp\o{}rsm\aa{}l. Jeg har gjort noe kontroll etter overgenerering uten \aa{}
-finne noe, men skikkelig brukertesting er uerstattelig.
+sp\o{}rsm\aa{}l. Jeg har gjort en del kontroll etter overgenerering uten \aa{}
+finne noe, men omfattende brukertesting er uerstattelig.
 
 \section{Synkroni vs.~diakroni}
 \label{diakroni}
@@ -431,7 +431,17 @@ Fordeler og ulemper.
 }
 En morfologisk modell er synkron av natur, men det kan kan ogs\aa{} v\ae{}re
 interessant \aa{} se hvordan den synkrone modellen passer med den diakrone
-utviklingen av det morfologiske systemet.
+utviklingen av det morfologiske systemet. La oss for eksempel se p\aa{}
+eksempelet med substantivr\o{}tter p\aa{} \w{--er} med synkope foran endelse.
+Det viser seg at de r\o{}ttene med synkope opprinnelig var r\o{}tter p\aa{}
+\w{--r} som fulgte det vanlige m\o{}nsteret, men i nominativsformen
+f\o{}lgende skjedd: \w{--ros} > \w{--rs} > \w{--rr} > \w{--\r{r}} > \w{--er}.
+Vokalen i nominativsendelsen (som opprinnelig var \w{o}) falt fort foran
+\w{r}, \w{s} ble s\aa{} assimilert til \w{r}, dobbel \w{r} ble trukket sammen
+til syllabisk \w{\r{r}} som s\aa{} ble til \w{er}. Men denne endringen tok
+ikke sted i r\o{}tter der \w{--r} kom fra en \w{s} som var blitt stemt mellom
+vokaler, som for eksempel \w{numerus}, og vi ser hvordan disse formene har
+blitt leksikalisert. \cite{ernout}
 
 \section{Konklusjon}\note{La synkroni/diakroni-delen og konklusjonen v\ae{}re
 en del?}
