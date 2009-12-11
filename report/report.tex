@@ -7,18 +7,20 @@
 \usepackage[dvips]{hyperref}
 \usepackage{listings}
 \usepackage{multirow}
+\usepackage{tipa}
 \usepackage{verbatim}
 
-\newcommand\note[1]{\marginpar{\raggedright\tiny#1}}
+%\newcommand\note[1]{\marginpar{\raggedright\tiny#1}}
 \newcommand\link[1]{\href{#1}{#1}}
 
 \let\code\texttt
 \let\form\emph
 \let\lib\emph
 \let\prog\texttt
+\let\tipa\textipa
 \let\w\emph
 
-\title{Toniv\aa{}morfologi for latin\footnote{Denne rapporten er ogs\aa{}
+\title{Toniv\aa{}morfologi for latin\footnote{Rapporten er ogs\aa{}
 tilgjengelig som PDF fra \link{http://heim.ifi.uio.no/arnskj/latin/report.pdf}}}
 %\author{Kandidat 6472}
 %\author{Arne Skj\ae{}rholt}
@@ -190,7 +192,7 @@ liste genererte former. Formatet p\aa{} analysebeskrivelsene er fors\o{}kt
 holdt s\aa{} enhetlig som mulig, p\aa{} formatet
 \form{lemma+Klasse[+Info\ldots]} og med rekkef\o{}lgen av informasjonstaggene
 s\aa{} intuitiv som mulig. For verb er formatet
-\form{lamma+Verb+Tempus+Modus+PersTall+Diatese}, for substantiver
+\form{lemma+Verb+Tempus+Modus+PersTall+Diatese}, for substantiver
 \form{lemma\-+Noun\-+Kasus\-+Tall}, for adjektiver
 \form{lemma\-+Adj\-+Grad\-+Kj\o{}nn\-+Kasus\-+Tall}, og for adverb
 \form{lemma+Adv+Grad}.
@@ -245,7 +247,8 @@ markering i leksikon), og synkoperte ganske enkelt alle \w{--er} til \w{--r}
 foran morfemgrense, unntatt i r\o{}ttene \w{puer}, \w{gener}, \w{socer},
 \w{liber}, \w{vesper} og \w{signifer}. Men det viser seg at ikke alle
 r\o{}tter p\aa{} \w{--er} skal ha synkope, for eksempel \w{numerus}, og at
-synkopen er leksikalisert (se for\o{}vrig del \ref{diakroni}).
+synkopen er leksikalisert (se for\o{}vrig del \ref{diskusjon} for mer om
+dette).
 
 Adjektivb\o{}yningen h\aa{}ndteres p\aa{} akkurat samme m\aa{}te som
 substantivene, inkludert \w{e}-synkope. Derimot er avledningen av adverb noe
@@ -358,10 +361,7 @@ regler for \aa{} h\aa{}ndtere temavokaler i tredje og fjerde konjugasjon, og
 fire regler for \aa{} h\aa{}ndtere synkoperte perfektumsformer der
 perfektumstammen slutter p\aa{} vokal pluss \w{v}. Se ellers del
 \ref{verbphon} p\aa{} side \pageref{verbphon} for en n\o{}ye gjennomgang av de
-fonetiske reglene for verbalsystemet.\note{Tror dette er den beste m\aa{}ten
-\aa{} gj\o{}re det p\aa{}. Hadde v\ae{}rt fint \aa{} ha alt p\aa{} ett sted,
-men de fonetiske reglene er s\aa{}pass kompliserte at det bryter teksten opp
-veldig \aa{} ha det med her\ldots}
+fonetiske reglene for verbalsystemet.
 
 \subsection{Verifisering}
 For \aa{} kontrollere at endringer i en del av koden ikke \o{}delegger andre
@@ -418,38 +418,57 @@ hvorvidt systemet overgenererer eller ikke er et noe mer \aa{}pent
 sp\o{}rsm\aa{}l. Jeg har gjort en del kontroll etter overgenerering uten \aa{}
 finne noe, men omfattende brukertesting er uerstattelig.
 
-\section{Synkroni vs.~diakroni}
-\label{diakroni}
-\note{Ting som m\aa{} med:
-\begin{itemize}
-\item \w{--er}-synkope. Leksikalisert. Hvorfor?
-\item Diskutere litt hvordan morsm\aa{}lstalere forh\aa{}ldt seg til disse
-tingene?
-\item Diskutere muligheten for \aa{} notere vokalkvantiteter i leksikon.
-Fordeler og ulemper.
-\end{itemize}
-}
+\section{Diskusjon}
+\label{diskusjon}
 En morfologisk modell er synkron av natur, men det kan kan ogs\aa{} v\ae{}re
 interessant \aa{} se hvordan den synkrone modellen passer med den diakrone
 utviklingen av det morfologiske systemet. La oss for eksempel se p\aa{}
 eksempelet med substantivr\o{}tter p\aa{} \w{--er} med synkope foran endelse.
-Det viser seg at de r\o{}ttene med synkope opprinnelig var r\o{}tter p\aa{}
-\w{--r} som fulgte det vanlige m\o{}nsteret, men i nominativsformen
-f\o{}lgende skjedd: \w{--ros} > \w{--rs} > \w{--rr} > \w{--\r{r}} > \w{--er}.
-Vokalen i nominativsendelsen (som opprinnelig var \w{o}) falt fort foran
-\w{r}, \w{s} ble s\aa{} assimilert til \w{r}, dobbel \w{r} ble trukket sammen
-til syllabisk \w{\r{r}} som s\aa{} ble til \w{er}. Men denne endringen tok
-ikke sted i r\o{}tter der \w{--r} kom fra en \w{s} som var blitt stemt mellom
-vokaler, som for eksempel \w{numerus}, og vi ser hvordan disse formene har
-blitt leksikalisert. \cite{ernout}
+\citeN{ernout} gir en beskrivelse der r\o{}ttene med synkope opprinnelig var
+r\o{}tter p\aa{} \w{--r} som fulgte det vanlige m\o{}nsteret, men i
+nominativsformen f\o{}lgende skjedd: \w{--ros} > \w{--rs} > \w{--rr} >
+\w{--\tipa{\r*r}} > \w{--er}. Vokalen i nominativsendelsen (som opprinnelig
+var \w{o}) falt fort foran \w{r}, \w{s} ble s\aa{} assimilert til \w{r},
+dobbel \w{r} ble trukket sammen til syllabisk \w{\tipa{\r*r}} som s\aa{} ble
+til \w{er}. Men denne endringen tok ikke sted i r\o{}tter der \w{--r} kom fra
+en \w{s} som var blitt stemt mellom vokaler, som for eksempel \w{numerus}, og
+vi ser hvordan disse formene har blitt leksikalisert.
 
-\section{Konklusjon}\note{La synkroni/diakroni-delen og konklusjonen v\ae{}re
-en del?}
-\note{Ta med id\'een om \aa{} simulere historiske regler med
-toniv\aa{}formalismen? Det er en riktig festlig ide, og er ikke helt p\aa{}
-jordet irrelevant heller, gitt den siste delen med sammenligning av synkroni
-og diakroni\ldots}
+I forlengelsen av dette kunne det ha v\ae{}rt interessant \aa{} se om det
+g\aa{}r an \aa{} modellere lydendringene i latin over tid med endelige
+tilstandsteknikker slik vi har modellert formverket og synkrone lydlover i
+morfologien. \citeN{historical} p\aa{}peker at det \aa{} legge til denne typen
+derivasjon i synkron grammatikk er teoretisk meget problematisk
+(pp.~236--237), men i dette tilfellet er det ikke synkrone, men diakrone
+forhold vi \o{}nsker \aa{} modellere. De fleste historiske endringer er
+formulert som lydendringer, og burde passe veldig godt inn i
+toniv\aa{}paradigmet vi har benyttet oss av her. Vi kan s\aa{} implementere de
+forskjellige strataene av lydendringer som egne sett med fonetiske regler, og
+eksperimentere med resultatene av \aa{} komponere disse settene i forskjellige
+rekkekf\o{}lger.
 
+Det kan ogs\aa{} diskuteres hvorvidt systemet burde skille mellom lang og kort
+vokal. Dette er en fonemisk st\o{}rrelse i latin, og det er derfor mulig at
+dette kunne v\ae{}rt nyttig informasjon for de fonetiske reglene; vi kan
+faktisk anse markeringen av stammefinal kort \w{--i} i 3B-verbene som en
+ad-hoc notasjon for \aa{} skille mellom de to kvantitetene, men dette er ikke
+systematisk gjennomf\o{}rt. Jeg har forel\o{}pig ikke gjort noe med dette,
+s\ae{}rlig fordi id\'een kom ganske sent, men ogs\aa{} fordi notasjon av
+vokalkvantiteter ikke er vanlig utenfor ordb\o{}ker og oppslagsverk, noe som
+medf\o{}rer at mitt forhold til vokalkvantiteter i latin heller ikke like
+aktivt som i for eksempel sanskrit, hvor kvantitetene er en del av
+rettskrivningen. Gitt den begrensede utviklingstiden har jeg derfor valgt
+\aa{} ikke gj\o{}re noe mer med denne muligheten, men det kan vurderes for
+eventuell videreutvikling av systemet.
+
+\clearpage
+\bibliographystyle{norchicago}
+\bibliography{report}{}
+
+\tableofcontents
+\listoftables
+
+\clearpage
 \appendix
 
 \section{Fonetiske regler for verbalsystemet}
@@ -471,7 +490,8 @@ kan korrespondere med et vilk\aa{}rlig tegn i leksikonformen. Se ellers
 \citeN{twolc} for en utf\o{}rlig introduksjon til syntaks og semantikk til
 \prog{twolc}-regler.
 
-Det som f\o{}lger er hele filen \code{verbs-twolc.txt}, med glosser.
+Det som f\o{}lger er hele filen \code{verbs-twolc.txt} (minus kommentarer),
+med glosser.
 
 \lstset{basicstyle=\small,numbers=left}
 \begin{lstlisting}[name=verbs-twolc.txt]
@@ -569,12 +589,5 @@ kontekster (den f\o{}rste regelen), unntatt de der det ville medf\o{}re
 forvirring med andre former (den andre regelen). Denne synkoperingen
 medf\o{}rer s\aa{} enkelte andre obligatoriske synkoper i gitte kontekster (de
 to siste reglene).
-
-\clearpage
-\bibliographystyle{norchicago}
-\bibliography{report}{}
-
-\tableofcontents
-\listoftables
 
 \end{document}
