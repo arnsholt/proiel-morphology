@@ -6,3 +6,4 @@
 morphology
 morphology.tar.gz
 *.lemmata
+t/99-proiel-*

@@ -25,6 +25,15 @@ def test_hash(tag_base, forms):
         else:
             test(tag_base + tag, forms)
 
+def test_simple(form, tag):
+    tags = latin.apply_up(form)
+    msg = "`%s' analysed as `%s'" % (form, tag)
+    try:
+        tags.index(tag)
+        ok(True, msg)
+    except:
+        ok(False, msg)
+
 def test_not(tag):
     gens = latin.apply_down(tag)
     eq_ok(len(gens), 0, "Nothing generated from %s" % tag)
