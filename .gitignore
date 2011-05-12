@@ -5,3 +5,4 @@
 *.pyc
 morphology
 morphology.tar.gz
+*.lemmata
