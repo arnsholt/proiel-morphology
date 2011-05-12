@@ -6,7 +6,7 @@
 !    +Inf
 !    +Act +Pass ! Voices
 Multichar_Symbols
-    +Noun +Adj +Adv +Verb ! Word classes
+    +Noun +Name +Adj +Adv +Verb ! Word classes
     +Nom +Voc +Acc +Gen +Dat +Abl ! Cases
     +Sg +Pl ! Numbers
     +Masc +Fem +Neut ! Genders
@@ -117,6 +117,9 @@ rex+Noun+Masc:reg D3EndingsMF ;
 
 corpus+Noun+Neut:corpus D3EndingsNoneN ;
 corpus+Noun+Neut:corpor D3EndingsN ;
+
+Caesar+Name+Masc:Caesar D3EndingsNoneMF ;
+Caesar+Name+Masc:Caesar D3EndingsMF ;
 
 LEXICON D3EndingsNoneMF
 +Nom+Sg:0 # ;
