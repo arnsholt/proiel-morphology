@@ -27,7 +27,7 @@ I:e <=> _ %-: r ;
 !I:0 <=> _ %-:e ;
 
 "-u theme vowel between consonant and n"
-!%-:u <=> [ Cons | ~[ %-: e r ] :i ] _ n ;
+!%-:u <=> [ Cons | ~[ %-: e r ] :i ] _ n ; ! Should convey my intention. Doesn't work though.
 %-:u <=> [ Cons | \%-: \e \r :i | .#. (i^1,2) :i ] _ n ; ! This works. It's ugly as sin, but it works.
 
 "Loss of -I before present passive infinitive and first person imperative ending"
