@@ -11,7 +11,7 @@ plan(
 
 # BEGIN: Nouns
 # D1
-test_hash("rosa+Noun", {
+test_hash("rosa+Noun+Fem", {
     '+Nom+Sg': ['rosa'],
     '+Voc+Sg': ['rosa'],
     '+Acc+Sg': ['rosam'],
@@ -28,7 +28,7 @@ test_hash("rosa+Noun", {
 })
 
 # D2
-test_hash("dominus+Noun", {
+test_hash("dominus+Noun+Masc", {
     '+Nom+Sg': ['dominus'],
     '+Voc+Sg': ['domine'],
     '+Acc+Sg': ['dominum'],
@@ -44,7 +44,7 @@ test_hash("dominus+Noun", {
     '+Abl+Pl': ['dominis'],
 })
 
-test_hash('numerus+Noun', {
+test_hash('numerus+Noun+Masc', {
     '+Nom+Sg': ['numerus'],
     '+Voc+Sg': ['numere'],
     '+Acc+Sg': ['numerum'],
@@ -60,7 +60,7 @@ test_hash('numerus+Noun', {
     '+Abl+Pl': ['numeris'],
 })
 
-test_hash('filius+Noun', {
+test_hash('filius+Noun+Masc', {
     '+Nom+Sg': ['filius'],
     '+Voc+Sg': ['fili'],
     '+Acc+Sg': ['filium'],
@@ -76,7 +76,7 @@ test_hash('filius+Noun', {
     '+Abl+Pl': ['filiis'], # Add `filis'?
 })
 
-test_hash('puer+Noun', {
+test_hash('puer+Noun+Masc', {
     '+Nom+Sg': ['puer'],
     '+Voc+Sg': ['puer'],
     '+Acc+Sg': ['puerum'],
@@ -92,7 +92,7 @@ test_hash('puer+Noun', {
     '+Abl+Pl': ['pueris'],
 })
 
-test_hash('ager+Noun', {
+test_hash('ager+Noun+Masc', {
     '+Nom+Sg': ['ager'],
     '+Voc+Sg': ['ager'],
     '+Acc+Sg': ['agrum'],
@@ -108,7 +108,7 @@ test_hash('ager+Noun', {
     '+Abl+Pl': ['agris'],
 })
 
-test_hash('bellum+Noun', {
+test_hash('bellum+Noun+Neut', {
     '+Nom+Sg': ['bellum'],
     '+Voc+Sg': ['bellum'],
     '+Acc+Sg': ['bellum'],
@@ -125,7 +125,7 @@ test_hash('bellum+Noun', {
 })
 
 # D3
-test_hash('rex+Noun', {
+test_hash('rex+Noun+Masc', {
     '+Nom+Sg': ['rex'],
     '+Voc+Sg': ['rex'],
     '+Acc+Sg': ['regem'],
@@ -141,7 +141,7 @@ test_hash('rex+Noun', {
     '+Abl+Pl': ['regibus'],
 })
 
-test_hash('corpus+Noun', {
+test_hash('corpus+Noun+Neut', {
     '+Nom+Sg': ['corpus'],
     '+Voc+Sg': ['corpus'],
     '+Acc+Sg': ['corpus'],
@@ -158,7 +158,7 @@ test_hash('corpus+Noun', {
 })
 
 # D4
-test_hash('fructus+Noun', {
+test_hash('fructus+Noun+Masc', {
     '+Nom+Sg': ['fructus'],
     '+Voc+Sg': ['fructus'],
     '+Acc+Sg': ['fructum'],
@@ -174,7 +174,7 @@ test_hash('fructus+Noun', {
     '+Abl+Pl': ['fructibus'],
 })
 
-test_hash('cornus+Noun', {
+test_hash('cornus+Noun+Neut', {
     '+Nom+Sg': ['cornus'],
     '+Voc+Sg': ['cornus'],
     '+Acc+Sg': ['cornus'],
@@ -191,7 +191,7 @@ test_hash('cornus+Noun', {
 })
 
 # D5
-test_hash('res+Noun', {
+test_hash('res+Noun+Fem', {
     '+Nom+Sg': ['res'],
     '+Voc+Sg': ['res'],
     '+Acc+Sg': ['rem'],

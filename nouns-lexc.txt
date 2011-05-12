@@ -29,7 +29,7 @@ LEXICON Root
 
 ! First declination: rosa.
 LEXICON Decl1
-rosa+Noun:ros D1 ;
+rosa+Noun+Fem:ros D1 ;
 
 LEXICON D1
     D1Endings ;
@@ -54,12 +54,12 @@ LEXICON D1Endings
 ! XXX: Nouns on -ius have -i in the vocative, not -e.
 ! it. Ref. Ernout p. 26.
 LEXICON Decl2
-dominus+Noun:domin D2M ;
-numerus+Noun:numer D2M ;
-filius+Noun:fili D2M-ius ;
-puer+Noun:puer D2-er ;
-ager+Noun:agEr D2-er ;
-bellum+Noun:bell D2N ;
+dominus+Noun+Masc:domin D2M ;
+numerus+Noun+Masc:numer D2M ;
+filius+Noun+Masc:fili D2M-ius ;
+puer+Noun+Masc:puer D2-er ;
+ager+Noun+Masc:agEr D2-er ;
+bellum+Noun+Neut:bell D2N ;
 
 LEXICON D2M
     D2EndingsM ;
@@ -112,11 +112,11 @@ LEXICON D2EndingsCommon
 
 ! TODO: ``3B'' declination (gen.pl. -ium)
 LEXICON Decl3
-rex+Noun:rex D3EndingsNoneMF ;
-rex+Noun:reg D3EndingsMF ;
+rex+Noun+Masc:rex D3EndingsNoneMF ;
+rex+Noun+Masc:reg D3EndingsMF ;
 
-corpus+Noun:corpus D3EndingsNoneN ;
-corpus+Noun:corpor D3EndingsN ;
+corpus+Noun+Neut:corpus D3EndingsNoneN ;
+corpus+Noun+Neut:corpor D3EndingsN ;
 
 LEXICON D3EndingsNoneMF
 +Nom+Sg:0 # ;
@@ -152,8 +152,8 @@ LEXICON D3EndingsCommon
 
 ! TODO: cornus (neuter D4 nouns)
 LEXICON Decl4
-fructus+Noun:fruct D4EndingsMF ;
-cornus+Noun:corn D4EndingsN ;
+fructus+Noun+Masc:fruct D4EndingsMF ;
+cornus+Noun+Neut:corn D4EndingsN ;
 
 LEXICON D4EndingsMF
 +Acc+Sg:-um # ;
@@ -183,7 +183,7 @@ LEXICON D4EndingsCommon
 +Abl+Pl:-ibus # ;
 
 LEXICON Decl5
-res+Noun:re D5Endings ;
+res+Noun+Fem:re D5Endings ;
 
 LEXICON D5Endings
 +Nom+Sg:-s # ;
