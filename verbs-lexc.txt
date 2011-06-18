@@ -1,6 +1,6 @@
 !Multichar_Symbols +Noun +Adj +Adv +Nom +Voc +Acc +Gen +Dat +Abl +Sg +Pl +Masc +Fem +Neut +Pos +Comp +Super +Verb +Part +Pres +Perf +Fut
 !    +Verb +Dep
-!    +1S +2S +3S +1P +2P +3P ! Persons
+!    +1st+Sg +2nd+Sg +3rd+Sg +1st+Pl +2nd+Pl +3rd+Pl ! Persons
 !    +Pres +Fut +Impf ! Tempora
 !    +Ind +Impv +Subj ! Modi
 !    +Inf
@@ -12,7 +12,7 @@ Multichar_Symbols
     +Masc +Fem +Neut ! Genders
     +Pos +Comp +Super ! Comparison grades
     +Part +Dep ! Misc. verb stuff
-    +1S +2S +3S +1P +2P +3P ! Persons
+    +1st +2nd +3rd ! Persons
     +Pres +Perf +Fut +Impf ! Tempora
     +Ind +Impv +Subj +Inf ! Modi
     +Act +Pass ! Voices
@@ -215,27 +215,27 @@ LEXICON C14ImpfSubjPass
 
 ! Imperative paradigms.
 LEXICON CNon3Impv
-+Pres+Impv+2S+Act:0 # ;
++Pres+Impv+2nd+Sg+Act:0 # ;
     CommonImpv ;
 
 LEXICON C3Impv
-+Pres+Impv+2S+Act:-e # ;
++Pres+Impv+2nd+Sg+Act:-e # ;
     CommonImpv ;
 
 ! Imperative forms common to al conjugations.
 LEXICON CommonImpv
-+Pres+Impv+2P+Act:-te # ;
++Pres+Impv+2nd+Pl+Act:-te # ;
     C14ImpvPass ;
 
-+Fut+Impv+2S+Act:-to # ;
-+Fut+Impv+3S+Act:-to # ;
-+Fut+Impv+2P+Act:-tote # ;
-+Fut+Impv+3P+Act:-nto # ;
++Fut+Impv+2nd+Sg+Act:-to # ;
++Fut+Impv+3rd+Sg+Act:-to # ;
++Fut+Impv+2nd+Pl+Act:-tote # ;
++Fut+Impv+3rd+Pl+Act:-nto # ;
 
 ! Passive imperatives. Factored out to make room for deponents.
 LEXICON C14ImpvPass
-+Pres+Impv+2S+Pass:-re # ;
-+Pres+Impv+2P+Pass:-mini # ;
++Pres+Impv+2nd+Sg+Pass:-re # ;
++Pres+Impv+2nd+Pl+Pass:-mini # ;
 
 ! Present infinitives.
 LEXICON CNon3InfPres
@@ -274,7 +274,7 @@ LEXICON C14PerfSubj
 
 ! Future perfect tense.
 LEXICON C14FutII
-+FutII+Ind+1S+Act:-er-o # ; ! Ludicrously special-cased to avoid too fragmented code.
++FutII+Ind+1st+Sg+Act:-er-o # ; ! Ludicrously special-cased to avoid too fragmented code.
 +FutII+Ind:-eri EndingsCommonAct ;
 
 ! Pluperfect indicative tense.
@@ -291,11 +291,11 @@ LEXICON C14InfPerf
 
 ! Endings for the present indicative.
 LEXICON EndingsPresIndAct
-+1S+Act:-o # ;
++1st+Sg+Act:-o # ;
     EndingsCommonAct ;
 
 LEXICON EndingsPresIndPass
-+1S+Pass:-or # ;
++1st+Sg+Pass:-or # ;
     EndingsCommonPass ;
 
 ! Endings for non-present indicative tenses.
@@ -309,33 +309,33 @@ LEXICON EndingsNonPresPass
 
 ! Endings for the first person singular of non-present indicative tenses.
 LEXICON EndingsNonPres1SAct
-+1S+Act:-m # ;
++1st+Sg+Act:-m # ;
 
 LEXICON EndingsNonPres1SPass
-+1S+Pass:-r # ;
++1st+Sg+Pass:-r # ;
 
 ! Endings common to most forms in the system.
 LEXICON EndingsCommonAct
-+2S+Act:-s # ;
-+3S+Act:-t # ;
-+1P+Act:-mus # ;
-+2P+Act:-tis # ;
-+3P+Act:-nt # ;
++2nd+Sg+Act:-s # ;
++3rd+Sg+Act:-t # ;
++1st+Pl+Act:-mus # ;
++2nd+Pl+Act:-tis # ;
++3rd+Pl+Act:-nt # ;
 
 LEXICON EndingsCommonPass
-+2S+Pass:-ris # ;
-+2S+Pass:-re # ;
-+3S+Pass:-tur # ;
-+1P+Pass:-mur # ;
-+2P+Pass:-mini # ;
-+3P+Pass:-ntur # ;
++2nd+Sg+Pass:-ris # ;
++2nd+Sg+Pass:-re # ;
++3rd+Sg+Pass:-tur # ;
++1st+Pl+Pass:-mur # ;
++2nd+Pl+Pass:-mini # ;
++3rd+Pl+Pass:-ntur # ;
 
 ! Perfect endings.
 LEXICON EndingsPerf
-+1S+Act:-i # ;
-+2S+Act:-isti # ;
-+3S+Act:-it # ;
-+1P+Act:-imus # ;
-+2P+Act:-istis # ;
-+3P+Act:-erunt # ;
-+3P+Act:-ere # ;
++1st+Sg+Act:-i # ;
++2nd+Sg+Act:-isti # ;
++3rd+Sg+Act:-it # ;
++1st+Pl+Act:-imus # ;
++2nd+Pl+Act:-istis # ;
++3rd+Pl+Act:-erunt # ;
++3rd+Pl+Act:-ere # ;
