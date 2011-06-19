@@ -217,6 +217,12 @@ brevis+Adj:brev AdjCons2 ;
 felix+Adj:felix AdjCons1None ;
 felix+Adj:felic AdjCons1 ;
 
+meus+Pron+1st:me AdjStdPos ;
+tuus+Pron+2nd:tu AdjStdPos ;
+suus+Pron+3rd:su AdjStdPos ;
+noster+Pron+1st:nostEr AdjStdPos-er ;
+vester+Pron+2nd:vestEr AdjStdPos-er ;
+
 ! ``Normal'' (that is, thematic) adjectives.
 LEXICON AdjStd
 +Pos:0 AdjStdPos ;
