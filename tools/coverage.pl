@@ -16,6 +16,7 @@ my %tag_to_field = (
     Prep => 'pos',
     Conj => 'pos',
     Sub  => 'pos',
+    Pron => 'pos',
 
     '1st' => 'person',
     '2nd' => 'person',
@@ -24,10 +25,11 @@ my %tag_to_field = (
     Pl => 'number',
     Sg => 'number',
 
-    # TODO: Ambiguous gender tags.
     Masc => 'gender',
     Fem  => 'gender',
     Neut => 'gender',
+    MN   => 'gender',
+    MFN  => 'gender',
 
     Nom => 'case',
     Voc => 'case',
@@ -70,7 +72,8 @@ my %tag_to_value = (
     Verb => 'V-',
     Prep => 'R-',
     Conj => 'C-',
-    Subj => 'G-',
+    Sub => 'G-',
+    Pron => 'P-',
 
     '1st' => '1',
     '2nd' => '2',
@@ -79,10 +82,11 @@ my %tag_to_value = (
     Pl => 'p',
     Sg => 's',
 
-    # TODO: Ambiguous gender tags.
     Masc => 'm',
     Fem  => 'f',
     Neut => 'n',
+    MN   => 'o',
+    MFN  => 'q',
 
     Nom => 'n',
     Voc => 'v',
@@ -153,7 +157,8 @@ sub to_proiel {
     my ($lemma, @tags) = ($analysis =~ m/\+?(\w+)/msxg);
 
     my $fields = {lemma => $lemma};
-    map { $fields->{$tag_to_field{$_}} = $tag_to_value{$_} } @tags;
+    map { die "Unknown tag $_" if not exists $tag_to_field{$_} or not exists $tag_to_value{$_};
+          $fields->{$tag_to_field{$_}} = $tag_to_value{$_} } @tags;
     #$fields->{inflection} = 'i' if scalar @{$fields}{@proiel_order};
 
     my $infl;
