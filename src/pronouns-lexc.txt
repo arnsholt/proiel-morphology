@@ -1,12 +1,19 @@
-! TODO: Check PROIEL DB for person markings on these pronouns.
+Multichar_Symbols
+    +Pron
+    +Nom +Voc +Acc +Gen +Dat +Abl ! Cases
+    +Sg +Pl ! Numbers
+    +Masc +Fem +Neut +MFN +MN ! Genders
+
 LEXICON Root
 hic+Pron: Hic ;
 
-ille+Pron:ill IlleIste ;
-iste+Pron:ist IlleIste ;
-ipse+Pron:ips Ipse ;
+ille+Pron:ill     IlleIste ;
+iste+Pron:ist     IlleIste ;
+ipse+Pron:ips     Ipse ;
+ipse+Pron+3rd:ips Ipse ;
 
-is+Pron: Is ;
+is+Pron:     Is ;
+is+Pron+3rd: Is ;
 
 qui+Pron:  Qui ;
 quis+Pron: Qui ;
@@ -159,19 +166,19 @@ nos+Pron+1st+MFN+Gen+Pl:nostrum # ;
 nos+Pron+1st+MFN+Dat+Pl:nobis   # ;
 nos+Pron+1st+MFN+Abl+Pl:nobis   # ;
 
-tu+Pron+1st+MFN+Nom+Sg:tu   # ;
-tu+Pron+1st+MFN+Voc+Sg:tu   # ;
-tu+Pron+1st+MFN+Acc+Sg:te   # ;
-tu+Pron+1st+MFN+Gen+Sg:tui  # ;
-tu+Pron+1st+MFN+Dat+Sg:tibi # ;
-tu+Pron+1st+MFN+Abl+Sg:te   # ;
+tu+Pron+2nd+MFN+Nom+Sg:tu   # ;
+tu+Pron+2nd+MFN+Voc+Sg:tu   # ;
+tu+Pron+2nd+MFN+Acc+Sg:te   # ;
+tu+Pron+2nd+MFN+Gen+Sg:tui  # ;
+tu+Pron+2nd+MFN+Dat+Sg:tibi # ;
+tu+Pron+2nd+MFN+Abl+Sg:te   # ;
 
-vos+Pron+1st+MFN+Nom+Pl:vos     # ;
-vos+Pron+1st+MFN+Acc+Pl:vos     # ;
-vos+Pron+1st+MFN+Gen+Pl:vestri  # ;
-vos+Pron+1st+MFN+Gen+Pl:vestrum # ;
-vos+Pron+1st+MFN+Dat+Pl:vobis   # ;
-vos+Pron+1st+MFN+Abl+Pl:vobis   # ;
+vos+Pron+2nd+MFN+Nom+Pl:vos     # ;
+vos+Pron+2nd+MFN+Acc+Pl:vos     # ;
+vos+Pron+2nd+MFN+Gen+Pl:vestri  # ;
+vos+Pron+2nd+MFN+Gen+Pl:vestrum # ;
+vos+Pron+2nd+MFN+Dat+Pl:vobis   # ;
+vos+Pron+2nd+MFN+Abl+Pl:vobis   # ;
 
 se+Pron+3rd+MFN+Acc+Sg:se # ;
 se+Pron+3rd+MFN+Gen+Sg:sui # ;

@@ -29,6 +29,7 @@ my %tag_to_field = (
     Fem  => 'gender',
     Neut => 'gender',
     MN   => 'gender',
+    MF   => 'gender',
     MFN  => 'gender',
 
     Nom => 'case',
@@ -86,6 +87,7 @@ my %tag_to_value = (
     Fem  => 'f',
     Neut => 'n',
     MN   => 'o',
+    MF   => 'p',
     MFN  => 'q',
 
     Nom => 'n',

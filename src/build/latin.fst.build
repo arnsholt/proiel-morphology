@@ -3,4 +3,13 @@ load stack nouns.fst
 load stack indecl.fst
 load stack pronouns.fst
 union net
+define latin
+
+read regex [ %+MFN (->) %+Masc, %+MFN (->) %+Fem, %+MFN (->) %+Neut, %+MFN (->) %+MF,
+             %+MN  (->) %+Masc, %+MN (->) %+Neut ] ;
+invert net
+define genderbender
+
+read regex [ genderbender .o. latin ] ;
+
 save stack latin.fst
