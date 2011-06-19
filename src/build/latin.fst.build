@@ -6,7 +6,8 @@ union net
 define latin
 
 read regex [ %+MFN (->) %+Masc, %+MFN (->) %+Fem, %+MFN (->) %+Neut, %+MFN (->) %+MF,
-             %+MN  (->) %+Masc, %+MN (->) %+Neut ] ;
+             %+MN  (->) %+Masc, %+MN (->) %+Neut,
+             %+MF  (->) %+Masc, %+MF (->) %+Fem ] ;
 invert net
 define genderbender
 
