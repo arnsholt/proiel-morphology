@@ -374,6 +374,8 @@ audio+Verb:audit SupinePart ;
 partior+Verb+Dep:partien PresStemPart ;
 partior+Verb+Dep:partit SupinePart ;
 
+sum+Verb+Part+Fut:futur AdjStdPos ;
+
 LEXICON PresStemPart
 +Part+Pres:0 PresPart ;
 +Ger:d Gerund ;

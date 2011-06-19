@@ -25,6 +25,7 @@ LEXICON Root
     Conj2 ;
     Conj3 ;
     Conj4 ;
+    Sum ;
 
 LEXICON Conj1
 amo+Verb:ama C1Pres ;
@@ -131,6 +132,35 @@ LEXICON C4PresDep
     C14ImpfSubjPass ;
     C14ImpvPass ;
     CNon3InfPresPass ;
+
+LEXICON Sum
+sum+Verb+Pres+Ind:      SumPres ;
+sum+Verb+Pres+Subj:si   EndingsNonPresAct ;
+sum+Verb+Fut+Ind:er     EndingsPresIndAct ;
+sum+Verb+Impf+Ind:era   EndingsNonPresAct ;
+sum+Verb+Impf+Subj:esse EndingsNonPresAct ;
+sum+Verb:fu             C14PerfSystem ;
+sum+Verb:               SumImpv ;
+
+sum+Verb+Inf+Pres+Act:esse # ;
+sum+Verb+Inf+Fut+Act:fore # ;
+
+LEXICON SumPres
++1st+Sg+Act:sum   # ;
++2nd+Sg+Act:es    # ;
++3rd+Sg+Act:est   # ;
++1st+Pl+Act:sumus # ;
++2nd+Pl+Act:estis # ;
++3rd+Pl+Act:sunt  # ;
+
+LEXICON SumImpv
++Pres+Impv+2nd+Sg:es   # ;
++Pres+Impv+2nd+Pl:este # ;
+
++Fut+Impv+2nd+Sg:esto   # ;
++Fut+Impv+3rd+Sg:esto   # ;
++Fut+Impv+2nd+Pl:estote # ;
++Fut+Impv+3rd+Pl:sunto  # ;
 
 ! Regular present indicative, first to fourth conjugations.
 LEXICON C14Pres

@@ -177,8 +177,15 @@ sub convert_tag {
     delete $tag{inflection};
     %tag = map {$_, $tag{$_} ne '-'? "+$proiel_conversion{$_}{$tag{$_}}": ''} keys %tag;
 
+    if($tag{mood} eq '+Part') {
+        $tag{voice} = '';
+        # A bit dirty, but the tense and mood fields have to swap places in
+        # participles.
+        @tag{qw/tense mood/} = @tag{qw/mood tense/};
+    }
+
     my $tag = $pos_conversion{$row->{pos}} . join('', @tag{qw/tense mood
-        person voice degree gender case number/});
+        person degree gender case number voice/});
 
     return $tag;
 }
