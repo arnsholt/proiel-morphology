@@ -1,5 +1,149 @@
+! TODO: Check PROIEL DB for person markings on these pronouns.
 LEXICON Root
-    Personals ;
+hic+Pron: Hic ;
+
+ille+Pron:ill IlleIste ;
+iste+Pron:ist IlleIste ;
+ipse+Pron:ips Ipse ;
+
+is+Pron: Is ;
+
+qui+Pron:  Qui ;
+quis+Pron: Qui ;
+quis+Pron+Masc+Nom+Sg:quis # ;
+quis+Pron+Neut+Nom+Sg:quid # ;
+quis+Pron+Neut+Acc+Sg:quid # ;
+
+     Personals ;
+
+LEXICON Hic
++Masc+Nom+Sg:hic  # ;
++Masc+Acc+Sg:hunc # ;
+
++Fem+Nom+Sg:haec  # ;
++Fem+Acc+Sg:haec # ;
++Fem+Abl+Sg:hac  # ;
+
++Neut+Nom+Sg:hoc # ;
++Neut+Acc+Sg:hoc # ;
+
++MFN+Gen+Sg:huius # ;
++MFN+Dat+Sg:hui   # ;
++MN+Abl+Sg:hoc    # ;
+
++Masc+Nom+Pl:hi  # ;
++Masc+Acc+Pl:hos # ;
+
++Fem+Nom+Pl:hae   # ;
++Fem+Acc+Pl:has   # ;
++Fem+Gen+Pl:harum # ;
+
++Neut+Nom+Pl:haec # ;
++Neut+Acc+Pl:haec # ;
+
++MN+Gen+Pl:horum # ;
++MFN+Dat+Pl:his  # ;
++MFN+Abl+Pl:his  # ;
+
+LEXICON IlleIste
++Neut+Nom+Sg:ud # ;
++Neut+Acc+Sg:ud # ;
+    IlleIsteIpse ;
+
+LEXICON Ipse
++Neut+Nom+Sg:um # ;
++Neut+Acc+Sg:um # ;
+    IlleIsteIpse ;
+
+LEXICON IlleIsteIpse
++Masc+Nom+Sg:e  # ;
++Masc+Acc+Sg:um # ;
+
++Fem+Nom+Sg:a  # ;
++Fem+Acc+Sg:am # ;
++Fem+Abl+Sg:a  # ;
+
++MFN+Gen+Sg:ius # ;
++MFN+Dat+Sg:i   # ;
++MN+Abl+Sg:o    # ;
+
++Masc+Nom+Pl:i    # ;
++Masc+Nom+Pl:i    # ;
++Masc+Acc+Pl:os   # ;
+
++Fem+Nom+Pl:ae   # ;
++Fem+Acc+Pl:as   # ;
++Fem+Gen+Pl:arum # ;
+
++Neut+Nom+Pl:a # ;
++Neut+Acc+Pl:a # ;
+
++MN+Gen+Pl:orum # ;
++MFN+Dat+Pl:is  # ;
++MFN+Abl+Pl:is  # ;
+
+! TODO: idem.
+LEXICON Is
++Masc+Nom+Sg:is  # ;
++Masc+Acc+Sg:eum # ;
+
++Fem+Nom+Sg:ea  # ;
++Fem+Acc+Sg:eam # ;
++Fem+Abl+Sg:ea  # ;
+
++Neut+Nom+Sg:id # ;
++Neut+Acc+Sg:id # ;
+
++MFN+Gen+Sg:eius # ;
++MFN+Dat+Sg:ei   # ;
++MN+Abl+Sg:eo    # ;
+
++Masc+Nom+Pl:ei  # ;
++Masc+Nom+Pl:ii  # ;
++Masc+Acc+Pl:eos # ;
+
++Fem+Nom+Pl:eae   # ;
++Fem+Acc+Pl:eas   # ;
++Fem+Gen+Pl:earum # ;
+
++Neut+Nom+Pl:ea # ;
++Neut+Acc+Pl:ea # ;
+
++MN+Gen+Pl:eorum # ;
++MFN+Dat+Pl:eis  # ;
++MFN+Dat+Pl:iis  # ;
++MFN+Abl+Pl:eis  # ;
++MFN+Abl+Pl:iis  # ;
+
+! TODO: quisquis, and friends.
+LEXICON Qui
++Masc+Nom+Sg:qui  # ;
++Masc+Acc+Sg:quem # ;
+
++Fem+Nom+Sg:quae # ;
++Fem+Acc+Sg:quam # ;
++Fem+Abl+Sg:qua  # ;
+
++Neut+Nom+Sg:quod # ;
++Neut+Acc+Sg:quod # ;
+
++MFN+Gen+Sg:cuius # ;
++MFN+Dat+Sg:cui   # ;
++MN+Abl+Sg:quo    # ;
+
++Masc+Nom+Pl:qui  # ;
++Masc+Acc+Pl:quos # ;
+
++Fem+Nom+Pl:quae   # ;
++Fem+Acc+Pl:quas   # ;
++Fem+Gen+Pl:quarum # ;
+
++Neut+Nom+Pl:quae # ;
++Neut+Acc+Pl:quae # ;
+
++MN+Gen+Pl:quorum  # ;
++MFN+Dat+Pl:quibus # ;
++MFN+Abl+Pl:quibus # ;
 
 LEXICON Personals
 ego+Pron+1st+MFN+Nom+Sg:ego  # ;
@@ -28,3 +172,13 @@ vos+Pron+1st+MFN+Gen+Pl:vestri  # ;
 vos+Pron+1st+MFN+Gen+Pl:vestrum # ;
 vos+Pron+1st+MFN+Dat+Pl:vobis   # ;
 vos+Pron+1st+MFN+Abl+Pl:vobis   # ;
+
+se+Pron+3rd+MFN+Acc+Sg:se # ;
+se+Pron+3rd+MFN+Gen+Sg:sui # ;
+se+Pron+3rd+MFN+Dat+Sg:sibi # ;
+se+Pron+3rd+MFN+Abl+Sg:se # ;
+
+se+Pron+3rd+MFN+Acc+Pl:se # ;
+se+Pron+3rd+MFN+Gen+Pl:sui # ;
+se+Pron+3rd+MFN+Dat+Pl:sibi # ;
+se+Pron+3rd+MFN+Abl+Pl:se # ;
