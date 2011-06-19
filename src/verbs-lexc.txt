@@ -154,13 +154,13 @@ LEXICON SumPres
 +3rd+Pl+Act:sunt  # ;
 
 LEXICON SumImpv
-+Pres+Impv+2nd+Sg:es   # ;
-+Pres+Impv+2nd+Pl:este # ;
++Pres+Impv+2nd+Sg+Act:es   # ;
++Pres+Impv+2nd+Pl+Act:este # ;
 
-+Fut+Impv+2nd+Sg:esto   # ;
-+Fut+Impv+3rd+Sg:esto   # ;
-+Fut+Impv+2nd+Pl:estote # ;
-+Fut+Impv+3rd+Pl:sunto  # ;
++Fut+Impv+2nd+Sg+Act:esto   # ;
++Fut+Impv+3rd+Sg+Act:esto   # ;
++Fut+Impv+2nd+Pl+Act:estote # ;
++Fut+Impv+3rd+Pl+Act:sunto  # ;
 
 ! Regular present indicative, first to fourth conjugations.
 LEXICON C14Pres

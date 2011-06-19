@@ -92,14 +92,14 @@ test_hash('sum+Verb', {
         '+Fut+Act': ['fore'],
     },
     '+Pres+Impv': {
-        '+2nd+Sg': ['es'],
-        '+2nd+Pl': ['este'],
+        '+2nd+Sg+Act': ['es'],
+        '+2nd+Pl+Act': ['este'],
     },
     '+Fut+Impv': {
-        '+2nd+Sg': ['esto'],
-        '+3rd+Sg': ['esto'],
-        '+2nd+Pl': ['estote'],
-        '+3rd+Pl': ['sunto'],
+        '+2nd+Sg+Act': ['esto'],
+        '+3rd+Sg+Act': ['esto'],
+        '+2nd+Pl+Act': ['estote'],
+        '+3rd+Pl+Act': ['sunto'],
     },
     '+Part+Fut': {
         '+Masc': {
