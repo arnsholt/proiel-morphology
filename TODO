@@ -1,15 +1,14 @@
 Things TODO:
 ============
 - Figure out some sane way to share Multicharacter_symbols defs between
-  lexicon files. gcc -E perhaps?
+  lexicon files. gcc -E perhaps? Or maybe even bite the dust and use m4?
 - Write a filter to create lexc code from lewis.xml from Perseus.
 - For all of the above, essentially: figure out a reasonably sane way to build
   the lexc sources from other bits and pieces, some hand-written, some
   auto-generated.
-- Refine the v-drop rules, according to Ernout.
-- Ref. Dag, perhaps add section comparing the synchronous rules I have
-  implemented with the actual diachronous developments of the morphology (see
-  Meillet).
 - Comment and document the code.
 - Add morpheme boundaries to all morphemes in nouns-lexc.txt.
-- Write README file.
+- Find a way to handle/generate ambiguous gender tags.
+  - Represent them (and only them) in the grammar, and add gender-bender
+    regexes to create unambiguous analyses?
+  - Post-process analyses to synthesise ambiguous tags from unambiguous ones?
