@@ -2,7 +2,7 @@ SHELL=/bin/bash
 SQLUSER?=arne
 SQLDB?=proiel
 
-.PHONY: test clean
+.PHONY: test clean src/latin.fst
 
 latin.fst: src/latin.fst
 	cp $< $@
