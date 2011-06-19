@@ -1,0 +1,3 @@
+read lexc indecl-lexc.txt
+invert net
+save stack indecl.fst

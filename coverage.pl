@@ -13,6 +13,9 @@ my %tag_to_field = (
     Noun => 'pos',
     Name => 'pos',
     Verb => 'pos',
+    Prep => 'pos',
+    Conj => 'pos',
+    Sub  => 'pos',
 
     '1st' => 'person',
     '2nd' => 'person',
@@ -65,6 +68,9 @@ my %tag_to_value = (
     Noun => 'Nb',
     Name => 'Ne',
     Verb => 'V-',
+    Prep => 'R-',
+    Conj => 'C-',
+    Subj => 'G-',
 
     '1st' => '1',
     '2nd' => '2',

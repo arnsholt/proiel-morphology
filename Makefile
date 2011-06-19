@@ -4,7 +4,7 @@ SQLDB?=proiel
 
 .PHONY: test clean
 
-latin.fst: nouns.fst verbs.fst
+latin.fst: nouns.fst verbs.fst indecl.fst
 	xfst -f build/latin.fst.build
 
 nouns.fst: nouns-lexc.txt nouns-twolc.fst
@@ -18,6 +18,9 @@ verbs.fst: verbs-lexc.txt verbs-twolc.fst
 
 verbs-twolc.fst: verbs-twolc.txt
 	twolc < build/verbs-twolc.fst.build
+
+indecl.fst: indecl-lexc.txt
+	xfst -f build/indecl.fst.build
 
 test: latin.fst t/99-proiel-bg.t t/99-proiel-vulgata.t
 	prove -r t/

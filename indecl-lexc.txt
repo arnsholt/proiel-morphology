@@ -1,0 +1,109 @@
+LEXICON Root
+    Conj ;
+    Prep ;
+    Sub ;
+
+! TODO: que, ve are clitics. Probably need to be special-cased, somehow.
+LEXICON Conj
+an:an+Conj # ;
+atque:atque+Conj # ;
+aut:aut+Conj # ;
+et:et+Conj # ;
+neu:neu+Conj # ;
+que:que+Conj # ;
+sed:sed+Conj # ;
+simul:simul+Conj # ;
+sive:sive+Conj # ;
+ve:ve+Conj # ;
+vel:vel+Conj # ;
+
+LEXICON Prep
+ab:ab+Prep # ;
+absque:absque+Prep # ;
+ad:ad+Prep # ;
+adversus:adversus+Prep # ;
+ante:ante+Prep # ;
+apud:apud+Prep # ;
+cata:cata+Prep # ;
+circa:circa+Prep # ;
+circum:circum+Prep # ;
+cis:cis+Prep # ;
+citra:citra+Prep # ;
+contra:contra+Prep # ;
+coram:coram+Prep # ;
+cum:cum+Prep # ;
+de:de+Prep # ;
+erga:erga+Prep # ;
+ex:ex+Prep # ;
+extra:extra+Prep # ;
+foras:foras+Prep # ;
+in:in+Prep # ;
+infra:infra+Prep # ;
+inter:inter+Prep # ;
+intra:intra+Prep # ;
+intro:intro+Prep # ;
+iuxta:iuxta+Prep # ;
+ob:ob+Prep # ;
+obviam:obviam+Prep # ;
+palam:palam+Prep # ;
+penes:penes+Prep # ;
+per:per+Prep # ;
+post:post+Prep # ;
+prae:prae+Prep # ;
+praeter:praeter+Prep # ;
+pro:pro+Prep # ;
+prope:prope+Prep # ;
+propter:propter+Prep # ;
+retro:retro+Prep # ;
+secundum:secundum+Prep # ;
+secus:secus+Prep # ;
+sine:sine+Prep # ;
+sub:sub+Prep # ;
+subter:subter+Prep # ;
+subtus:subtus+Prep # ;
+super:super+Prep # ;
+supra:supra+Prep # ;
+trans:trans+Prep # ;
+ultra:ultra+Prep # ;
+
+LEXICON Sub
+an:an+Sub # ;
+antequam:antequam+Sub # ;
+atque:atque+Sub # ;
+cum:cum+Sub # ;
+cumque:cumque+Sub # ;
+donec:donec+Sub # ;
+dum:dum+Sub # ;
+dummodo:dummodo+Sub # ;
+etsi:etsi+Sub # ;
+ex:ex+Sub # ;
+licet:licet+Sub # ;
+mox:mox+Sub # ;
+ne:ne+Sub # ;
+nequando:nequando+Sub # ;
+nisi:nisi+Sub # ;
+post:post+Sub # ;
+posteaquam:posteaquam+Sub # ;
+! XXX: Multiword unit!
+!postmodum quam
+postquam:postquam+Sub # ;
+priusquam:priusquam+Sub # ;
+quam:quam+Sub # ;
+quamlibet:quamlibet+Sub # ;
+quamquam:quamquam+Sub # ;
+quamvis:quamvis+Sub # ;
+quasi:quasi+Sub # ;
+quia:quia+Sub # ;
+quin:quin+Sub # ;
+quo:quo+Sub # ;
+quoadusque:quoadusque+Sub # ;
+quod:quod+Sub # ;
+quominus:quominus+Sub # ;
+quoniam:quoniam+Sub # ;
+quousque:quousque+Sub # ;
+si:si+Sub # ;
+simul:simul+Sub # ;
+sin:sin+Sub # ;
+siquidem:siquidem+Sub # ;
+tametsi:tametsi+Sub # ;
+ut:ut+Sub # ;
