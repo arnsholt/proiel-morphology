@@ -1,0 +1,2 @@
+read lexc pronouns-lexc.txt
+save stack pronouns.fst

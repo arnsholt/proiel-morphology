@@ -1,0 +1,30 @@
+LEXICON Root
+    Personals ;
+
+LEXICON Personals
+ego+Pron+1st+MFN+Nom+Sg:ego  # ;
+ego+Pron+1st+MFN+Acc+Sg:me   # ;
+ego+Pron+1st+MFN+Gen+Sg:mei  # ;
+ego+Pron+1st+MFN+Dat+Sg:mihi # ;
+ego+Pron+1st+MFN+Abl+Sg:me   # ;
+
+nos+Pron+1st+MFN+Nom+Pl:nos     # ;
+nos+Pron+1st+MFN+Acc+Pl:nos     # ;
+nos+Pron+1st+MFN+Gen+Pl:nostri  # ;
+nos+Pron+1st+MFN+Gen+Pl:nostrum # ;
+nos+Pron+1st+MFN+Dat+Pl:nobis   # ;
+nos+Pron+1st+MFN+Abl+Pl:nobis   # ;
+
+tu+Pron+1st+MFN+Nom+Sg:tu   # ;
+tu+Pron+1st+MFN+Voc+Sg:tu   # ;
+tu+Pron+1st+MFN+Acc+Sg:te   # ;
+tu+Pron+1st+MFN+Gen+Sg:tui  # ;
+tu+Pron+1st+MFN+Dat+Sg:tibi # ;
+tu+Pron+1st+MFN+Abl+Sg:te   # ;
+
+vos+Pron+1st+MFN+Nom+Pl:vos     # ;
+vos+Pron+1st+MFN+Acc+Pl:vos     # ;
+vos+Pron+1st+MFN+Gen+Pl:vestri  # ;
+vos+Pron+1st+MFN+Gen+Pl:vestrum # ;
+vos+Pron+1st+MFN+Dat+Pl:vobis   # ;
+vos+Pron+1st+MFN+Abl+Pl:vobis   # ;
