@@ -94,12 +94,12 @@ my %proiel_conversion = (
 # TODO: Finish creating PoS tags.
 my %pos_conversion = (
     'A-' => '+Adj',
-    'C-' => '+TODO',
+    'C-' => '+Conj',
     'Df' => '+Adv',
     'Dq' => '+TODO',
     'Du' => '+TODO',
     'F-' => '+TODO',
-    'G-' => '+TODO',
+    'G-' => '+Sub',
     'I-' => '+TODO',
     'Ma' => '+TODO',
     'Mo' => '+TODO',
@@ -114,7 +114,7 @@ my %pos_conversion = (
     'Ps' => '+TODO',
     'Pt' => '+TODO',
     'Px' => '+TODO',
-    'R-' => '+TODO',
+    'R-' => '+Prep',
     'V-' => '+Verb',
 );
 
