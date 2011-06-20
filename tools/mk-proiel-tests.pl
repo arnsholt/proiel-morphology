@@ -117,6 +117,7 @@ my %pos_conversion = (
     'Px' => '+Pron',
     'R-' => '+Prep',
     'V-' => '+Verb',
+    'Vd' => '+Verb+Dep', # Hack to handle deponent verbs.
 );
 
 my ($user, $pass, $db);
@@ -190,6 +191,9 @@ sub convert_tag {
     if($tag{mood} eq '+Inf') {
         # Same as above, but for infinitives.
         @tag{qw/tense mood/} = @tag{qw/mood tense/};
+    }
+    if($row->{pos} eq 'V-' and $row->{lemma} =~ m/or\z/msx) {
+        $row->{pos} = 'Vd';
     }
 
     my $tag = $pos_conversion{$row->{pos}} . join('', @tag{qw/tense mood
