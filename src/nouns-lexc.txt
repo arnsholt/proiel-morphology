@@ -397,18 +397,18 @@ LEXICON PresPart
 +Neut+Voc+Sg:s # ;
 +Neut+Acc+Sg:s # ;
 0:t AdjCons1Pos ;
-+Masc+Abl+Sg:te # ;
-+Fem+Abl+Sg:te # ;
-+Neut+Abl+Sg:te # ;
++Masc+Abl+Sg:t-e # ;
++Fem+Abl+Sg:t-e # ;
++Neut+Abl+Sg:t-e # ;
 
 LEXICON Gerund
-+Acc:um # ;
-+Gen:i # ;
-+Dat:o # ;
-+Abl:o # ;
++Acc:-um # ;
++Gen:-i # ;
++Dat:-o # ;
++Abl:-o # ;
 
 LEXICON SupinePart
 +Part+Perf:0 AdjStdPos ;
 +Part+Fut:ur AdjStdPos ;
-+SupI:um # ;
-+SupII:u # ;
++SupI:-um # ;
++SupII:-u # ;
