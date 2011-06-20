@@ -187,6 +187,10 @@ sub convert_tag {
         # participles.
         @tag{qw/tense mood/} = @tag{qw/mood tense/};
     }
+    if($tag{mood} eq '+Inf') {
+        # Same as above, but for infinitives.
+        @tag{qw/tense mood/} = @tag{qw/mood tense/};
+    }
 
     my $tag = $pos_conversion{$row->{pos}} . join('', @tag{qw/tense mood
         person degree gender case number voice/});
