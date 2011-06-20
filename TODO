@@ -12,3 +12,4 @@ Things TODO:
   - Represent them (and only them) in the grammar, and add gender-bender
     regexes to create unambiguous analyses?
   - Post-process analyses to synthesise ambiguous tags from unambiguous ones?
+- Add tests for pronouns.
