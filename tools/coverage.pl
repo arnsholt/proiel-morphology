@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use XFSM;
+use Lingua::XFST;
 
 usage(die => 1) if scalar @ARGV != 1;
 
@@ -127,7 +127,7 @@ my @proiel_order = qw/person number tense mood voice gender case degree
                       strength inflection/;
 
 open my $corpus, '<', $ARGV[0] or die "Couldn't open $ARGV[0] for reading: $!\n";
-my $latin = XFSM::Network->new(file => 'latin.fst');
+my $latin = Lingua::XFST::Network->new(file => 'latin.fst');
 
 my $seen = 0;
 my $analysed = 0;
