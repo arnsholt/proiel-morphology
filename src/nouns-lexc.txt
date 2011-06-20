@@ -156,9 +156,11 @@ LEXICON D3EndingsCommon
 ! TODO: cornus (neuter D4 nouns)
 LEXICON Decl4
 fructus+Noun+Masc:fruct D4EndingsMF ;
-cornus+Noun+Neut:corn D4EndingsN ;
+cornu+Noun+Neut:corn D4EndingsN ;
 
 LEXICON D4EndingsMF
++Nom+Sg:-us # ;
++Voc+Sg:-us # ;
 +Acc+Sg:-um # ;
 
 +Nom+Pl:-us # ;
@@ -167,7 +169,9 @@ LEXICON D4EndingsMF
     D4EndingsCommon ;
 
 LEXICON D4EndingsN
-+Acc+Sg:-us # ;
++Nom+Sg:-u # ;
++Voc+Sg:-u # ;
++Acc+Sg:-u # ;
 
 +Nom+Pl:-ua # ;
 +Voc+Pl:-ua # ;
@@ -175,8 +179,6 @@ LEXICON D4EndingsN
     D4EndingsCommon ;
 
 LEXICON D4EndingsCommon
-+Nom+Sg:-us # ;
-+Voc+Sg:-us # ;
 +Gen+Sg:-us # ;
 +Dat+Sg:-ui # ;
 +Abl+Sg:-u # ;

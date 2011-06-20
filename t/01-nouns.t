@@ -174,10 +174,10 @@ test_hash('fructus+Noun+Masc', {
     '+Abl+Pl': ['fructibus'],
 })
 
-test_hash('cornus+Noun+Neut', {
-    '+Nom+Sg': ['cornus'],
-    '+Voc+Sg': ['cornus'],
-    '+Acc+Sg': ['cornus'],
+test_hash('cornu+Noun+Neut', {
+    '+Nom+Sg': ['cornu'],
+    '+Voc+Sg': ['cornu'],
+    '+Acc+Sg': ['cornu'],
     '+Gen+Sg': ['cornus'],
     '+Dat+Sg': ['cornui'],
     '+Abl+Sg': ['cornu'],
