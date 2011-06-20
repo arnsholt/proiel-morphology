@@ -1,16 +1,3 @@
-This archive contains the following files:
-
-README - This file
-Makefile - make rules to build the application
-nouns-lexc.txt - Noun lexicon definitions
-verbs-lexc.txt - Verb lexicon definitions
-nouns-twolc.txt - Noun phonetic rules
-verbs-twolc.txt - Verb phonetic rules
-t/ - Directory containing test files and support code
-build/ - Directory containing build scripts, used by the make rules
-vim/ - Directory containing syntax highlighting rules for lexc and twolc code
-       for the vim editor.
-
 BUILDING THE APPLICATION
 ------------------------
 To compile the application, first make sure you have installed the Xerox tools
@@ -19,8 +6,27 @@ your path. Then execute the command make in the application's root directory.
 The transducer can then be tested by invoking ``xfst -s latin.fst'' and using
 the up and down commands to analyse and generate, respectively.
 
-The test suite can be invoked by executing the command ``make test'', however
-UiO's default linux has an outdated version of Python installed in the default
-location (/usr/bin/python) which causes problems with the Python interface to
-xfsm. To run the test suite on these systems, try the command ``prove -r
---perl /local/bin/python t/''.
+There are a number of tests available as well, to make sure the code works
+properly. The tests in t/99-proiel-bg.t and t/99-proiel-vulgata.t are expected
+to have a number of failures (about 6700 and 16000, respectively); this test
+code is automatically generated, and we're working on a way to mark them as
+TODO to eliminate the noise in the test output. Any other failures are
+legitimate bugs that have to be fixed. Running the test suite requires:
+- The XFSM Python bindings (available from the same place as the
+  libraries themself)
+- The pyTAP library, available from https://github.com/rjbs/pytap
+- The prove program from the Perl module Test::Harness (which should be
+  installed with your system Perl).
+
+LICENSE(S)
+----------
+The files data/bg.cor and data/vulgata.cor are extracted from the PROIEL
+corpus (http://www.hf.uio.no/ifikk/english/research/projects/proiel/) and
+governed by the Creative Commons BY-NC-SA license[1].
+
+The file data/lewis.xml is Lewis' "Elementary Latin Dictionary", from the
+Perseus project (http://www.perseus.tufts.edu/hopper/) and governed by the
+Creative Commons BY-SA license[2].
+
+[1]: http://creativecommons.org/licenses/by-nc-sa/3.0/us/
+[2]: http://creativecommons.org/licenses/by-sa/3.0/us/
