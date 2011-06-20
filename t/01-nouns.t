@@ -46,7 +46,7 @@ test_hash("dominus+Noun+Masc", {
 
 test_hash('numerus+Noun+Masc', {
     '+Nom+Sg': ['numerus'],
-    '+Voc+Sg': ['numere'],
+    '+Voc+Sg': [{'form': 'numeri', 'todo': 'NYI'}],
     '+Acc+Sg': ['numerum'],
     '+Gen+Sg': ['numeri'],
     '+Dat+Sg': ['numero'],

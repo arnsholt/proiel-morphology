@@ -11,7 +11,11 @@ def test(tag, forms):
     eq_ok(len(gens), len(forms), "Same number of generated forms")
     Morph.formcount += len(forms)
     for form in forms:
-        msg = "`%s' is generated from `%s'" % (form, tag)
+        todo = ''
+        if isinstance(form, dict):
+            todo = ' # TODO: %s' % form['todo']
+            form = form['form']
+        msg = "`%s' is generated from `%s'%s" % (form, tag, todo)
         try:
             gens.index(form)
             ok(True, msg)
