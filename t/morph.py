@@ -29,9 +29,11 @@ def test_hash(tag_base, forms):
         else:
             test(tag_base + tag, forms)
 
-def test_simple(form, tag):
+def test_simple(form, tag, todo = ''):
     tags = latin.apply_up(form)
-    msg = "`%s' analysed as `%s'" % (form, tag)
+    if todo:
+        todo = ' # TODO: %s' % todo
+    msg = "`%s' analysed as `%s'%s" % (form, tag, todo)
     try:
         tags.index(tag)
         ok(True, msg)

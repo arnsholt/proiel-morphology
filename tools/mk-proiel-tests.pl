@@ -5,6 +5,7 @@ use warnings;
 
 use DBI qw//;
 use Getopt::Long;
+use Lingua::XFST;
 use List::MoreUtils qw/zip/;
 
 my @proiel_sequence = qw/person number tense mood voice gender case
@@ -135,6 +136,8 @@ WHERE l.id  = t.lemma_id
 SQL
 my $sth = $dbh->prepare($query);
 
+my $net = Lingua::XFST::Network->new(file => 'latin.fst');
+
 make_tests($sth, 2, 'vulgata');
 make_tests($sth, 5, 'bg');
 
@@ -159,7 +162,8 @@ PYTHON
     while(my $row = $sth->fetchrow_hashref) {
         $rows++;
         my $tag = convert_tag($row);
-        print $file "test_simple('$row->{form}', '$row->{lemma}$tag')\n";
+        my $todo = @{$net->apply_up($row->{form})}? '': ', \'NIY\'';
+        print $file "test_simple('$row->{form}', '$row->{lemma}$tag'$todo)\n";
     }
 
     print $file <<"PYTHON";
