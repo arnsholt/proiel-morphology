@@ -110,46 +110,73 @@ LEXICON D2EndingsCommon
 +Dat+Pl:-is # ;
 +Abl+Pl:-is # ;
 
-! TODO: ``3B'' declination (gen.pl. -ium)
 LEXICON Decl3
 rex+Noun+Masc:rex D3EndingsNoneMF ;
-rex+Noun+Masc:reg D3EndingsMF ;
+rex+Noun+Masc:reg D3AEndingsMF ;
 
 corpus+Noun+Neut:corpus D3EndingsNoneN ;
-corpus+Noun+Neut:corpor D3EndingsN ;
+corpus+Noun+Neut:corpor D3AEndingsN ;
 
 Caesar+Name+Masc:Caesar D3EndingsNoneMF ;
-Caesar+Name+Masc:Caesar D3EndingsMF ;
+Caesar+Name+Masc:Caesar D3AEndingsMF ;
+
+hostis+Noun+Masc:hostis D3EndingsNoneMF ;
+hostis+Noun+Masc:host   D3BEndingsMF ;
+
+mare+Noun+Neut:mare D3EndingsNoneN ;
+mare+Noun+Neut:mar  D3BEndingsN ;
 
 LEXICON D3EndingsNoneMF
 +Nom+Sg:0 # ;
 +Voc+Sg:0 # ;
 
-LEXICON D3EndingsMF
-    D3EndingsCommon ;
-+Acc+Sg:-em # ;
-
-+Nom+Pl:-es # ;
-+Voc+Pl:-es # ;
-+Acc+Pl:-es # ;
+LEXICON D3AEndingsMF
+    D3AEndingsCommon ;
+    D3EndingsCommonMF ;
 
 LEXICON D3EndingsNoneN
     D3EndingsNoneMF ;
 +Acc+Sg:0 # ;
 
-LEXICON D3EndingsN
-    D3EndingsCommon ;
-
+LEXICON D3AEndingsN
 +Nom+Pl:-a # ;
 +Voc+Pl:-a # ;
 +Acc+Pl:-a # ;
+    D3AEndingsCommon ;
+    D3EndingsCommon ;
+
+LEXICON D3AEndingsCommon
++Abl+Sg:-e # ;
++Gen+Pl:-um # ;
+
+LEXICON D3BEndingsMF
++Abl+Sg:-e # ;
+    D3BEndingsCommon ;
+    D3EndingsCommonMF ;
+
+LEXICON D3BEndingsN
++Abl+Sg:-i # ;
++Nom+Pl:-ia # ;
++Voc+Pl:-ia # ;
++Acc+Pl:-ia # ;
+    D3BEndingsCommon ;
+    D3EndingsCommon ;
+
+LEXICON D3BEndingsCommon
++Gen+Pl:-ium # ;
+
+LEXICON D3EndingsCommonMF
++Acc+Sg:-em # ;
+
++Nom+Pl:-es # ;
++Voc+Pl:-es # ;
++Acc+Pl:-es # ;
+    D3EndingsCommon ;
 
 LEXICON D3EndingsCommon
 +Gen+Sg:-is # ;
 +Dat+Sg:-i # ;
-+Abl+Sg:-e # ;
 
-+Gen+Pl:-um # ;
 +Dat+Pl:-ibus # ;
 +Abl+Pl:-ibus # ;
 
@@ -346,12 +373,12 @@ LEXICON AdjComp
 +Comp+Masc:-ior AdjCompMF ;
 +Comp+Fem:-ior AdjCompMF ;
 +Comp+Neut:-ius D3EndingsNoneN ;
-+Comp+Neut:-ior D3EndingsN ;
++Comp+Neut:-ior D3AEndingsN ;
 +Comp+Adv:-ius # ;
 
 LEXICON AdjCompMF
     D3EndingsNoneMF ;
-    D3EndingsMF ;
+    D3AEndingsMF ;
 
 ! Superlatives of adjectives.
 LEXICON AdjSuper
