@@ -1,10 +1,3 @@
-!Multichar_Symbols +Noun +Adj +Adv +Nom +Voc +Acc +Gen +Dat +Abl +Sg +Pl +Masc +Fem +Neut +Pos +Comp +Super +Verb +Part +Pres +Perf +Fut
-!    +Verb +Dep
-!    +1st+Sg +2nd+Sg +3rd+Sg +1st+Pl +2nd+Pl +3rd+Pl ! Persons
-!    +Pres +Fut +Impf ! Tempora
-!    +Ind +Impv +Subj ! Modi
-!    +Inf
-!    +Act +Pass ! Voices
 Multichar_Symbols
     +Noun +Adj +Adv +Verb ! Word classes
     +Nom +Voc +Acc +Gen +Dat +Abl ! Cases
