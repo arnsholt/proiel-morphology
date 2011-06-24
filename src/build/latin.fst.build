@@ -1,7 +1,7 @@
 load stack verbs.fst
 load stack nouns.fst
-load stack indecl.fst
-load stack pronouns.fst
+load stack indecl-lexc.fst
+load stack pronouns-lexc.fst
 union net
 define latin
 

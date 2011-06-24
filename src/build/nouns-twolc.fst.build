@@ -1,7 +1,0 @@
-read-grammar nouns-twolc.txt
-compile
-intersect
-y
-phon
-save-binary nouns-twolc.fst
-quit

@@ -1,7 +1,7 @@
 load stack verbs-twolc.fst
 define phon
 
-read lexc verbs-lexc.txt
+load stack verbs-lexc.fst
 define lex
 
 read regex [ lex .o. phon ] ;

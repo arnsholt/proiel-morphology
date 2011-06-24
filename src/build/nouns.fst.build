@@ -1,7 +1,7 @@
 load stack nouns-twolc.fst
 define phon
 
-read lexc nouns-lexc.txt
+load stack nouns-lexc.fst
 define lex
 
 !define advmapper [ %+Adv %+Pos -> %+Adj %+Pos %+Adv ] .o. [ %+Adv %+Comp -> %+Adj %+Comp %+Adv ] .o. [ %+Adv %+Super -> %+Adj %+Super %+Adv ] ;
