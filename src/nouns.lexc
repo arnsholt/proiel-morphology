@@ -1,14 +1,4 @@
 Multichar_Symbols
-    +Noun +Name +Adj +Adv +Verb ! Word classes
-    +Nom +Voc +Acc +Gen +Dat +Abl ! Cases
-    +Sg +Pl ! Numbers
-    +Masc +Fem +Neut %+MF ! Genders
-    +Pos +Comp +Super ! Comparison grades
-    +Part +Dep ! Misc. verb stuff
-    +1S +2S +3S +1P +2P +3P ! Persons
-    +Pres +Perf +Fut +Impf ! Tempora
-    +Ind +Impv +Subj +Inf ! Modi
-    +Act +Pass ! Voices
 
 ! Noun lexicon
 LEXICON Root

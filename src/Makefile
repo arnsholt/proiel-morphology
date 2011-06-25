@@ -1,10 +1,13 @@
 .PHONY: clean
 
-%-twolc.fst: %.twolc
+%-twolc.fst: %.twolc.gen
 	echo 'read-grammar $<\ncompile\nintersect\ny\nphon\nsave-binary $@\nquit' | twolc
 
-%-lexc.fst: %.lexc
+%-lexc.fst: %.lexc.gen
 	echo 'read lexc $<\nsave stack $@' | xfst
+
+%.gen :: %
+	m4 "-DMultichar_Symbols=include(\`multichars.def')" $< > $@
 
 latin.fst: nouns.fst verbs.fst indecl-lexc.fst pronouns-lexc.fst build/latin.fst.build
 	xfst -f build/latin.fst.build
@@ -28,4 +31,4 @@ verbs.fst: verbs-lexc.fst verbs-twolc.fst build/verbs.fst.build
 #	xfst -f build/pronouns.fst.build
 
 clean:
-	rm -f *.fst
+	rm -f *.fst *.gen

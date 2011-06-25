@@ -1,8 +1,4 @@
 Multichar_Symbols
-    +Pron
-    +Nom +Voc +Acc +Gen +Dat +Abl ! Cases
-    +Sg +Pl ! Numbers
-    +Masc +Fem +Neut +MFN +MN ! Genders
 
 LEXICON Root
 hic+Pron: Hic ;

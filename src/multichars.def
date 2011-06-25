@@ -1,0 +1,11 @@
+`Multichar_Symbols'
+    +Noun +Name +Adj +Adv +Verb +Pron +Conj +Prep +Sub ! Word classes
+    +Nom +Voc +Acc +Gen +Dat +Abl ! Cases
+    +Sg +Pl ! Numbers
+    +Masc +Fem +Neut +MFN +MN +MF ! Genders
+    +Pos +Comp +Super ! Comparison grades
+    +Part +Dep ! Misc. verb stuff
+    +1st +2nd +3rd ! Persons
+    +Pres +Perf +Fut +Impf ! Tempora
+    +Ind +Impv +Subj +Inf ! Modi
+    +Act +Pass ! Voices
