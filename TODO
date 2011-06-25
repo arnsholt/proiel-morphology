@@ -1,11 +1,6 @@
 Things TODO:
 ============
-- Figure out some sane way to share Multicharacter_symbols defs between
-  lexicon files. gcc -E perhaps? Or maybe even bite the dust and use m4?
 - Write a filter to create lexc code from lewis.xml from Perseus.
-- For all of the above, essentially: figure out a reasonably sane way to build
-  the lexc sources from other bits and pieces, some hand-written, some
-  auto-generated.
 - Comment and document the code.
 - Add morpheme boundaries to all morphemes in nouns-lexc.txt.
 - Find a way to handle/generate ambiguous gender tags.
