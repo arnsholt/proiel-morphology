@@ -148,15 +148,13 @@ sub make_tests {
     $filename = "t/99-proiel-$filename.t";
     open my $file, '>', $filename or die "Couldn't open $filename for writing: $!";
 
-    print $file <<'PYTHON';
-#!/usr/bin/env python
+    print $file <<'PERL';
+#!/usr/bin/env perl
 
-from morph import *
-from TAP.Simple import *
+use Morph;
+use Test::More;
 
-plan('no_plan')
-
-PYTHON
+PERL
 
     $sth->execute($id);
     my $rows = 0;
@@ -164,14 +162,13 @@ PYTHON
         $rows++;
         my $tag = convert_tag($row);
         my $todo = @{$net->apply_up($row->{form})}? '': ', \'NIY\'';
-        print $file "test_simple('$row->{form}', '$row->{lemma}$tag'$todo)\n";
+        print $file "test_simple('$row->{form}', '$row->{lemma}$tag'$todo);\n";
     }
 
-    print $file <<"PYTHON";
+    print $file <<'PERL';
 
-#plan($rows)
-diag("%d" % Morph.formcount)
-PYTHON
+done_testing();
+PERL
 }
 
 sub convert_tag {
