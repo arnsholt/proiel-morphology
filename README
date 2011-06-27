@@ -8,13 +8,12 @@ the up and down commands to analyse and generate, respectively.
 
 There are a number of tests available as well, to make sure the code works
 properly. The tests in t/99-proiel-bg.t and t/99-proiel-vulgata.t are expected
-to have a number of failures (about 6700 and 16000, respectively); this test
-code is automatically generated, and we're working on a way to mark them as
-TODO to eliminate the noise in the test output. Any other failures are
-legitimate bugs that have to be fixed. Running the test suite requires:
+to have a number of failures (about 60 and 120, respectively); this test code
+is automatically generated, and some of these errors are legitimate bugs,
+while a few are errors in the annotation and the rest missing lemmata that
+happen to have identical forms as lemmata we already handle. Running the test
+suite requires:
 - The XFSM Python bindings (available from the same place as the
-  libraries themself)
-- The pyTAP library, available from https://github.com/rjbs/pytap
 - The prove program from the Perl module Test::Harness (which should be
   installed with your system Perl).
 
