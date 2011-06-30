@@ -10,7 +10,7 @@ LEXICON Root
     Prep ;
     Sub ;
 
-! SELECT DISTINCT form
+! SELECT DISTINCT lemma, form
 ! FROM lemmata l, tokens t
 ! WHERE lemma_id = l.id
 !   AND morphology = '---------n'
@@ -19,16 +19,16 @@ LEXICON Root
 ! ORDER BY form;
 LEXICON Adv
 abunde+Adv:abunde # ;
-ac+Adv:ac # ;
+atque+Adv:ac # ;
 ad+Adv:ad # ;
 adhuc+Adv:adhuc # ;
 admodum+Adv:admodum # ;
-aegre+Adv:aegre # ;
+aegre+Adv:Aegre # ;
 alias+Adv:alias # ;
-alioquin+Adv:alioquin # ;
+alioqui(n)+Adv:alioquin # ;
 ! XXX: Multiword unit!
-!aliquam diu
-aliquandiu+Adv:aliquandiu # ;
+!aliquamdiu+Adv:aliquam diu
+aliquamdiu+Adv:aliquandiu # ;
 aliquando+Adv:aliquando # ;
 aliquanto+Adv:aliquanto # ;
 aliquantulum+Adv:aliquantulum # ;
@@ -46,7 +46,7 @@ atque+Adv:atque # ;
 autem+Adv:autem # ;
 bipertito+Adv:bipertito # ;
 bis+Adv:bis # ;
-centies+Adv:centies # ;
+centie(n)s+Adv:centies # ;
 circa+Adv:circa # ;
 circiter+Adv:circiter # ;
 citro+Adv:citro # ;
@@ -58,12 +58,12 @@ continenter+Adv:continenter # ;
 continuo+Adv:continuo # ;
 contra+Adv:contra # ;
 coram+Adv:coram # ;
-cotidie+Adv:cotidie # ;
+cottidie+Adv:cotidie # ;
 cras+Adv:cras # ;
 crastino+Adv:crastino # ;
 cum+Adv:cum # ;
 cur+Adv:cur # ;
-dein+Adv:dein # ;
+deinde+Adv:dein # ;
 deinceps+Adv:deinceps # ;
 deinde+Adv:deinde # ;
 demum+Adv:demum # ;
@@ -82,24 +82,24 @@ ergo+Adv:ergo # ;
 et+Adv:et # ;
 etenim+Adv:etenim # ;
 etiam+Adv:etiam # ;
-exin+Adv:exin # ;
+exinde+Adv:exin # ;
 exinde+Adv:exinde # ;
 extrinsecus+Adv:extrinsecus # ;
 fere+Adv:fere # ;
-flustra+Adv:flustra # ;
+frustra+Adv:flustra # ;
 foras+Adv:foras # ;
 foris+Adv:foris # ;
 forsitan+Adv:forsitan # ;
 forte+Adv:forte # ;
 fortuito+Adv:fortuito # ;
-fortuitu+Adv:fortuitu # ;
+fortuito+Adv:fortuitu # ;
 frustra+Adv:frustra # ;
 generatim+Adv:generatim # ;
-graece+Adv:graece # ;
+Graece+Adv:graece # ;
 gratis+Adv:gratis # ;
-grece+Adv:grece # ;
-haut+Adv:haut # ;
-hebraice+Adv:hebraice # ;
+Graece+Adv:grece # ;
+haud+Adv:haut # ;
+Hebraice+Adv:hebraice # ;
 heri+Adv:heri # ;
 hic+Adv:hic # ;
 hinc+Adv:hinc # ;
@@ -120,23 +120,23 @@ illuc+Adv:illuc # ;
 immo+Adv:immo # ;
 impie+Adv:impie # ;
 ! XXX: Multiword unit!
-!in vicem
+!invicem+Adv:in vicem
 inaniter+Adv:inaniter # ;
 inde+Adv:inde # ;
 indesinenter+Adv:indesinenter # ;
 infra+Adv:infra # ;
-inibi+Adv:inibi # ;
+inibi+Adv:Inibi # ;
 inordinate+Adv:inordinate # ;
-inportune+Adv:inportune # ;
+importune+Adv:inportune # ;
 inquiete+Adv:inquiete # ;
 insuper+Adv:insuper # ;
 interdiu+Adv:interdiu # ;
 interdum+Adv:interdum # ;
 interea+Adv:interea # ;
-interim+Adv:interim # ;
+interim+Adv:Interim # ;
 intrinsecus+Adv:intrinsecus # ;
 intro+Adv:intro # ;
-introrsus+Adv:introrsus # ;
+introrsum+Adv:introrsus # ;
 intus+Adv:intus # ;
 invicem+Adv:invicem # ;
 ita+Adv:ita # ;
@@ -146,11 +146,11 @@ iterato+Adv:iterato # ;
 iterum+Adv:iterum # ;
 iuxta+Adv:iuxta # ;
 late+Adv:late # ;
-latine+Adv:latine # ;
+Latine+Adv:latine # ;
 legitime+Adv:legitime # ;
 licet+Adv:licet # ;
 longanimiter+Adv:longanimiter # ;
-lycaonice+Adv:lycaonice # ;
+Lycaonice+Adv:lycaonice # ;
 magnopere+Adv:magnopere # ;
 mane+Adv:mane # ;
 met+Adv:met # ;
@@ -165,16 +165,16 @@ namque+Adv:namque # ;
 natu+Adv:natu # ;
 naturaliter+Adv:naturaliter # ;
 ne+Adv:ne # ;
-nec+Adv:nec # ;
-necdum+Adv:necdum # ;
+neque+Adv:nec # ;
+nequedum+Adv:necdum # ;
 necessario+Adv:necessario # ;
 necesse+Adv:necesse # ;
 nequaquam+Adv:nequaquam # ;
 neque+Adv:neque # ;
 nequiquam+Adv:nequiquam # ;
-nichilominus+Adv:nichilominus # ;
+nihilominus+Adv:nichilominus # ;
 ! XXX: Multiword unit!
-!nihilo minus
+!nihilominus+Adv:nihilo minus
 nihilominus+Adv:nihilominus # ;
 nimis+Adv:nimis # ;
 nimium+Adv:nimium # ;
@@ -190,23 +190,23 @@ num+Adv:num # ;
 numquam+Adv:numquam # ;
 numquid+Adv:numquid # ;
 nunc+Adv:nunc # ;
-nunquam+Adv:nunquam # ;
-nunquid+Adv:nunquid # ;
+numquam+Adv:nunquam # ;
+numquid+Adv:nunquid # ;
 nuper+Adv:nuper # ;
 nusquam+Adv:nusquam # ;
 olim+Adv:olim # ;
 omnino+Adv:omnino # ;
-oportune+Adv:oportune # ;
+opportune+Adv:oportune # ;
 paene+Adv:paene # ;
 palam+Adv:palam # ;
 pariter+Adv:pariter # ;
 partim+Adv:partim # ;
 passim+Adv:passim # ;
-paulatim+Adv:paulatim # ;
-paulisper+Adv:paulisper # ;
-paulo+Adv:paulo # ;
-paululum+Adv:paululum # ;
-paulum+Adv:paulum # ;
+paul(l)atim+Adv:Paulatim # ;
+paul(l)isper+Adv:paulisper # ;
+paul(l)o+Adv:paulo # ;
+paul(l)ulum+Adv:paululum # ;
+paul(l)um+Adv:paulum # ;
 penitus+Adv:penitus # ;
 peregre+Adv:peregre # ;
 perperam+Adv:perperam # ;
@@ -217,11 +217,11 @@ post+Adv:post # ;
 postea+Adv:postea # ;
 posthac+Adv:posthac # ;
 postmodum+Adv:postmodum # ;
-postridie+Adv:postridie # ;
+postridie+Adv:Postridie # ;
 potius+Adv:potius # ;
 praesertim+Adv:praesertim # ;
 praesto+Adv:praesto # ;
-praeterea+Adv:praeterea # ;
+praeterea+Adv:Praeterea # ;
 praeterquam+Adv:praeterquam # ;
 pridem+Adv:pridem # ;
 pridie+Adv:pridie # ;
@@ -241,31 +241,31 @@ qua+Adv:qua # ;
 qualiter+Adv:qualiter # ;
 quam+Adv:quam # ;
 ! XXX: Multiword unit!
-!quam ob rem
+!quamobrem+Adv:quam ob rem
 quamdiu+Adv:quamdiu # ;
-quamuis+Adv:quamuis # ;
+quamvis+Adv:quamuis # ;
 quamvis+Adv:quamvis # ;
-quandiu+Adv:quandiu # ;
+quamdiu+Adv:quandiu # ;
 quando+Adv:quando # ;
 quanto+Adv:quanto # ;
 ! XXX: Multiword unit!
-!quanto opere
+!quantopere+Adv:quanto opere
 quantum+Adv:quantum # ;
 quapropter+Adv:quapropter # ;
 quare+Adv:quare # ;
 quasi+Adv:quasi # ;
 ! XXX: Multiword unit!
-!quem ad modum
+!quemadmodum+Adv:quem ad modum
 quemadmodum+Adv:quemadmodum # ;
 quia+Adv:quia # ;
 quidem+Adv:quidem # ;
-quin+Adv:quin # ;
-quinquies+Adv:quinquies # ;
+quin+Adv:Quin # ;
+quinquiens+Adv:quinquies # ;
 quippe+Adv:quippe # ;
 quippini+Adv:quippini # ;
 quo+Adv:quo # ;
 ! XXX: Multiword unit!
-!quo minus
+!quominus+Adv:quo minus
 quoad+Adv:quoad # ;
 quocumque+Adv:quocumque # ;
 quod+Adv:quod # ;
@@ -275,7 +275,7 @@ quoniam+Adv:quoniam # ;
 quoque+Adv:quoque # ;
 quot+Adv:quot # ;
 quotannis+Adv:quotannis # ;
-quotidie+Adv:quotidie # ;
+cottidie+Adv:quotidie # ;
 quotiens+Adv:quotiens # ;
 quotienscumque+Adv:quotienscumque # ;
 quotiensque+Adv:quotiensque # ;
@@ -284,33 +284,34 @@ quousque+Adv:quousque # ;
 rectus+Adv:rectus # ;
 repente+Adv:repente # ;
 retro+Adv:retro # ;
-retrorsum+Adv:retrorsum # ;
-rursum+Adv:rursum # ;
+retrorsus+Adv:retrorsum # ;
+rursus+Adv:rursum # ;
 rursus+Adv:rursus # ;
 saltim+Adv:saltim # ;
 sancte+Adv:sancte # ;
-sane+Adv:sane # ;
+sane+Adv:Sane # ;
 satis+Adv:satis # ;
 secreto+Adv:secreto # ;
 secundo+Adv:secundo # ;
 semel+Adv:semel # ;
 semper+Adv:semper # ;
-seorsum+Adv:seorsum # ;
+s(e)orsum+Adv:seorsum # ;
 separatim+Adv:separatim # ;
-septies+Adv:septies # ;
-septuagies+Adv:septuagies # ;
+septiens+Adv:septies # ;
+septuagiens+Adv:septuagies # ;
 si+Adv:si # ;
 sic+Adv:sic # ;
 sicut+Adv:sicut # ;
-sicuti+Adv:sicuti # ;
+sicut+Adv:sicuti # ;
 simul+Adv:simul # ;
 sin+Adv:sin # ;
 singillatim+Adv:singillatim # ;
 singulariter+Adv:singulariter # ;
-singulatim+Adv:singulatim # ;
+singillatim+Adv:singulatim # ;
 sinistrorsus+Adv:sinistrorsus # ;
 siquidem+Adv:siquidem # ;
-siriste+Adv:siriste # ;
+Syriste+Adv:siriste # ;
+tantum+Adv:solum # ;
 solum+Adv:solum # ;
 solummodo+Adv:solummodo # ;
 spiritaliter+Adv:spiritaliter # ;
@@ -322,15 +323,15 @@ super+Adv:super # ;
 superabundanter+Adv:superabundanter # ;
 suppliciter+Adv:suppliciter # ;
 sursum+Adv:sursum # ;
-suso+Adv:suso # ;
-susu+Adv:susu # ;
-susum+Adv:susum # ;
+sursum+Adv:suso # ;
+sursum+Adv:susu # ;
+sursum+Adv:susum # ;
 taliter+Adv:taliter # ;
 tam+Adv:tam # ;
 tamen+Adv:tamen # ;
 tamquam+Adv:tamquam # ;
 tandem+Adv:tandem # ;
-tandiu+Adv:tandiu # ;
+tamdiu+Adv:tandiu # ;
 tantopere+Adv:tantopere # ;
 tantum+Adv:tantum # ;
 temere+Adv:temere # ;
@@ -343,14 +344,14 @@ totum+Adv:totum # ;
 tripertito+Adv:tripertito # ;
 tum+Adv:tum # ;
 tunc+Adv:tunc # ;
-ualde+Adv:ualde # ;
+valde+Adv:ualde # ;
 ubi+Adv:ubi # ;
 ubicumque+Adv:ubicumque # ;
 ubinam+Adv:ubinam # ;
 ubique+Adv:ubique # ;
-uere+Adv:uere # ;
-uero+Adv:uero # ;
-uix+Adv:uix # ;
+vere+Adv:uere # ;
+vero+Adv:uero # ;
+vix+Adv:uix # ;
 ultra+Adv:ultra # ;
 ultro+Adv:ultro # ;
 umquam+Adv:umquam # ;
@@ -371,11 +372,11 @@ versus+Adv:versus # ;
 verum+Adv:verum # ;
 verumtamen+Adv:verumtamen # ;
 ! XXX: Multiword unit!
-!vicies milies
+!vicie(n)s+Adv:vicies milies
 viriliter+Adv:viriliter # ;
 vix+Adv:vix # ;
 voluntarie+Adv:voluntarie # ;
-vulgo+Adv:vulgo # ;
+vulgo+Adv:Vulgo # ;
 
 ! TODO: que, ve are clitics. Probably need to be special-cased, somehow.
 LEXICON Conj

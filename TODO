@@ -7,6 +7,7 @@ Things TODO:
   - Represent them (and only them) in the grammar, and add gender-bender
     regexes to create unambiguous analyses?
   - Post-process analyses to synthesise ambiguous tags from unambiguous ones?
+- Add ambiguous gender tags to adjective inflection.
 - Add tests for pronouns.
 - PROIEL has derived adverbs as belonging to their own lemma (longe not from
   longus, for example), while I have them belonging to the adjective root.
