@@ -257,18 +257,28 @@ LEXICON AdjThematic-Adj-er
 LEXICON AdjThematicEndings
 +Masc+Nom+Sg:-us # ;
 +Masc+Voc+Sg:-e  # ;
- AdjThematicEndingsCommon ;
+    AdjThematicEndingsCommon ;
 
 LEXICON AdjThematicEndings-er
 +Masc+Nom+Sg:0 # ;
 +Masc+Voc+Sg:0 # ;
- AdjThematicEndingsCommon ;
+    AdjThematicEndingsCommon ;
 
 LEXICON AdjComp
 0:-ior AdjAthematicEndingsCommon ;
++MF+Nom+Sg:-0   # ;
++MF+Voc+Sg:-0   # ;
++MFN+Abl+Sg:-ior-e  # ;
+
 +Neut+Nom+Sg:-ius # ;
 +Neut+Voc+Sg:-ius # ;
 +Neut+Acc+Sg:-ius # ;
+
++MFN+Gen+Pl:-ior-um # ;
+
++Neut+Nom+Pl:-a # ;
++Neut+Voc+Pl:-a # ;
++Neut+Acc+Pl:-a # ;
 
 LEXICON AdjThematicEndingsCommon
 +MN+Acc+Sg:-um   # ;
@@ -303,23 +313,15 @@ LEXICON AdjThematicEndingsCommon
 +Neut+Acc+Pl:-a # ;
 
 LEXICON AdjAthematicEndingsCommon
-+MF+Nom+Sg:-0   # ;
-+MF+Voc+Sg:-0   # ;
-+MFN+Acc+Sg:-em # ;
++MF+Acc+Sg:-em  # ;
 +MFN+Gen+Sg:-is # ;
 +MFN+Dat+Sg:-i  # ;
-+MFN+Abl+Sg:-e  # ;
 
 +MF+Nom+Pl:-es    # ;
 +MF+Voc+Pl:-es    # ;
 +MF+Acc+Pl:-es    # ;
-+MFN+Gen+Pl:-um   # ;
 +MFN+Dat+Pl:-ibus # ;
 +MFN+Abl+Pl:-ibus # ;
-
-+Neut+Nom+Pl:-a # ;
-+Neut+Voc+Pl:-a # ;
-+Neut+Acc+Pl:-a # ;
 
 LEXICON AdvThematic
 +Pos:-e # ;
@@ -330,6 +332,15 @@ LEXICON AdvThematic-er
 +Pos:-e # ;
 +Comp:-ius # ;
 +Super:rime # ; ! No morpheme boundary to suppress E-drop
+
+LEXICON AdjCons1Pos
+    AdjAthematicEndingsCommon ;
++MFN+Abl+Sg:i # ;
++MFN+Gen+Pl:-ium # ;
+
++Neut+Nom+Pl:-ia # ;
++Neut+Voc+Pl:-ia # ;
++Neut+Acc+Pl:-ia # ;
 
 ! Participles and other deverbal nominals.
 LEXICON Participles
@@ -372,7 +383,7 @@ LEXICON PresPart
 +Neut+Nom+Sg:s # ;
 +Neut+Voc+Sg:s # ;
 +Neut+Acc+Sg:s # ;
-!0:t AdjCons1Pos ;
+0:t AdjCons1Pos ;
 +Masc+Abl+Sg:t-e # ;
 +Fem+Abl+Sg:t-e # ;
 +Neut+Abl+Sg:t-e # ;
