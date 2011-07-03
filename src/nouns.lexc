@@ -223,18 +223,18 @@ LEXICON D5Endings
 ! $root+Adv+$grade. It's a bit of a hack, but it's a great effort-saver. =)
 LEXICON Adj
 long:long AdjThematic ;
+pulch:pulchEr AdjThematic-er ;
+
+meus+Pron+1st:me AdjThematicEndings ;
+tuus+Pron+2nd:tu AdjThematicEndings ;
+suus+Pron+3rd:su AdjThematicEndings ;
+noster+Pron+1st:nostEr AdjThematicEndings-er ;
+vester+Pron+2nd:vestEr AdjThematicEndings-er ;
 ! TODO:
-!pulcher+Adj:pulchEr AdjStd-er ;
 !acer+Adj:acEr AdjCons3 ;
 !brevis+Adj:brev AdjCons2 ;
 !felix+Adj:felix AdjCons1None ;
 !felix+Adj:felic AdjCons1 ;
-!
-!meus+Pron+1st:me AdjStdPos ;
-!tuus+Pron+2nd:tu AdjStdPos ;
-!suus+Pron+3rd:su AdjStdPos ;
-!noster+Pron+1st:nostEr AdjStdPos-er ;
-!vester+Pron+2nd:vestEr AdjStdPos-er ;
 
 LEXICON AdjThematic
 us+Adj:0      AdjThematic-Adj ;
@@ -245,9 +245,32 @@ LEXICON AdjThematic-Adj
 +Comp:-ior    AdjAthematicEndings ;
 +Super:-issim AdjThematicEndings ;
 
+LEXICON AdjThematic-er
+er+Adj:0 AdjThematic-Adj-er ;
+re+Adv:0 AdvThematic-er ;
+
+LEXICON AdjThematic-Adj-er
++Pos:0 AdjThematicEndings-er ;
++Comp:-ior AdjAthematicEndings ;
++Super:rim AdjThematicEndings ;
+
 LEXICON AdjThematicEndings
 +Masc+Nom+Sg:-us # ;
 +Masc+Voc+Sg:-e  # ;
+ AdjThematicEndingsCommon ;
+
+LEXICON AdjThematicEndings-er
++Masc+Nom+Sg:0 # ;
++Masc+Voc+Sg:0 # ;
+ AdjThematicEndingsCommon ;
+
+LEXICON AdvThematic-er
++Pos:-e # ;
++Comp:-ius # ;
++Super:rime # ;
+
+
+LEXICON AdjThematicEndingsCommon
 +MN+Acc+Sg:-um   # ;
 +MN+Gen+Sg:-i    # ;
 +MN+Dat+Sg:-o    # ;

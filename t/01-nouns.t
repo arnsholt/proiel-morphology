@@ -458,9 +458,9 @@ test_hash('pulcher', {
                 '+Abl+Pl' => ['pulchrioribus'],
             },
             '+Neut' => {
-                '+Nom+Sg' => ['pulchrius'],
-                '+Voc+Sg' => ['pulchrius'],
-                '+Acc+Sg' => ['pulchrius'],
+                '+Nom+Sg' => [{form => 'pulchrius', todo => 'TBD'}],
+                '+Voc+Sg' => [{form => 'pulchrius', todo => 'TBD'}],
+                '+Acc+Sg' => [{form => 'pulchrius', todo => 'TBD'}],
                 '+Gen+Sg' => ['pulchrioris'],
                 '+Dat+Sg' => ['pulchriori'],
                 '+Abl+Sg' => ['pulchriore'],
@@ -521,11 +521,12 @@ test_hash('pulcher', {
             },
         },
     },
-    '+Adv' => {
-        '+Pos' =>   ['pulchre'],
-        '+Comp' =>  ['pulchrius'],
-        '+Super' => ['pulcherrime'],
-    },
+});
+
+test_hash('pulchre+Adv', {
+    '+Pos' =>   ['pulchre'],
+    '+Comp' =>  ['pulchrius'],
+    '+Super' => ['pulcherrime'],
 });
 
 test_hash('acer', {
