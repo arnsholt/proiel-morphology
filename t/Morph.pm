@@ -24,12 +24,12 @@ sub test {
             TODO: {
                 local $TODO = $form->{todo};
                 $form = $form->{form};
-                my $msg = "`$form' is generated from `$form'";
+                my $msg = "`$form' is generated from `$tag'";
                 ok(exists $lookup{$form}, $msg);
             }
         }
         else {
-            my $msg = "`$form' is generated from `$form'";
+            my $msg = "`$form' is generated from `$tag'";
             ok(exists $lookup{$form}, $msg);
         }
     }
