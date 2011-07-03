@@ -16,7 +16,7 @@ sub test {
     my ($tag, $forms) = @_;
 
     my %lookup = map {$_ => 1} @{$latin->apply_down($tag)};
-    is(scalar keys %lookup, scalar @$forms, 'same number of generated forms');
+    is(scalar keys %lookup, scalar @$forms, "same number of generated forms for `$tag'");
     $formcount += scalar @$forms;
 
     for my $form (@$forms) {
