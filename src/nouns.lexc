@@ -252,7 +252,7 @@ re+Adv:0 AdvThematic-er ;
 LEXICON AdjThematic-Adj-er
 +Pos:0 AdjThematicEndings-er ;
 +Comp:-ior AdjAthematicEndings ;
-+Super:rim AdjThematicEndings ;
++Super:rim AdjThematicEndings ; ! No morpheme boundary to suppress E-drop
 
 LEXICON AdjThematicEndings
 +Masc+Nom+Sg:-us # ;
@@ -267,7 +267,7 @@ LEXICON AdjThematicEndings-er
 LEXICON AdvThematic-er
 +Pos:-e # ;
 +Comp:-ius # ;
-+Super:rime # ;
++Super:rime # ; ! No morpheme boundary to suppress E-drop
 
 
 LEXICON AdjThematicEndingsCommon
