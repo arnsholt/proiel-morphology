@@ -34,8 +34,8 @@ LEXICON D1Endings
 
 ! Second declination: dominus, puer, bellum.
 ! BUG: Not all nouns on -er drop the e before ending. Some, like numerus, keep
-! XXX: Nouns on -ius have -i in the vocative, not -e.
 ! it. Ref. Ernout p. 26.
+! XXX: Nouns on -ius have -i in the vocative, not -e.
 LEXICON Decl2
 dominus+Noun+Masc:domin D2M ;
 numerus+Noun+Masc:numer D2M ;
@@ -163,7 +163,6 @@ LEXICON D3EndingsCommon
 +Dat+Pl:-ibus # ;
 +Abl+Pl:-ibus # ;
 
-! TODO: cornus (neuter D4 nouns)
 LEXICON Decl4
 fructus+Noun+Masc:fruct D4EndingsMF ;
 cornu+Noun+Neut:corn D4EndingsN ;
@@ -223,149 +222,90 @@ LEXICON D5Endings
 ! build/nouns.fst.build which converts from $root+Adj+$grade+Adv to
 ! $root+Adv+$grade. It's a bit of a hack, but it's a great effort-saver. =)
 LEXICON Adj
-longus+Adj:long AdjStd ;
-pulcher+Adj:pulchEr AdjStd-er ;
-acer+Adj:acEr AdjCons3 ;
-brevis+Adj:brev AdjCons2 ;
-felix+Adj:felix AdjCons1None ;
-felix+Adj:felic AdjCons1 ;
+long:long AdjThematic ;
+! TODO:
+!pulcher+Adj:pulchEr AdjStd-er ;
+!acer+Adj:acEr AdjCons3 ;
+!brevis+Adj:brev AdjCons2 ;
+!felix+Adj:felix AdjCons1None ;
+!felix+Adj:felic AdjCons1 ;
+!
+!meus+Pron+1st:me AdjStdPos ;
+!tuus+Pron+2nd:tu AdjStdPos ;
+!suus+Pron+3rd:su AdjStdPos ;
+!noster+Pron+1st:nostEr AdjStdPos-er ;
+!vester+Pron+2nd:vestEr AdjStdPos-er ;
 
-meus+Pron+1st:me AdjStdPos ;
-tuus+Pron+2nd:tu AdjStdPos ;
-suus+Pron+3rd:su AdjStdPos ;
-noster+Pron+1st:nostEr AdjStdPos-er ;
-vester+Pron+2nd:vestEr AdjStdPos-er ;
+LEXICON AdjThematic
+us+Adj:0      AdjThematic-Adj ;
+e+Adv:0       AdvThematic ;
 
-! ``Normal'' (that is, thematic) adjectives.
-LEXICON AdjStd
-+Pos:0 AdjStdPos ;
-    AdjComp ;
-    AdjSuper ;
+LEXICON AdjThematic-Adj
++Pos:0        AdjThematicEndings ;
++Comp:-ior    AdjAthematicEndings ;
++Super:-issim AdjThematicEndings ;
 
-LEXICON AdjStd-er
-+Pos:0 AdjStdPos-er ;
-    AdjComp ;
-    !AdjSuper ;
-+Super:rim AdjStdPos ;
+LEXICON AdjThematicEndings
++Masc+Nom+Sg:-us # ;
++Masc+Voc+Sg:-e  # ;
++MN+Acc+Sg:-um   # ;
++MN+Gen+Sg:-i    # ;
++MN+Dat+Sg:-o    # ;
++MN+Abl+Sg:-o    # ;
 
-LEXICON AdjStdPos
-+Masc:0 D2M ;
-    AdjStdPosCommon ;
++Masc+Nom+Pl:-i  # ;
++Masc+Voc+Pl:-i  # ;
++Masc+Acc+Pl:-os # ;
++MN+Gen+Pl:-orum # ;
++MFN+Dat+Pl:-is  # ;
++MFN+Abl+Pl:-is  # ;
 
-LEXICON AdjStdPos-er
-+Masc:0 D2-er ;
-    AdjStdPosCommon ;
++Fem+Nom+Sg:-a  # ;
++Fem+Voc+Sg:-a  # ;
++Fem+Acc+Sg:-am # ;
++Fem+Gen+Sg:-ae # ;
++Fem+Dat+Sg:-ae # ;
++Fem+Abl+Sg:-a  # ;
 
-LEXICON AdjStdPosCommon
-+Fem:0 D1 ;
-+Neut:0 D2N ;
-+Adv:-e # ;
++Fem+Nom+Pl:-ae   # ;
++Fem+Voc+Pl:-ae   # ;
++Fem+Acc+Pl:-as   # ;
++Fem+Gen+Pl:-arum # ;
 
-LEXICON AdjCons3
-+Pos+Masc:0 AdjCons23EndingsM ;
-+Pos+Fem:0 AdjCons23EndingsF ;
-+Pos+Neut:0 AdjCons3EndingsN ;
-    AdjComp ;
-+Super:rim AdjStdPos ; ! No - to indicate morpheme boundary, so that the e isn't dropped.
-    AdjConsAdv ;
++Neut+Nom+Sg:-um # ;
++Neut+Voc+Sg:-um # ;
 
-! Consonant root adjectives with two forms in the nom.sg.
-! XXX: I think this works. And even better, it's diachronically correct, if I read Ernout correctly.
-LEXICON AdjCons2
-+Pos+Masc:0 AdjCons23EndingsF ; ! Conveniently enough the feminine endings in the 3-form adjectives are the mf endings in the 2-form ones. This fits diachronically as well.
-+Pos+Fem:0 AdjCons23EndingsF ;
-+Pos+Neut:0 AdjCons3EndingsN ;
-    AdjComp ;
-    AdjSuper ;
-    AdjConsAdv ;
++Neut+Nom+Pl:-a # ;
++Neut+Voc+Pl:-a # ;
++Neut+Acc+Pl:-a # ;
 
-! Consonant root adjectives with a single form in the nom.sg.
-LEXICON AdjCons1None
-+Pos+Masc:0 AdjCons1NoneMF ;
-+Pos+Fem:0 AdjCons1NoneMF ;
-+Pos+Neut:0 AdjCons1NoneN ;
+LEXICON AdvThematic
++Pos:-e # ;
++Comp:-ius # ;
++Super:-issime # ;
 
-LEXICON AdjCons1NoneMF
-+Nom+Sg:0 # ;
-+Voc+Sg:0 # ;
+LEXICON AdjAthematicEndings
++MF+Nom+Sg:-0   # ;
++MF+Voc+Sg:-0   # ;
++MFN+Acc+Sg:-em # ;
++MFN+Gen+Sg:-is # ;
++MFN+Dat+Sg:-i  # ;
++MFN+Abl+Sg:-e  # ;
 
-LEXICON AdjCons1NoneN
-    AdjCons1NoneMF ;
-+Acc+Sg:0 # ;
++MF+Nom+Pl:-es    # ;
++MF+Voc+Pl:-es    # ;
++MF+Acc+Pl:-es    # ;
++MFN+Gen+Pl:-um   # ;
++MFN+Dat+Pl:-ibus # ;
++MFN+Abl+Pl:-ibus # ;
 
-LEXICON AdjCons1
-+Pos:0 AdjCons1Pos ;
-    AdjComp ;
-    AdjSuper ;
-    AdjConsAdv ;
+! BUG: -ius!
++Neut+Nom+Sg:-um # ;
++Neut+Voc+Sg:-um # ;
 
-LEXICON AdjCons1Pos
-+Masc:0 AdjConsEndingsMF ;
-+Fem:0 AdjConsEndingsMF ;
-+Neut:0 AdjConsEndingsN ;
-
-! XXX: These endings are mostly duplicated from the D3 lexicons above. Try to
-! factor them together? Unfortunately, that means a bit of weird
-! special-casing, since the cases that need to be changed are abl.sg.,
-! gen.pl., and nom.voc.acc.pl.neut. Might be easier to do if I implemented the
-! securis and urbs declinations, which follow a similar pattern...
-LEXICON AdjCons23EndingsM
-+Nom+Sg:0 # ;
-+Voc+Sg:0 # ;
-    AdjConsEndingsMF ;
-
-LEXICON AdjCons23EndingsF
-+Nom+Sg:-is # ;
-+Voc+Sg:-is # ;
-    AdjConsEndingsMF ;
-
-LEXICON AdjConsEndingsMF
-+Acc+Sg:-em # ;
-
-+Nom+Pl:-es # ;
-+Voc+Pl:-es # ;
-+Acc+Pl:-es # ;
-    AdjConsEndingsCommon ;
-
-LEXICON AdjCons3EndingsN
-+Nom+Sg:-e # ;
-+Voc+Sg:-e # ;
-+Acc+Sg:-e # ;
-    AdjConsEndingsN ;
-
-LEXICON AdjConsEndingsN
-+Nom+Pl:-ia # ;
-+Voc+Pl:-ia # ;
-+Acc+Pl:-ia # ;
-    AdjConsEndingsCommon ;
-
-LEXICON AdjConsEndingsCommon
-+Gen+Sg:-is # ;
-+Dat+Sg:-i # ;
-+Abl+Sg:-i # ;
-
-+Gen+Pl:-ium # ;
-+Dat+Pl:-ibus # ;
-+Abl+Pl:-ibus # ;
-
-LEXICON AdjConsAdv
-+Pos+Adv:-iter # ;
-
-! Comparatives of adjectives.
-LEXICON AdjComp
-+Comp+Masc:-ior AdjCompMF ;
-+Comp+Fem:-ior AdjCompMF ;
-+Comp+Neut:-ius D3EndingsNoneN ;
-+Comp+Neut:-ior D3AEndingsN ;
-+Comp+Adv:-ius # ;
-
-LEXICON AdjCompMF
-    D3EndingsNoneMF ;
-    D3AEndingsMF ;
-
-! Superlatives of adjectives.
-LEXICON AdjSuper
-+Super:issim AdjStdPos ;
++Neut+Nom+Pl:-a # ;
++Neut+Voc+Pl:-a # ;
++Neut+Acc+Pl:-a # ;
 
 ! Participles and other deverbal nominals.
 LEXICON Participles
@@ -393,12 +333,12 @@ audio+Verb:audit SupinePart ;
 partior+Verb+Dep:partien PresStemPart ;
 partior+Verb+Dep:partit SupinePart ;
 
-sum+Verb+Part+Fut:futur AdjStdPos ;
+sum+Verb+Part+Fut:futur AdjThematicEndings ;
 
 LEXICON PresStemPart
 +Part+Pres:0 PresPart ;
 +Ger:d Gerund ;
-+Gerv:d AdjStdPos ;
++Gerv:d AdjThematicEndings ;
 
 LEXICON PresPart
 +Masc+Nom+Sg:s # ;
@@ -408,7 +348,7 @@ LEXICON PresPart
 +Neut+Nom+Sg:s # ;
 +Neut+Voc+Sg:s # ;
 +Neut+Acc+Sg:s # ;
-0:t AdjCons1Pos ;
+!0:t AdjCons1Pos ;
 +Masc+Abl+Sg:t-e # ;
 +Fem+Abl+Sg:t-e # ;
 +Neut+Abl+Sg:t-e # ;
@@ -420,7 +360,7 @@ LEXICON Gerund
 +Abl:-o # ;
 
 LEXICON SupinePart
-+Part+Perf:0 AdjStdPos ;
-+Part+Fut:ur AdjStdPos ;
++Part+Perf:0 AdjThematicEndings ;
++Part+Fut:ur AdjThematicEndings ;
 +SupI:-um # ;
 +SupII:-u # ;

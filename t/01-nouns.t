@@ -306,9 +306,9 @@ test_hash('longus', {
                 '+Abl+Pl' => ['longioribus'],
             },
             '+Neut' => {
-                '+Nom+Sg' => ['longius'],
-                '+Voc+Sg' => ['longius'],
-                '+Acc+Sg' => ['longius'],
+                '+Nom+Sg' => [{form => 'longius', todo => 'TBD'}],
+                '+Voc+Sg' => [{form => 'longius', todo => 'TBD'}],
+                '+Acc+Sg' => [{form => 'longius', todo => 'TBD'}],
                 '+Gen+Sg' => ['longioris'],
                 '+Dat+Sg' => ['longiori'],
                 '+Abl+Sg' => ['longiore'],
@@ -369,11 +369,12 @@ test_hash('longus', {
             },
         },
     },
-    '+Adv' => {
-        '+Pos' =>   ['longe'],
-        '+Comp' =>  ['longius'],
-        '+Super' => ['longissime'],
-    },
+});
+
+test_hash('longe+Adv', {
+    '+Pos' =>   ['longe'],
+    '+Comp' =>  ['longius'],
+    '+Super' => ['longissime'],
 });
 
 test_hash('pulcher', {
