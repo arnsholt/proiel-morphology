@@ -266,8 +266,8 @@ LEXICON AdjThematicEndings-er
 
 LEXICON AdjComp
 0:-ior AdjAthematicEndingsCommon ;
-+MF+Nom+Sg:-0   # ;
-+MF+Voc+Sg:-0   # ;
++MF+Nom+Sg:-ior-0   # ;
++MF+Voc+Sg:-ior-0   # ;
 +MFN+Abl+Sg:-ior-e  # ;
 
 +Neut+Nom+Sg:-ius # ;
@@ -276,9 +276,9 @@ LEXICON AdjComp
 
 +MFN+Gen+Pl:-ior-um # ;
 
-+Neut+Nom+Pl:-a # ;
-+Neut+Voc+Pl:-a # ;
-+Neut+Acc+Pl:-a # ;
++Neut+Nom+Pl:-ior-a # ;
++Neut+Voc+Pl:-ior-a # ;
++Neut+Acc+Pl:-ior-a # ;
 
 LEXICON AdjThematicEndingsCommon
 +MN+Acc+Sg:-um   # ;
