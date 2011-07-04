@@ -398,17 +398,17 @@ LEXICON PresStemPart
 +Gerv:d AdjThematicEndings ;
 
 LEXICON PresPart
-+Masc+Nom+Sg:s # ;
-+Masc+Voc+Sg:s # ;
-+Fem+Nom+Sg:s # ;
-+Fem+Voc+Sg:s # ;
-+Neut+Nom+Sg:s # ;
-+Neut+Voc+Sg:s # ;
++MFN+Nom+Sg:s # ;
++MFN+Voc+Sg:s # ;
+!+Fem+Nom+Sg:s # ;
+!+Fem+Voc+Sg:s # ;
+!+Neut+Nom+Sg:s # ;
+!+Neut+Voc+Sg:s # ;
 +Neut+Acc+Sg:s # ;
 0:t AdjCons1Pos ;
-+Masc+Abl+Sg:t-e # ;
-+Fem+Abl+Sg:t-e # ;
-+Neut+Abl+Sg:t-e # ;
++MFN+Abl+Sg:t-e # ;
+!+Fem+Abl+Sg:t-e # ;
+!+Neut+Abl+Sg:t-e # ;
 
 LEXICON Gerund
 +Acc:-um # ;
