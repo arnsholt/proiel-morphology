@@ -216,11 +216,6 @@ LEXICON D5Endings
 +Abl+Pl:-bus # ;
 
 ! Adjective lexicon.
-! XXX: To save me the trouble of refactoring the +Adj in the adjective code
-! in a reasonably sensible way, we do Adverb derivation by adding the +Adv tag
-! after the degree. A substitution is composed into the lexicon in
-! build/nouns.fst.build which converts from $root+Adj+$grade+Adv to
-! $root+Adv+$grade. It's a bit of a hack, but it's a great effort-saver. =)
 LEXICON Adj
 long:long AdjThematic ;
 pulch:pulchEr AdjThematic-er ;
