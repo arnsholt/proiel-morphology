@@ -34,7 +34,6 @@ LEXICON D1Endings
 
 ! Second declination: dominus, puer, bellum.
 ! BUG: Not all nouns on -er drop the e before ending. Some, like numerus, keep
-! XXX: Nouns on -ius have -i in the vocative, not -e.
 ! it. Ref. Ernout p. 26.
 LEXICON Decl2
 dominus+Noun+Masc:domin D2M ;
