@@ -330,7 +330,7 @@ LEXICON AdjAthematicEndingsCommon
 LEXICON AdvThematic
 +Pos:-e # ;
 +Comp:-ius # ;
-+Super:-issime # ;
++Super:-issim-e # ;
 
 LEXICON AdvThematic-er
 +Pos:-e # ;
@@ -340,7 +340,7 @@ LEXICON AdvThematic-er
 LEXICON AdvCons
 +Pos:-iter # ;
 +Comp:-ius # ;
-+Super:-issime # ;
++Super:-issim-e # ;
 
 LEXICON AdjCons2Pos
 +MF+Nom+Sg:-is # ;
