@@ -224,6 +224,7 @@ LEXICON D5Endings
 LEXICON Adj
 long:long AdjThematic ;
 pulch:pulchEr AdjThematic-er ;
+brev:brev AdjCons2 ;
 
 meus+Pron+1st:me AdjThematicEndings ;
 tuus+Pron+2nd:tu AdjThematicEndings ;
@@ -232,7 +233,6 @@ noster+Pron+1st:nostEr AdjThematicEndings-er ;
 vester+Pron+2nd:vestEr AdjThematicEndings-er ;
 ! TODO:
 !acer+Adj:acEr AdjCons3 ;
-!brevis+Adj:brev AdjCons2 ;
 !felix+Adj:felix AdjCons1None ;
 !felix+Adj:felic AdjCons1 ;
 
@@ -253,6 +253,15 @@ LEXICON AdjThematic-Adj-er
 +Pos:0 AdjThematicEndings-er ;
 +Comp:0    AdjComp ;
 +Super:rim AdjThematicEndings ; ! No morpheme boundary to suppress E-drop
+
+LEXICON AdjCons2
+is+Adj:0 AdjCons2-Adj ;
+iter+Adv:0 AdvCons ;
+
+LEXICON AdjCons2-Adj
++Pos:0        AdjCons2Pos ;
++Comp:0       AdjComp ;
++Super:-issim AdjThematicEndings ;
 
 LEXICON AdjThematicEndings
 +Masc+Nom+Sg:-us # ;
@@ -333,7 +342,25 @@ LEXICON AdvThematic-er
 +Comp:-ius # ;
 +Super:rime # ; ! No morpheme boundary to suppress E-drop
 
+LEXICON AdvCons
++Pos:-iter # ;
++Comp:-ius # ;
++Super:-issime # ;
+
+LEXICON AdjCons2Pos
++MF+Nom+Sg:-is # ;
++MF+Voc+Sg:-is # ;
+
++Neut+Nom+Sg:-e # ;
++Neut+Voc+Sg:-e # ;
++Neut+Acc+Sg:-e # ;
+
+    AdjConsCommonEndings ;
+
 LEXICON AdjCons1Pos
+    AdjConsCommonEndings ;
+
+LEXICON AdjConsCommonEndings
     AdjAthematicEndingsCommon ;
 +MFN+Abl+Sg:i # ;
 +MFN+Gen+Pl:-ium # ;

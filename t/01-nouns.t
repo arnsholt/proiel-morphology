@@ -824,11 +824,12 @@ test_hash('brevis', {
             },
         },
     },
-    '+Adv' => {
-        '+Pos' =>   ['breviter'],
-        '+Comp' =>  ['brevius'],
-        '+Super' => ['brevissime'],
-    },
+});
+
+test_hash('breviter+Adv', {
+    '+Pos' =>   ['breviter'],
+    '+Comp' =>  ['brevius'],
+    '+Super' => ['brevissime'],
 });
 
 test_hash('felix', {
