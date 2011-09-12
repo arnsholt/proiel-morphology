@@ -1,10 +1,10 @@
 .PHONY: clean
 
 %-twolc.fst: %.twolc.gen
-	echo 'read-grammar $<\ncompile\nintersect\ny\nphon\nsave-binary $@\nquit' | twolc
+	echo -e 'read-grammar $<\ncompile\nintersect\ny\nphon\nsave-binary $@\nquit' | twolc
 
 %-lexc.fst: %.lexc.gen
-	echo 'read lexc $<\nsave stack $@' | xfst
+	echo -e 'read lexc $<\nsave stack $@' | xfst
 
 %.gen :: %
 	m4 "-DMultichar_Symbols=include(\`multichars.def')" $< > $@
