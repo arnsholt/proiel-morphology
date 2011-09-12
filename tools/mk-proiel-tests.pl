@@ -120,13 +120,18 @@ my %pos_conversion = (
     'Vd' => '+Verb+Dep', # Hack to handle deponent verbs.
 );
 
-my ($user, $pass, $db);
+#my ($user, $pass, $db, $host);
+my $user = $ENV{SQLUSER} // 'arne';
+my $pass = $ENV{SQLPASS};
+my $db   = $ENV{SQLDB}   // 'proiel';
+my $host = $ENV{SQLHOST} // 'localhost';
 my $result = GetOptions('user=s'     => \$user,
                         'password=s' => \$pass,
-                        'db=s',      => \$db,);
+                        'db=s',      => \$db,
+                        'host=s',    => \$host,);
 exit 1 if not $result;
 
-my $dbh = DBI->connect("DBI:mysql:database=$db", $user, $pass, {RaiseError => 1, AutoCommit => 1});
+my $dbh = DBI->connect("DBI:mysql:database=$db;host=$host", $user, $pass, {RaiseError => 1, AutoCommit => 1});
 my $query = <<'SQL';
 SELECT DISTINCT l.part_of_speech pos, l.lemma lemma, t.form form, t.morphology msd
 FROM lemmata l, tokens t, sentences s, source_divisions sd
